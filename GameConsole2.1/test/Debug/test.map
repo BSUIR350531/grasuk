@@ -1,0 +1,822 @@
+Archive member included because of file (symbol)
+
+../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+                              test.o (_ZN3LCD8font8x14E)
+../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+                              test.o (_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh)
+../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o) (_ZN3LCD5send8Eh)
+../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o (main)
+../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o) (os_start)
+../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o) (_ZN2OS13PrioMaskTableE)
+../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o) (_ZN2OS7TKernel5schedEv)
+../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o) (_ZN2OS8TService10resume_allERVh)
+../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o) (_ZN3usr5TCbuf5writeEPKhh)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o (exit)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o) (__do_copy_data)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o) (__do_clear_bss)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+                              ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o) (__do_global_ctors)
+c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                              c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o) (__tablejump__)
+
+Discarded input sections
+
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+ .text          0x00000000        0x0 test.o
+ .data          0x00000000        0x0 test.o
+ .bss           0x00000000        0x0 test.o
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .text._ZN3LCD7ClrModeEv
+                0x00000000        0x6 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .text._ZN3LCD8FillRectEhhhhj
+                0x00000000       0x4e ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .text._ZN3LCD4RectEhhhhj
+                0x00000000       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .text._ZN3LCD8SetPixelEhhh
+                0x00000000       0x1a ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .text._ZN3LCD8SetPixelEhhj
+                0x00000000       0x1e ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .group         0x00000000        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .group         0x00000000        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .group         0x00000000        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .text._Z12GetKeySignalv
+                0x00000000       0x38 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .text._ZN2OS12TBaseProcess7wake_upEv
+                0x00000000       0x44 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .text._ZN2OS12TBaseProcess13force_wake_upEv
+                0x00000000       0x3c ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS8TService17resume_next_readyERVh
+                0x00000000       0x44 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS10TEventFlag4waitEj
+                0x00000000       0x9e ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS6TMutex4lockEv
+                0x00000000       0x7a ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS6TMutex6unlockEv
+                0x00000000       0x2c ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS8TChannel4pushEh
+                0x00000000       0x86 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS8TChannel3popEv
+                0x00000000       0x80 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS8TChannel5writeEPKhh
+                0x00000000       0x96 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS8TChannel4readEPhh
+                0x00000000       0x90 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text._ZN2OS12TBaseMessage4waitEj
+                0x00000000       0x9e ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+ .text          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .data          0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .bss           0x00000000        0x0 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbufC2EPhh
+                0x00000000       0x10 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZNK3usr5TCbuf8get_byteEh
+                0x00000000       0x2e ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf4pushEh
+                0x00000000       0x24 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf5writeEPKhh
+                0x00000000       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf3putEh
+                0x00000000       0x16 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf3popEv
+                0x00000000       0x22 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf4readEPhh
+                0x00000000       0x44 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text._ZN3usr5TCbuf3getEv
+                0x00000000       0x12 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_info    0x00000000      0x563 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_abbrev  0x00000000      0x240 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_loc     0x00000000      0x43e ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_aranges
+                0x00000000       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_ranges  0x00000000       0x48 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_line    0x00000000      0x17b ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_str     0x00000000      0x2e9 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .debug_frame   0x00000000       0xd4 ../../PlatformDrv/Debug\libPlatformDrv.a(usrlib.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc   0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+ .text          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .data          0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .bss           0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00020000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+user_signatures  0x00850000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+LOAD test.o
+START GROUP
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
+LOAD ../../PlatformDrv/Debug\libPlatformDrv.a
+END GROUP
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
+START GROUP
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libm.a
+LOAD c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5\libc.a
+END GROUP
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x19a2
+ *(.vectors)
+ .vectors       0x00000000       0x54 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+                0x00000000                __vector_default
+                0x00000000                __vectors
+ *(.vectors)
+ *(.progmem.gcc*)
+                0x00000054                . = ALIGN (0x2)
+                0x00000054                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x00000054        0x0 linker stubs
+ *(.trampolines*)
+                0x00000054                __trampolines_end = .
+ *(.progmem*)
+ .progmem.data._ZL5hello
+                0x00000054        0xe test.o
+ .progmem.data._ZL9table8x14
+                0x00000062      0xc40 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .progmem.data._ZL5init2
+                0x00000ca2       0x28 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .progmem.data._ZL5init1
+                0x00000cca       0x14 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .progmem.data._ZL16MKeySignalsPress
+                0x00000cde        0xc ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .progmem.data._ZL18MKeySignalsRelease
+                0x00000cea        0xc ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .progmem.data._ZL11MKeyMasks_Y
+                0x00000cf6        0x3 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .progmem.data._ZL9MKeyMasks
+                0x00000cf9        0x4 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .progmem.data._ZL15EncTransitTable
+                0x00000cfd       0x10 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x00000d0e                . = ALIGN (0x2)
+ *fill*         0x00000d0d        0x1 
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x00000d0e                __ctors_start = .
+ *(.ctors)
+ .ctors         0x00000d0e        0x2 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .ctors         0x00000d10        0x2 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .ctors         0x00000d12        0x2 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x00000d14                __ctors_end = .
+                0x00000d14                __dtors_start = .
+ *(.dtors)
+                0x00000d14                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x00000d14        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+                0x00000d14                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x00000d14        0xc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000d20       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_copy_data.o)
+                0x00000d20                __do_copy_data
+ .init4         0x00000d36       0x10 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_clear_bss.o)
+                0x00000d36                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ .init6         0x00000d46       0x16 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_ctors.o)
+                0x00000d46                __do_global_ctors
+ *(.init6)
+ *(.init7)
+ .init7         0x00000d5c       0xd2 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00000d5c                _ZN3LCD4initEv
+ *(.init7)
+ *(.init8)
+ .init8         0x00000e2e       0x24 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x00000e2e                _Z7KeyInitv
+ *(.init8)
+ *(.init9)
+ .init9         0x00000e52        0x8 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+ *(.init9)
+ *(.text)
+ .text          0x00000e5a        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr5/crtm32.o
+                0x00000e5a                __vector_1
+                0x00000e5a                __vector_12
+                0x00000e5a                __bad_interrupt
+                0x00000e5a                __vector_6
+                0x00000e5a                __vector_3
+                0x00000e5a                __vector_11
+                0x00000e5a                __vector_13
+                0x00000e5a                __vector_17
+                0x00000e5a                __vector_19
+                0x00000e5a                __vector_7
+                0x00000e5a                __vector_5
+                0x00000e5a                __vector_9
+                0x00000e5a                __vector_2
+                0x00000e5a                __vector_15
+                0x00000e5a                __vector_8
+                0x00000e5a                __vector_14
+                0x00000e5a                __vector_10
+                0x00000e5a                __vector_16
+                0x00000e5a                __vector_18
+                0x00000e5a                __vector_20
+ .text          0x00000e5e       0x9e ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+                0x00000e5e                os_start
+                0x00000e64                os_context_switcher
+                0x00000efc                . = ALIGN (0x2)
+ *(.text.*)
+ .text._Z6redrawh
+                0x00000efc       0xa8 test.o
+                0x00000efc                _Z6redrawh
+ .text._Z8RTOSMainv
+                0x00000fa4       0x5e test.o
+                0x00000fa4                _Z8RTOSMainv
+ .text._Z12put_char8x14hhchh
+                0x00001002       0xb4 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+                0x00001002                _Z12put_char8x14hhchh
+ .text._ZN3LCD6PutStrEhhPKcRKNS_4fontEhh
+                0x000010b6       0x6e ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+                0x000010b6                _ZN3LCD6PutStrEhhPKcRKNS_4fontEhh
+ .text._ZN3LCD5send8Eh
+                0x00001124        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001124                _ZN3LCD5send8Eh
+ .text._ZN3LCD6send16Ej
+                0x0000112c       0x14 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x0000112c                _ZN3LCD6send16Ej
+ .text._ZN3LCD10SetCmdModeEv
+                0x00001140        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001140                _ZN3LCD10SetCmdModeEv
+ .text._ZN3LCD10SetDatModeEv
+                0x00001148        0x4 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001148                _ZN3LCD10SetDatModeEv
+ .text._ZN3LCD5WidthEv
+                0x0000114c        0x6 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x0000114c                _ZN3LCD5WidthEv
+ .text._ZN3LCD6HeightEv
+                0x00001152        0x6 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001152                _ZN3LCD6HeightEv
+ .text._ZN3LCD6OrientEv
+                0x00001158        0x6 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001158                _ZN3LCD6OrientEv
+ .text._ZN3LCD12SetColorModeE9ColorMode
+                0x0000115e       0x2a ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x0000115e                _ZN3LCD12SetColorModeE9ColorMode
+ .text._ZN3LCD9SetOrientE6orient
+                0x00001188       0x52 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001188                _ZN3LCD9SetOrientE6orient
+ .text._ZN3LCD9SetWindowEhhhh
+                0x000011da       0xae ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x000011da                _ZN3LCD9SetWindowEhhhh
+ .text._ZN3LCD8FillRectEhhhhh
+                0x00001288       0x4a ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x00001288                _ZN3LCD8FillRectEhhhhh
+ .text._ZN3LCD4RectEhhhhh
+                0x000012d2       0x50 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                0x000012d2                _ZN3LCD4RectEhhhhh
+ .text._ZN2OS7processILNS_9TPriorityE2ELj256EE4execEv
+                0x00001322        0x6 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x00001322                _ZN2OS7processILNS_9TPriorityE2ELj256EE4execEv
+ .text.main     0x00001328       0x26 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x00001328                main
+ .text._ZN2OS7channelI6signalLj64EhE4pushERKS1_
+                0x0000134e       0x98 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x0000134e                _ZN2OS7channelI6signalLj64EhE4pushERKS1_
+ .text._ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv
+                0x000013e6       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x000013e6                _ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv
+ .text._ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv
+                0x0000143e      0x14e ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x0000143e                _ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv
+ .text._ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv
+                0x0000158c       0x30 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x0000158c                _ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv
+ .text._ZN2OS7channelI6signalLj64EhE3popERS1_j
+                0x000015bc       0xf6 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x000015bc                _ZN2OS7channelI6signalLj64EhE3popERS1_j
+ .text._Z13WaitKeySignalv
+                0x000016b2       0x26 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x000016b2                _Z13WaitKeySignalv
+ .text._GLOBAL__sub_I_EncProc
+                0x000016d8       0x4c ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .text._ZN2OS12TBaseProcess16init_stack_frameEPhPFvvE
+                0x00001724       0x20 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+                0x00001724                _ZN2OS12TBaseProcess16init_stack_frameEPhPFvvE
+ .text.__vector_4
+                0x00001744      0x102 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+                0x00001744                __vector_4
+ .text._GLOBAL__sub_I__ZN2OS13PrioMaskTableE
+                0x00001846       0x1a ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .text._ZN2OS7processILNS_9TPriorityE3ELj45EE4execEv
+                0x00001860        0x4 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x00001860                _ZN2OS7processILNS_9TPriorityE3ELj45EE4execEv
+ .text._ZN2OS7TKernel5schedEv
+                0x00001864       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x00001864                _ZN2OS7TKernel5schedEv
+ .text._ZN2OS12TBaseProcessC2EPhNS_9TPriorityEPFvvE
+                0x000018bc       0x20 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x000018bc                _ZN2OS12TBaseProcessC2EPhNS_9TPriorityEPFvvE
+                0x000018bc                _ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE
+ .text._ZN2OS12TBaseProcess5sleepEj
+                0x000018dc       0x4a ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x000018dc                _ZN2OS12TBaseProcess5sleepEj
+ .text._GLOBAL__sub_I__ZN2OS6KernelE
+                0x00001926       0x22 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .text._ZN2OS8TService10resume_allERVh
+                0x00001948       0x4a ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+                0x00001948                _ZN2OS8TService10resume_allERVh
+ .text.libgcc   0x00001992        0xc c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_tablejump.o)
+                0x00001992                __tablejump2__
+                0x00001996                __tablejump__
+                0x0000199e                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x0000199e        0x0 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+                0x0000199e                _exit
+                0x0000199e                exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x0000199e        0x4 c:/program files/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr5\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000019a2                _etext = .
+
+.data           0x00800060       0x10 load address 0x000019a2
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ .data._ZL12CurColorMode
+                0x00800060        0x1 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .data._ZL6height
+                0x00800061        0x1 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .data._ZL5width
+                0x00800062        0x1 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ *(.rodata)
+ *(.rodata*)
+ .rodata._ZN3LCD8font8x14E
+                0x00800063        0xc ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+                0x00800063                _ZN3LCD8font8x14E
+ *(.gnu.linkonce.d*)
+                0x00800070                . = ALIGN (0x2)
+ *fill*         0x0080006f        0x1 
+                0x00800070                _edata = .
+                0x00800070                PROVIDE (__data_end, .)
+
+.bss            0x00800070      0x1ee
+                0x00800070                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss._ZL9CurOrient
+                0x00800070        0x1 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .bss.key_ev_qu
+                0x00800071       0x45 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x00800071                key_ev_qu
+ .bss.UserProc  0x008000b6      0x105 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x008000b6                UserProc
+ .bss.KeybProc  0x008001bb       0x35 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x008001bb                KeybProc
+ .bss.EncProc   0x008001f0       0x2d ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                0x008001f0                EncProc
+ .bss._ZN2OS13PrioMaskTableE
+                0x0080021d        0x4 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+                0x0080021d                _ZN2OS13PrioMaskTableE
+ .bss._ZN2OS8IdleProcE
+                0x00800221       0x32 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x00800221                _ZN2OS8IdleProcE
+ .bss._ZN2OS7TKernel12ProcessTableE
+                0x00800253        0x8 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x00800253                _ZN2OS7TKernel12ProcessTableE
+ .bss._ZN2OS6KernelE
+                0x0080025b        0x3 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                0x0080025b                _ZN2OS6KernelE
+ *(COMMON)
+                0x0080025e                PROVIDE (__bss_end, .)
+                0x000019a2                __data_load_start = LOADADDR (.data)
+                0x000019b2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080025e        0x0
+                0x0080025e                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080025e                PROVIDE (__noinit_end, .)
+                0x0080025e                _end = .
+                0x0080025e                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.user_signatures
+ *(.user_signatures*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x00000000       0x30
+ *(.comment)
+ .comment       0x00000000       0x30 test.o
+                                 0x31 (size before relaxing)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .comment       0x00000000       0x31 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000      0x288
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x28 test.o
+ .debug_aranges
+                0x00000028       0x20 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_aranges
+                0x00000048       0x20 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_aranges
+                0x00000068       0xa8 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_aranges
+                0x00000110       0x70 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_aranges
+                0x00000180       0x20 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .debug_aranges
+                0x000001a0       0x30 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_aranges
+                0x000001d0       0x50 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_aranges
+                0x00000220       0x68 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x00000000     0x7c9d
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0xd15 test.o
+ .debug_info    0x00000d15      0x3b7 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_info    0x000010cc      0x34e ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_info    0x0000141a      0xd98 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_info    0x000021b2     0x1f0d ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_info    0x000040bf       0x69 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .debug_info    0x00004128      0xc93 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_info    0x00004dbb      0xfe9 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_info    0x00005da4     0x1ef9 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_abbrev   0x00000000     0x200d
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x3f7 test.o
+ .debug_abbrev  0x000003f7      0x19b ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_abbrev  0x00000592      0x11f ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_abbrev  0x000006b1      0x212 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_abbrev  0x000008c3      0x6ec ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_abbrev  0x00000faf       0x14 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .debug_abbrev  0x00000fc3      0x56c ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_abbrev  0x0000152f      0x57d ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_abbrev  0x00001aac      0x561 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_line     0x00000000     0x13f9
+ *(.debug_line .debug_line.* .debug_line_end)
+ .debug_line    0x00000000      0x251 test.o
+ .debug_line    0x00000251       0xd7 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_line    0x00000328       0xce ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_line    0x000003f6      0x2fc ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_line    0x000006f2      0x3d4 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_line    0x00000ac6       0x66 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_asm.o)
+ .debug_line    0x00000b2c      0x1f2 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_line    0x00000d1e      0x279 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_line    0x00000f97      0x462 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_frame    0x00000000      0x764
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x48 test.o
+ .debug_frame   0x00000048       0x68 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_frame   0x000000b0       0x5c ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_frame   0x0000010c      0x214 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_frame   0x00000320      0x154 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_frame   0x00000474       0x94 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_frame   0x00000508       0xa8 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_frame   0x000005b0      0x1b4 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_str      0x00000000     0x1c81
+ *(.debug_str)
+ .debug_str     0x00000000      0xbb7 test.o
+                                0xc81 (size before relaxing)
+ .debug_str     0x00000bb7      0x187 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+                                0x2cd (size before relaxing)
+ .debug_str     0x00000d3e       0x11 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+                                0x23e (size before relaxing)
+ .debug_str     0x00000d4f      0x162 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+                                0x421 (size before relaxing)
+ .debug_str     0x00000eb1      0x87c ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+                               0x133a (size before relaxing)
+ .debug_str     0x0000172d       0xfd ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+                                0xa5b (size before relaxing)
+ .debug_str     0x0000182a       0xff ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+                                0xaf7 (size before relaxing)
+ .debug_str     0x00001929      0x358 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+                                0xd22 (size before relaxing)
+
+.debug_loc      0x00000000     0x3481
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x265 test.o
+ .debug_loc     0x00000265      0x283 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_loc     0x000004e8      0x2a3 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_loc     0x0000078b      0x8c1 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_loc     0x0000104c      0xc51 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_loc     0x00001c9d      0x2df ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_loc     0x00001f7c      0x391 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_loc     0x0000230d     0x1174 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x00000000      0x570
+ *(.debug_ranges)
+ .debug_ranges  0x00000000       0x18 test.o
+ .debug_ranges  0x00000018       0x28 ../../PlatformDrv/Debug\libPlatformDrv.a(font8x14.o)
+ .debug_ranges  0x00000040       0x40 ../../PlatformDrv/Debug\libPlatformDrv.a(fonts.o)
+ .debug_ranges  0x00000080       0xc8 ../../PlatformDrv/Debug\libPlatformDrv.a(LcdDrv.o)
+ .debug_ranges  0x00000148      0x130 ../../PlatformDrv/Debug\libPlatformDrv.a(PlatformDrv.o)
+ .debug_ranges  0x00000278       0x58 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Target_cpp.o)
+ .debug_ranges  0x000002d0       0x88 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Kernel.o)
+ .debug_ranges  0x00000358      0x218 ../../PlatformDrv/Debug\libPlatformDrv.a(OS_Services.o)
+
+.debug_macro
+ *(.debug_macro)
+OUTPUT(test.elf elf32-avr)
+LOAD linker stubs

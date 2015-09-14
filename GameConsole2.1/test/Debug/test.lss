@@ -1,0 +1,2988 @@
+
+test.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000019a2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  000019a2  00001a36  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000001ee  00800070  00800070  00001a46  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00001a46  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000288  00000000  00000000  00001a78  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00007c9d  00000000  00000000  00001d00  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000200d  00000000  00000000  0000999d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000013f9  00000000  00000000  0000b9aa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000764  00000000  00000000  0000cda4  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00001c81  00000000  00000000  0000d508  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00003481  00000000  00000000  0000f189  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000570  00000000  00000000  0001260a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 8a 06 	jmp	0xd14	; 0xd14 <__ctors_end>
+       4:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+       8:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+       c:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      10:	0c 94 a2 0b 	jmp	0x1744	; 0x1744 <__vector_4>
+      14:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      18:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      1c:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      20:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      24:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      28:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      2c:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      30:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      34:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      38:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      3c:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      40:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      44:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      48:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      4c:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+      50:	0c 94 2d 07 	jmp	0xe5a	; 0xe5a <__bad_interrupt>
+
+00000054 <__trampolines_end>:
+      54:	48 65       	ori	r20, 0x58	; 88
+      56:	6c 6c       	ori	r22, 0xCC	; 204
+      58:	6f 2c       	mov	r6, r15
+      5a:	20 77       	andi	r18, 0x70	; 112
+      5c:	6f 72       	andi	r22, 0x2F	; 47
+      5e:	6c 64       	ori	r22, 0x4C	; 76
+      60:	21 00       	.word	0x0021	; ????
+
+00000062 <_ZL9table8x14>:
+	...
+      72:	18 3c 3c 3c 18 18 00 18 18 00 00 00 00 66 66 66     .<<<.........fff
+      82:	24 00 00 00 00 00 00 00 00 00 00 00 6c 6c fe 6c     $...........ll.l
+      92:	6c 6c fe 6c 6c 00 00 00 18 18 7c c6 c2 c0 7c 06     ll.ll.....|...|.
+      a2:	86 c6 7c 18 18 00 00 00 00 00 c2 c6 0c 18 30 66     ..|...........0f
+      b2:	c6 00 00 00 00 00 38 6c 6c 38 76 dc cc cc 76 00     ......8ll8v...v.
+      c2:	00 00 00 30 30 30 60 00 00 00 00 00 00 00 00 00     ...000`.........
+      d2:	00 00 0c 18 30 30 30 30 30 18 0c 00 00 00 00 00     ....00000.......
+      e2:	30 18 0c 0c 0c 0c 0c 18 30 00 00 00 00 00 00 00     0.......0.......
+      f2:	66 3c ff 3c 66 00 00 00 00 00 00 00 00 00 18 18     f<.<f...........
+     102:	7e 18 18 00 00 00 00 00 00 00 00 00 00 00 00 00     ~...............
+     112:	18 18 18 30 00 00 00 00 00 00 00 00 fe 00 00 00     ...0............
+	...
+     12e:	00 18 18 00 00 00 00 00 02 06 0c 18 30 60 c0 80     ............0`..
+     13e:	00 00 00 00 00 00 7c c6 ce de f6 e6 c6 c6 7c 00     ......|.......|.
+     14e:	00 00 00 00 18 38 78 18 18 18 18 18 7e 00 00 00     .....8x.....~...
+     15e:	00 00 7c c6 06 0c 18 30 60 c6 fe 00 00 00 00 00     ..|....0`.......
+     16e:	7c c6 06 06 3c 06 06 c6 7c 00 00 00 00 00 0c 1c     |...<...|.......
+     17e:	3c 6c cc fe 0c 0c 1e 00 00 00 00 00 fe c0 c0 c0     <l..............
+     18e:	fc 06 06 c6 7c 00 00 00 00 00 38 60 c0 c0 fc c6     ....|.....8`....
+     19e:	c6 c6 7c 00 00 00 00 00 fe c6 06 0c 18 30 30 30     ..|..........000
+     1ae:	30 00 00 00 00 00 7c c6 c6 c6 7c c6 c6 c6 7c 00     0.....|...|...|.
+     1be:	00 00 00 00 7c c6 c6 c6 7e 06 06 0c 78 00 00 00     ....|...~...x...
+     1ce:	00 00 00 18 18 00 00 00 18 18 00 00 00 00 00 00     ................
+     1de:	00 18 18 00 00 00 18 18 30 00 00 00 00 00 06 0c     ........0.......
+     1ee:	18 30 60 30 18 0c 06 00 00 00 00 00 00 00 00 7e     .0`0...........~
+     1fe:	00 00 7e 00 00 00 00 00 00 00 60 30 18 0c 06 0c     ..~.......`0....
+     20e:	18 30 60 00 00 00 00 00 7c c6 c6 0c 18 18 00 18     .0`.....|.......
+     21e:	18 00 00 00 00 00 7c c6 c6 de de de dc c0 7c 00     ......|.......|.
+     22e:	00 00 00 00 10 38 6c c6 c6 fe c6 c6 c6 00 00 00     .....8l.........
+     23e:	00 00 fc 66 66 66 7c 66 66 66 fc 00 00 00 00 00     ...fff|fff......
+     24e:	3c 66 c2 c0 c0 c0 c2 66 3c 00 00 00 00 00 f8 6c     <f.....f<......l
+     25e:	66 66 66 66 66 6c f8 00 00 00 00 00 fe 66 62 68     fffffl.......fbh
+     26e:	78 68 62 66 fe 00 00 00 00 00 fe 66 62 68 78 68     xhbf.......fbhxh
+     27e:	60 60 f0 00 00 00 00 00 3c 66 c2 c0 c0 de c6 66     ``......<f.....f
+     28e:	3a 00 00 00 00 00 c6 c6 c6 c6 fe c6 c6 c6 c6 00     :...............
+     29e:	00 00 00 00 3c 18 18 18 18 18 18 18 3c 00 00 00     ....<.......<...
+     2ae:	00 00 1e 0c 0c 0c 0c 0c cc cc 78 00 00 00 00 00     ..........x.....
+     2be:	e6 66 6c 6c 78 6c 6c 66 e6 00 00 00 00 00 f0 60     .fllxllf.......`
+     2ce:	60 60 60 60 62 66 fe 00 00 00 00 00 c6 ee fe fe     ````bf..........
+     2de:	d6 c6 c6 c6 c6 00 00 00 00 00 c6 e6 f6 fe de ce     ................
+     2ee:	c6 c6 c6 00 00 00 00 00 38 6c c6 c6 c6 c6 c6 6c     ........8l.....l
+     2fe:	38 00 00 00 00 00 fc 66 66 66 7c 60 60 60 f0 00     8......fff|```..
+     30e:	00 00 00 00 7c c6 c6 c6 c6 d6 de 7c 0c 0e 00 00     ....|......|....
+     31e:	00 00 fc 66 66 66 7c 6c 66 66 e6 00 00 00 00 00     ...fff|lff......
+     32e:	7c c6 c6 60 38 0c c6 c6 7c 00 00 00 00 00 7e 7e     |..`8...|.....~~
+     33e:	5a 18 18 18 18 18 3c 00 00 00 00 00 c6 c6 c6 c6     Z.....<.........
+     34e:	c6 c6 c6 c6 7c 00 00 00 00 00 c6 c6 c6 c6 c6 c6     ....|...........
+     35e:	6c 38 10 00 00 00 00 00 c6 c6 c6 c6 d6 d6 fe 7c     l8.............|
+     36e:	6c 00 00 00 00 00 c6 c6 6c 38 38 38 6c c6 c6 00     l.......l888l...
+     37e:	00 00 00 00 66 66 66 66 3c 18 18 18 3c 00 00 00     ....ffff<...<...
+     38e:	00 00 fe c6 8c 18 30 60 c2 c6 fe 00 00 00 00 00     ......0`........
+     39e:	3c 30 30 30 30 30 30 30 3c 00 00 00 00 00 80 c0     <0000000<.......
+     3ae:	e0 70 38 1c 0e 06 02 00 00 00 00 00 3c 0c 0c 0c     .p8.........<...
+     3be:	0c 0c 0c 0c 3c 00 00 00 10 38 6c c6 00 00 00 00     ....<....8l.....
+	...
+     3de:	00 00 ff 00 30 30 18 00 00 00 00 00 00 00 00 00     ....00..........
+     3ee:	00 00 00 00 00 00 00 78 0c 7c cc cc 76 00 00 00     .......x.|..v...
+     3fe:	00 00 e0 60 60 78 6c 66 66 66 7c 00 00 00 00 00     ...``xlfff|.....
+     40e:	00 00 00 7c c6 c0 c0 c6 7c 00 00 00 00 00 1c 0c     ...|....|.......
+     41e:	0c 3c 6c cc cc cc 76 00 00 00 00 00 00 00 00 7c     .<l...v........|
+     42e:	c6 fe c0 c6 7c 00 00 00 00 00 38 6c 64 60 f0 60     ....|.....8ld`.`
+     43e:	60 60 f0 00 00 00 00 00 00 00 00 76 cc cc cc 7c     ``.........v...|
+     44e:	0c cc 78 00 00 00 e0 60 60 6c 76 66 66 66 e6 00     ..x....``lvfff..
+     45e:	00 00 00 00 18 18 00 38 18 18 18 18 3c 00 00 00     .......8....<...
+     46e:	00 00 06 06 00 0e 06 06 06 06 66 66 3c 00 00 00     ..........ff<...
+     47e:	e0 60 60 66 6c 78 6c 66 e6 00 00 00 00 00 38 18     .``flxlf......8.
+     48e:	18 18 18 18 18 18 3c 00 00 00 00 00 00 00 00 ec     ......<.........
+     49e:	fe d6 d6 d6 c6 00 00 00 00 00 00 00 00 dc 66 66     ..............ff
+     4ae:	66 66 66 00 00 00 00 00 00 00 00 7c c6 c6 c6 c6     fff........|....
+     4be:	7c 00 00 00 00 00 00 00 00 dc 66 66 66 7c 60 60     |.........fff|``
+     4ce:	f0 00 00 00 00 00 00 76 cc cc cc 7c 0c 0c 1e 00     .......v...|....
+     4de:	00 00 00 00 00 dc 76 66 60 60 f0 00 00 00 00 00     ......vf``......
+     4ee:	00 00 00 7c c6 70 1c c6 7c 00 00 00 00 00 10 30     ...|.p..|......0
+     4fe:	30 fc 30 30 30 36 1c 00 00 00 00 00 00 00 00 cc     0.0006..........
+     50e:	cc cc cc cc 76 00 00 00 00 00 00 00 00 66 66 66     ....v........fff
+     51e:	66 3c 18 00 00 00 00 00 00 00 00 c6 c6 d6 d6 fe     f<..............
+     52e:	6c 00 00 00 00 00 00 00 00 c6 6c 38 38 6c c6 00     l.........l88l..
+     53e:	00 00 00 00 00 00 00 c6 c6 c6 c6 7e 06 0c f8 00     ...........~....
+     54e:	00 00 00 00 00 fe cc 18 30 66 fe 00 00 00 00 00     ........0f......
+     55e:	0e 18 18 18 70 18 18 18 0e 00 00 00 00 00 18 18     ....p...........
+     56e:	18 18 00 18 18 18 18 00 00 00 00 00 70 18 18 18     ............p...
+     57e:	0e 18 18 18 70 00 00 00 00 00 76 dc 00 00 00 00     ....p.....v.....
+	...
+     59a:	00 00 00 42 42 7e 00 00 00 00 00 00 00 00 00 00     ...BB~..........
+	...
+     6ce:	00 18 18 00 00 00 00 00 00 00 00 00 00 00 00 00     ................
+	...
+     772:	00 00 18 18 00 7e 00 18 18 00 00 00 00 00 00 00     .....~..........
+     782:	00 76 dc 00 76 dc 00 00 00 00 00 00 00 00 00 00     .v..v...........
+	...
+     79a:	00 70 d8 30 60 c8 f8 00 00 00 00 00 00 00 00 00     .p.0`...........
+	...
+     7d6:	fe 00 00 fe 00 00 fe 00 00 00 00 00 00 00 00 00     ................
+	...
+     7ee:	00 00 00 30 18 0c 06 0c 18 30 00 7e 00 00 00 00     ...0.....0.~....
+	...
+     836:	0e 1b 1b 18 18 18 18 18 18 18 18 18 00 38 6c 6c     .............8ll
+     846:	38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00     8...............
+	...
+     8aa:	00 00 18 00 00 00 00 00 00 00 00 00 18 18 7e 18     ..............~.
+     8ba:	18 00 00 ff 00 00 00 00 00 3c 42 99 a5 a1 a5 99     .........<B.....
+     8ca:	42 3c 00 00 00 00 00 0c 18 30 60 30 18 0c 00 7e     B<.......0`0...~
+	...
+     912:	00 00 18 18 18 18 18 18 18 18 d8 d8 d8 70 00 00     .............p..
+     922:	00 00 1e 36 66 c6 c6 fe c6 c6 c6 00 00 00 00 00     ...6f...........
+     932:	fe 62 60 7c 66 66 66 66 fc 00 00 00 00 00 fc 66     .b`|ffff.......f
+     942:	66 66 7c 66 66 66 fc 00 00 00 00 00 fe 62 62 60     ff|fff.......bb`
+     952:	60 60 60 60 f0 00 00 00 00 00 1e 36 66 66 66 66     ````.......6ffff
+     962:	66 66 ff c3 81 00 00 00 fe 66 62 68 78 68 62 66     ff.......fbhxhbf
+     972:	fe 00 00 00 00 00 d6 d6 54 54 7c 54 d6 d6 d6 00     ........TT|T....
+     982:	00 00 00 00 7c c6 06 06 3c 06 06 c6 7c 00 00 00     ....|...<...|...
+     992:	00 00 c6 c6 ce de f6 e6 c6 c6 c6 00 00 00 38 38     ..............88
+     9a2:	c6 c6 ce de f6 e6 c6 c6 c6 00 00 00 00 00 e6 66     ...............f
+     9b2:	6c 6c 78 6c 6c 66 e6 00 00 00 00 00 1e 36 66 c6     llxllf.......6f.
+     9c2:	c6 c6 c6 c6 c6 00 00 00 00 00 c6 ee fe fe d6 c6     ................
+     9d2:	c6 c6 c6 00 00 00 00 00 c6 c6 c6 c6 fe c6 c6 c6     ................
+     9e2:	c6 00 00 00 00 00 7c c6 c6 c6 c6 c6 c6 c6 7c 00     ......|.......|.
+     9f2:	00 00 00 00 fe c6 c6 c6 c6 c6 c6 c6 c6 00 00 00     ................
+     a02:	00 00 fc 66 66 66 7c 60 60 60 f0 00 00 00 00 00     ...fff|```......
+     a12:	3c 66 c2 c0 c0 c0 c2 66 3c 00 00 00 00 00 7e 5a     <f.....f<.....~Z
+     a22:	18 18 18 18 18 18 3c 00 00 00 00 00 c6 c6 c6 c6     ......<.........
+     a32:	c6 7e 06 c6 7c 00 00 00 00 3c 18 7e db db db db     .~..|....<.~....
+     a42:	7e 18 3c 00 00 00 00 00 c6 c6 6c 7c 38 7c 6c c6     ~.<.......l|8|l.
+     a52:	c6 00 00 00 00 00 cc cc cc cc cc cc cc cc fe 06     ................
+     a62:	06 00 00 00 c6 c6 c6 c6 c6 7e 06 06 06 00 00 00     .........~......
+     a72:	00 00 db db db db db db db db ff 00 00 00 00 00     ................
+     a82:	db db db db db db db db ff 03 03 00 00 00 f8 b0     ................
+     a92:	30 3c 36 36 36 36 7c 00 00 00 00 00 c3 c3 c3 f3     0<6666|.........
+     aa2:	db db db db f3 00 00 00 00 00 f0 60 60 7c 66 66     ...........``|ff
+     ab2:	66 66 fc 00 00 00 00 00 7c c6 06 26 3e 26 06 c6     ff......|..&>&..
+     ac2:	7c 00 00 00 00 00 ce db db db fb db db db ce 00     |...............
+     ad2:	00 00 00 00 3f 66 66 66 3e 3e 66 66 e7 00 00 00     ....?fff>>ff....
+     ae2:	00 00 00 00 00 78 0c 7c cc cc 76 00 00 00 00 02     .....x.|..v.....
+     af2:	06 3c 60 60 7c 66 66 66 3c 00 00 00 00 00 00 00     .<``|fff<.......
+     b02:	00 fc 66 7c 66 66 fc 00 00 00 00 00 00 00 00 7e     ..f|ff.........~
+     b12:	32 30 30 30 78 00 00 00 00 00 00 00 00 1e 36 36     2000x.........66
+     b22:	66 66 ff c3 c3 00 00 00 00 00 00 7c c6 fe c0 c6     ff.........|....
+     b32:	7c 00 00 00 00 00 00 00 00 d6 d6 7c 54 d6 d6 00     |..........|T...
+     b42:	00 00 00 00 00 00 00 3c 66 0c 06 66 3c 00 00 00     .......<f..f<...
+     b52:	00 00 00 00 00 c6 ce d6 e6 c6 c6 00 00 00 00 00     ................
+     b62:	00 38 38 c6 ce d6 e6 c6 c6 00 00 00 00 00 00 00     .88.............
+     b72:	00 e6 6c 78 78 6c e6 00 00 00 00 00 00 00 00 1e     ..lxxl..........
+     b82:	36 66 66 66 66 00 00 00 00 00 00 00 00 c6 ee fe     6ffff...........
+     b92:	d6 d6 c6 00 00 00 00 00 00 00 00 c6 c6 fe c6 c6     ................
+     ba2:	c6 00 00 00 00 00 00 00 00 7c c6 c6 c6 c6 7c 00     .........|....|.
+     bb2:	00 00 00 00 00 00 00 fe c6 c6 c6 c6 c6 00 00 00     ................
+     bc2:	00 00 00 00 00 dc 66 66 66 66 7c 60 f0 00 00 00     ......ffff|`....
+     bd2:	00 00 00 7c c6 c0 c0 c6 7c 00 00 00 00 00 00 00     ...|....|.......
+     be2:	00 7e 5a 18 18 18 3c 00 00 00 00 00 00 00 00 c6     .~Z...<.........
+     bf2:	c6 c6 c6 7e 06 c6 7c 00 00 00 00 00 3c 18 7e db     ...~..|.....<.~.
+     c02:	db db 7e 18 3c 00 00 00 00 00 00 c6 6c 38 38 6c     ..~.<.......l88l
+     c12:	c6 00 00 00 00 00 00 00 00 cc cc cc cc cc fe 06     ................
+     c22:	06 00 00 00 00 00 00 c6 c6 c6 7e 06 06 00 00 00     ..........~.....
+     c32:	00 00 00 00 00 d6 d6 d6 d6 d6 fe 00 00 00 00 00     ................
+     c42:	00 00 00 d6 d6 d6 d6 d6 fe 03 03 00 00 00 00 00     ................
+     c52:	00 f8 b0 3e 33 33 7e 00 00 00 00 00 00 00 00 c6     ...>33~.........
+     c62:	c6 f6 de de f6 00 00 00 00 00 00 00 00 f0 60 7c     ..............`|
+     c72:	66 66 fc 00 00 00 00 00 00 00 00 3c 66 1e 06 66     ff.........<f..f
+     c82:	3c 00 00 00 00 00 00 00 00 ce db fb db db ce 00     <...............
+     c92:	00 00 00 00 00 00 00 7e cc 7c 6c cc ce 00 00 00     .......~.|l.....
+
+00000ca2 <_ZL5init2>:
+     ca2:	90 ef 83 09 00 08 af 0b 00 0a 00 05 00 06 00 07     ................
+     cb2:	00 ef 0c ee 90 ef 80 00 b0 ef 02 49 00 ef 01 7f     ...........I....
+     cc2:	81 e1 02 e2 76 e2 83 e1                             ....v...
+
+00000cca <_ZL5init1>:
+     cca:	00 ef 04 ee 04 1b fe fe fe fe 90 ef 04 4a 3f 7f     .............J?.
+     cda:	04 ee 06 43                                         ...C
+
+00000cde <_ZL16MKeySignalsPress>:
+     cde:	04 0a 10 18 06 0c 12 16 08 0e 14 1a                 ............
+
+00000cea <_ZL18MKeySignalsRelease>:
+     cea:	05 0b 11 19 07 0d 13 17 09 0f 15 1b                 ............
+
+00000cf6 <_ZL11MKeyMasks_Y>:
+     cf6:	02 08 40                                            ..@
+
+00000cf9 <_ZL9MKeyMasks>:
+     cf9:	01 04 20 10                                         .. .
+
+00000cfd <_ZL15EncTransitTable>:
+     cfd:	1c 02 03 1c 03 1c 1c 02 02 1c 1c 03 1c 03 02 1c     ................
+	...
+
+00000d0e <__ctors_start>:
+     d0e:	6c 0b       	sbc	r22, r28
+     d10:	23 0c       	add	r2, r3
+     d12:	93 0c       	add	r9, r3
+
+00000d14 <__ctors_end>:
+     d14:	11 24       	eor	r1, r1
+     d16:	1f be       	out	0x3f, r1	; 63
+     d18:	cf e5       	ldi	r28, 0x5F	; 95
+     d1a:	d8 e0       	ldi	r29, 0x08	; 8
+     d1c:	de bf       	out	0x3e, r29	; 62
+     d1e:	cd bf       	out	0x3d, r28	; 61
+
+00000d20 <__do_copy_data>:
+     d20:	10 e0       	ldi	r17, 0x00	; 0
+     d22:	a0 e6       	ldi	r26, 0x60	; 96
+     d24:	b0 e0       	ldi	r27, 0x00	; 0
+     d26:	e2 ea       	ldi	r30, 0xA2	; 162
+     d28:	f9 e1       	ldi	r31, 0x19	; 25
+     d2a:	02 c0       	rjmp	.+4      	; 0xd30 <__do_copy_data+0x10>
+     d2c:	05 90       	lpm	r0, Z+
+     d2e:	0d 92       	st	X+, r0
+     d30:	a0 37       	cpi	r26, 0x70	; 112
+     d32:	b1 07       	cpc	r27, r17
+     d34:	d9 f7       	brne	.-10     	; 0xd2c <__do_copy_data+0xc>
+
+00000d36 <__do_clear_bss>:
+     d36:	22 e0       	ldi	r18, 0x02	; 2
+     d38:	a0 e7       	ldi	r26, 0x70	; 112
+     d3a:	b0 e0       	ldi	r27, 0x00	; 0
+     d3c:	01 c0       	rjmp	.+2      	; 0xd40 <.do_clear_bss_start>
+
+00000d3e <.do_clear_bss_loop>:
+     d3e:	1d 92       	st	X+, r1
+
+00000d40 <.do_clear_bss_start>:
+     d40:	ae 35       	cpi	r26, 0x5E	; 94
+     d42:	b2 07       	cpc	r27, r18
+     d44:	e1 f7       	brne	.-8      	; 0xd3e <.do_clear_bss_loop>
+
+00000d46 <__do_global_ctors>:
+     d46:	1d e0       	ldi	r17, 0x0D	; 13
+     d48:	c4 e1       	ldi	r28, 0x14	; 20
+     d4a:	dd e0       	ldi	r29, 0x0D	; 13
+     d4c:	04 c0       	rjmp	.+8      	; 0xd56 <__do_global_ctors+0x10>
+     d4e:	22 97       	sbiw	r28, 0x02	; 2
+     d50:	fe 01       	movw	r30, r28
+     d52:	0e 94 cb 0c 	call	0x1996	; 0x1996 <__tablejump__>
+     d56:	ce 30       	cpi	r28, 0x0E	; 14
+     d58:	d1 07       	cpc	r29, r17
+     d5a:	c9 f7       	brne	.-14     	; 0xd4e <__do_global_ctors+0x8>
+
+00000d5c <_ZN3LCD4initEv>:
+	send8(data>>8);
+	send8(data);
+}
+
+void LCD::init() {
+	LCD_PORT|=_BV(LCD_RESET);			//Reset = 1
+     d5c:	c2 9a       	sbi	0x18, 2	; 24
+	LCD_DDR|=_BV(LCD_RESET);			//Reset как выход
+     d5e:	ba 9a       	sbi	0x17, 2	; 23
+
+	LCD_PORT|=_BV(LCD_CS);			    //CS = 1
+     d60:	c4 9a       	sbi	0x18, 4	; 24
+	LCD_DDR|=_BV(LCD_CS);				//CS как выход
+     d62:	bc 9a       	sbi	0x17, 4	; 23
+
+	LCD_PORT|=_BV(LCD_RS);				//RS = 1
+     d64:	c1 9a       	sbi	0x18, 1	; 24
+	LCD_DDR|=_BV(LCD_RS);				//RS как выход
+     d66:	b9 9a       	sbi	0x17, 1	; 23
+
+	LCD_PORT&=~_BV(LCD_CS);			//CS = 0, дисплей выбран
+     d68:	c4 98       	cbi	0x18, 4	; 24
+		
+	DDRB|=_BV(PB5);				//MOSI как выход
+     d6a:	bd 9a       	sbi	0x17, 5	; 23
+
+	PORTB&=~_BV(PB7);			//SCK = 0
+     d6c:	c7 98       	cbi	0x18, 7	; 24
+	DDRB|=_BV(PB7);				//SCK как выход
+     d6e:	bf 9a       	sbi	0x17, 7	; 23
+
+	PORTB|=_BV(PB6);			//MISO = 1
+     d70:	c6 9a       	sbi	0x18, 6	; 24
+
+	//Настройка аппаратного SPI
+	SPCR=0x50;
+     d72:	80 e5       	ldi	r24, 0x50	; 80
+     d74:	8d b9       	out	0x0d, r24	; 13
+	SPSR=0x01;
+     d76:	81 e0       	ldi	r24, 0x01	; 1
+     d78:	8e b9       	out	0x0e, r24	; 14
+	
+	//Hard reset дисплея
+	LCD_PORT&=~_BV(LCD_RESET);			//Reset = 0
+     d7a:	c2 98       	cbi	0x18, 2	; 24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+     d7c:	8f e1       	ldi	r24, 0x1F	; 31
+     d7e:	9e e4       	ldi	r25, 0x4E	; 78
+     d80:	01 97       	sbiw	r24, 0x01	; 1
+     d82:	f1 f7       	brne	.-4      	; 0xd80 <_ZN3LCD4initEv+0x24>
+     d84:	00 c0       	rjmp	.+0      	; 0xd86 <_ZN3LCD4initEv+0x2a>
+     d86:	00 00       	nop
+	_delay_ms(5);
+	LCD_PORT|=_BV(LCD_RESET);			//Reset = 1
+     d88:	c2 9a       	sbi	0x18, 2	; 24
+	
+	//Soft reset дисплея
+	send16(0xFDFD);
+     d8a:	8d ef       	ldi	r24, 0xFD	; 253
+     d8c:	9d ef       	ldi	r25, 0xFD	; 253
+     d8e:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+	send16(0xFDFD);
+     d92:	8d ef       	ldi	r24, 0xFD	; 253
+     d94:	9d ef       	ldi	r25, 0xFD	; 253
+     d96:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+     d9a:	9f ef       	ldi	r25, 0xFF	; 255
+     d9c:	21 e5       	ldi	r18, 0x51	; 81
+     d9e:	83 e0       	ldi	r24, 0x03	; 3
+     da0:	91 50       	subi	r25, 0x01	; 1
+     da2:	20 40       	sbci	r18, 0x00	; 0
+     da4:	80 40       	sbci	r24, 0x00	; 0
+     da6:	e1 f7       	brne	.-8      	; 0xda0 <_ZN3LCD4initEv+0x44>
+     da8:	00 c0       	rjmp	.+0      	; 0xdaa <_ZN3LCD4initEv+0x4e>
+     daa:	00 00       	nop
+     dac:	ca ec       	ldi	r28, 0xCA	; 202
+     dae:	dc e0       	ldi	r29, 0x0C	; 12
+     db0:	0e ed       	ldi	r16, 0xDE	; 222
+     db2:	1c e0       	ldi	r17, 0x0C	; 12
+	_delay_ms(68);
+	
+	//Инициализация дисплея. Блоки комманд через определённые интервалы
+	for (register unsigned char i=0; i<10; send16(pgm_read_word(&init1[i])), i++);
+     db4:	fe 01       	movw	r30, r28
+     db6:	85 91       	lpm	r24, Z+
+     db8:	94 91       	lpm	r25, Z
+     dba:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+     dbe:	22 96       	adiw	r28, 0x02	; 2
+     dc0:	c0 17       	cp	r28, r16
+     dc2:	d1 07       	cpc	r29, r17
+     dc4:	b9 f7       	brne	.-18     	; 0xdb4 <_ZN3LCD4initEv+0x58>
+     dc6:	8f e5       	ldi	r24, 0x5F	; 95
+     dc8:	9d e6       	ldi	r25, 0x6D	; 109
+     dca:	01 97       	sbiw	r24, 0x01	; 1
+     dcc:	f1 f7       	brne	.-4      	; 0xdca <_ZN3LCD4initEv+0x6e>
+     dce:	00 c0       	rjmp	.+0      	; 0xdd0 <_ZN3LCD4initEv+0x74>
+     dd0:	00 00       	nop
+     dd2:	c2 ea       	ldi	r28, 0xA2	; 162
+     dd4:	dc e0       	ldi	r29, 0x0C	; 12
+     dd6:	0a ec       	ldi	r16, 0xCA	; 202
+     dd8:	1c e0       	ldi	r17, 0x0C	; 12
+	_delay_ms(7);
+	for (register unsigned char i=0; i<20; send16(pgm_read_word(&init2[i])), i++);
+     dda:	fe 01       	movw	r30, r28
+     ddc:	85 91       	lpm	r24, Z+
+     dde:	94 91       	lpm	r25, Z
+     de0:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+     de4:	22 96       	adiw	r28, 0x02	; 2
+     de6:	c0 17       	cp	r28, r16
+     de8:	d1 07       	cpc	r29, r17
+     dea:	b9 f7       	brne	.-18     	; 0xdda <_ZN3LCD4initEv+0x7e>
+     dec:	9f ef       	ldi	r25, 0xFF	; 255
+     dee:	20 e7       	ldi	r18, 0x70	; 112
+     df0:	82 e0       	ldi	r24, 0x02	; 2
+     df2:	91 50       	subi	r25, 0x01	; 1
+     df4:	20 40       	sbci	r18, 0x00	; 0
+     df6:	80 40       	sbci	r24, 0x00	; 0
+     df8:	e1 f7       	brne	.-8      	; 0xdf2 <_ZN3LCD4initEv+0x96>
+     dfa:	00 c0       	rjmp	.+0      	; 0xdfc <_ZN3LCD4initEv+0xa0>
+     dfc:	00 00       	nop
+	_delay_ms(50);
+	send16(0x8001);
+     dfe:	81 e0       	ldi	r24, 0x01	; 1
+     e00:	90 e8       	ldi	r25, 0x80	; 128
+     e02:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+     e06:	8f e1       	ldi	r24, 0x1F	; 31
+     e08:	9e e4       	ldi	r25, 0x4E	; 78
+     e0a:	01 97       	sbiw	r24, 0x01	; 1
+     e0c:	f1 f7       	brne	.-4      	; 0xe0a <_ZN3LCD4initEv+0xae>
+     e0e:	00 c0       	rjmp	.+0      	; 0xe10 <_ZN3LCD4initEv+0xb4>
+     e10:	00 00       	nop
+	_delay_ms(5);
+	send16(0xEF90);
+     e12:	80 e9       	ldi	r24, 0x90	; 144
+     e14:	9f ee       	ldi	r25, 0xEF	; 239
+     e16:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+	send16(0x0000);
+     e1a:	80 e0       	ldi	r24, 0x00	; 0
+     e1c:	90 e0       	ldi	r25, 0x00	; 0
+     e1e:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+	
+	DDRB|=_BV(DDB3);
+     e22:	bb 9a       	sbi	0x17, 3	; 23
+	PORTB&=~_BV(PB3);
+     e24:	c3 98       	cbi	0x18, 3	; 24
+	//Настройка ШИМ для управления подсветкой дисплея
+	TCCR0 = (1<<WGM01)|(1<<WGM00)|(1<<COM01)|(1<<CS00);
+     e26:	89 e6       	ldi	r24, 0x69	; 105
+     e28:	83 bf       	out	0x33, r24	; 51
+	OCR0 = 70;
+     e2a:	86 e4       	ldi	r24, 0x46	; 70
+     e2c:	8c bf       	out	0x3c, r24	; 60
+
+00000e2e <_Z7KeyInitv>:
+template<> void TUserProc::exec() {
+	RTOSMain();	
+}
+
+void KeyInit() {
+	ENC_PORT |= (1<<ENC_A)|(1<<ENC_B)|_BV(ENC_BUT);
+     e2e:	82 b3       	in	r24, 0x12	; 18
+     e30:	8a 64       	ori	r24, 0x4A	; 74
+     e32:	82 bb       	out	0x12, r24	; 18
+	ENC_DDR &= ~(_BV(ENC_A)|_BV(ENC_B)|_BV(ENC_BUT));
+     e34:	81 b3       	in	r24, 0x11	; 17
+     e36:	85 7b       	andi	r24, 0xB5	; 181
+     e38:	81 bb       	out	0x11, r24	; 17
+
+	MKEY_DDR &= ~(_BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4));		//Строки - входы
+     e3a:	84 b3       	in	r24, 0x14	; 20
+     e3c:	8a 7c       	andi	r24, 0xCA	; 202
+     e3e:	84 bb       	out	0x14, r24	; 20
+	MKEY_DDR |= _BV(MKEY_Y1)|_BV(MKEY_Y2)|_BV(MKEY_Y3);						//Столбцы - выходы
+     e40:	84 b3       	in	r24, 0x14	; 20
+     e42:	8a 64       	ori	r24, 0x4A	; 74
+     e44:	84 bb       	out	0x14, r24	; 20
+	MKEY_PORT |= _BV(MKEY_Y1)|_BV(MKEY_Y2)|_BV(MKEY_Y3);						//Столбцы - в 1
+     e46:	85 b3       	in	r24, 0x15	; 21
+     e48:	8a 64       	ori	r24, 0x4A	; 74
+     e4a:	85 bb       	out	0x15, r24	; 21
+	MKEY_PORT |= _BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4);		//Подтягивающие резисторы для строк
+     e4c:	85 b3       	in	r24, 0x15	; 21
+     e4e:	85 63       	ori	r24, 0x35	; 53
+     e50:	85 bb       	out	0x15, r24	; 21
+     e52:	0e 94 94 09 	call	0x1328	; 0x1328 <main>
+     e56:	0c 94 cf 0c 	jmp	0x199e	; 0x199e <_exit>
+
+00000e5a <__bad_interrupt>:
+     e5a:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000e5e <os_start>:
+	pop_sfr	_SFR_IO_ADDR(EIND)
+    #endif
+    #ifdef SAVE_RAMPZ
+	pop_sfr	_SFR_IO_ADDR(RAMPZ)
+    #endif
+
+     e5e:	9e bf       	out	0x3e, r25	; 62
+        pop_sfr	_SFR_IO_ADDR(SREG)
+     e60:	8d bf       	out	0x3d, r24	; 61
+        pop	r1			; restore r1 value
+     e62:	29 c0       	rjmp	.+82     	; 0xeb6 <L_RestoreContext>
+
+00000e64 <os_context_switcher>:
+     .endm
+
+;-------------------------------------------------------------------------------
+     .text
+
+
+     e64:	1f 92       	push	r1
+     e66:	1f b6       	in	r1, 0x3f	; 63
+     e68:	1f 92       	push	r1
+	push_sfr _SFR_IO_ADDR(RAMPZ)
+    #endif
+    #ifdef SAVE_EIND
+	push_sfr _SFR_IO_ADDR(EIND)
+    #endif
+
+     e6a:	0f 92       	push	r0
+     e6c:	2f 92       	push	r2
+     e6e:	3f 92       	push	r3
+     e70:	4f 92       	push	r4
+     e72:	5f 92       	push	r5
+     e74:	6f 92       	push	r6
+     e76:	7f 92       	push	r7
+     e78:	8f 92       	push	r8
+     e7a:	9f 92       	push	r9
+     e7c:	af 92       	push	r10
+     e7e:	bf 92       	push	r11
+     e80:	cf 92       	push	r12
+     e82:	df 92       	push	r13
+     e84:	ef 92       	push	r14
+     e86:	ff 92       	push	r15
+     e88:	0f 93       	push	r16
+     e8a:	1f 93       	push	r17
+     e8c:	2f 93       	push	r18
+     e8e:	3f 93       	push	r19
+     e90:	4f 93       	push	r20
+     e92:	5f 93       	push	r21
+     e94:	6f 93       	push	r22
+     e96:	7f 93       	push	r23
+     e98:	8f 93       	push	r24
+     e9a:	9f 93       	push	r25
+     e9c:	af 93       	push	r26
+     e9e:	bf 93       	push	r27
+     ea0:	cf 93       	push	r28
+     ea2:	df 93       	push	r29
+     ea4:	ef 93       	push	r30
+     ea6:	ff 93       	push	r31
+     .text
+
+
+;-------------------------------------------------------------------------------
+     .global	os_start
+
+     ea8:	fc 01       	movw	r30, r24
+os_start:
+	out	_SFR_IO_ADDR(SPH), r25	; set next process Stack Pointer
+	out	_SFR_IO_ADDR(SPL), r24
+	rjmp L_RestoreContext
+
+;-------------------------------------------------------------------------------
+     eaa:	8d b7       	in	r24, 0x3d	; 61
+#if scmRTOS_CONTEXT_SWITCH_SCHEME == 0
+     eac:	9e b7       	in	r25, 0x3e	; 62
+
+     eae:	80 83       	st	Z, r24
+	.global	os_context_switcher
+     eb0:	91 83       	std	Z+1, r25	; 0x01
+os_context_switcher:
+     eb2:	7e bf       	out	0x3e, r23	; 62
+	save_context
+     eb4:	6d bf       	out	0x3d, r22	; 61
+
+00000eb6 <L_RestoreContext>:
+
+    #ifdef __AVR_ENHANCED__
+	movw	r30,r24		        ; Curr_SP_addr
+     eb6:	ff 91       	pop	r31
+     eb8:	ef 91       	pop	r30
+     eba:	df 91       	pop	r29
+     ebc:	cf 91       	pop	r28
+     ebe:	bf 91       	pop	r27
+     ec0:	af 91       	pop	r26
+     ec2:	9f 91       	pop	r25
+     ec4:	8f 91       	pop	r24
+     ec6:	7f 91       	pop	r23
+     ec8:	6f 91       	pop	r22
+     eca:	5f 91       	pop	r21
+     ecc:	4f 91       	pop	r20
+     ece:	3f 91       	pop	r19
+     ed0:	2f 91       	pop	r18
+     ed2:	1f 91       	pop	r17
+     ed4:	0f 91       	pop	r16
+     ed6:	ff 90       	pop	r15
+     ed8:	ef 90       	pop	r14
+     eda:	df 90       	pop	r13
+     edc:	cf 90       	pop	r12
+     ede:	bf 90       	pop	r11
+     ee0:	af 90       	pop	r10
+     ee2:	9f 90       	pop	r9
+     ee4:	8f 90       	pop	r8
+     ee6:	7f 90       	pop	r7
+     ee8:	6f 90       	pop	r6
+     eea:	5f 90       	pop	r5
+     eec:	4f 90       	pop	r4
+     eee:	3f 90       	pop	r3
+     ef0:	2f 90       	pop	r2
+     ef2:	0f 90       	pop	r0
+	pop_sfr	_SFR_IO_ADDR(EIND)
+    #endif
+    #ifdef SAVE_RAMPZ
+	pop_sfr	_SFR_IO_ADDR(RAMPZ)
+    #endif
+
+     ef4:	1f 90       	pop	r1
+     ef6:	1f be       	out	0x3f, r1	; 63
+     ef8:	1f 90       	pop	r1
+os_context_switcher:
+	save_context
+
+    #ifdef __AVR_ENHANCED__
+	movw	r30,r24		        ; Curr_SP_addr
+    #else
+     efa:	08 95       	ret
+
+00000efc <_Z6redrawh>:
+#include <PlatformDrv.h>
+#include <avr/pgmspace.h>
+
+const char hello[] PROGMEM = "Hello, world!";
+
+void redraw(size a) {
+     efc:	ef 92       	push	r14
+     efe:	0f 93       	push	r16
+     f00:	cf 93       	push	r28
+     f02:	df 93       	push	r29
+     f04:	c8 2f       	mov	r28, r24
+	coord x, y;
+	size w, h;
+	color8 color, bgcolor;
+	
+	x = y = 0;
+	w = LCD::Width();
+     f06:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN3LCD5WidthEv>
+     f0a:	d8 2f       	mov	r29, r24
+	h = LCD::Height();
+     f0c:	0e 94 a9 08 	call	0x1152	; 0x1152 <_ZN3LCD6HeightEv>
+	color = 0x92;
+	LCD::FillRect(x, y, w, h, color);
+     f10:	02 e9       	ldi	r16, 0x92	; 146
+     f12:	28 2f       	mov	r18, r24
+     f14:	4d 2f       	mov	r20, r29
+     f16:	60 e0       	ldi	r22, 0x00	; 0
+     f18:	80 e0       	ldi	r24, 0x00	; 0
+     f1a:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	
+	x = y = 25;
+	w = LCD::Width() - 50;
+     f1e:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN3LCD5WidthEv>
+     f22:	d8 2f       	mov	r29, r24
+	h = LCD::Height() - 50;
+     f24:	0e 94 a9 08 	call	0x1152	; 0x1152 <_ZN3LCD6HeightEv>
+     f28:	2e ec       	ldi	r18, 0xCE	; 206
+     f2a:	28 0f       	add	r18, r24
+	h = LCD::Height();
+	color = 0x92;
+	LCD::FillRect(x, y, w, h, color);
+	
+	x = y = 25;
+	w = LCD::Width() - 50;
+     f2c:	4e ec       	ldi	r20, 0xCE	; 206
+     f2e:	4d 0f       	add	r20, r29
+	h = LCD::Height() - 50;
+	color = 0x7B;
+	LCD::Rect(x, y, w, h, color);
+     f30:	0b e7       	ldi	r16, 0x7B	; 123
+     f32:	69 e1       	ldi	r22, 0x19	; 25
+     f34:	89 e1       	ldi	r24, 0x19	; 25
+     f36:	0e 94 69 09 	call	0x12d2	; 0x12d2 <_ZN3LCD4RectEhhhhh>
+	
+	x = LCD::Width()/2 - 13*8/2;
+     f3a:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN3LCD5WidthEv>
+     f3e:	d8 2f       	mov	r29, r24
+	y = LCD::Height()/2 - 14/2;
+     f40:	0e 94 a9 08 	call	0x1152	; 0x1152 <_ZN3LCD6HeightEv>
+     f44:	86 95       	lsr	r24
+     f46:	69 ef       	ldi	r22, 0xF9	; 249
+     f48:	68 0f       	add	r22, r24
+	w = LCD::Width() - 50;
+	h = LCD::Height() - 50;
+	color = 0x7B;
+	LCD::Rect(x, y, w, h, color);
+	
+	x = LCD::Width()/2 - 13*8/2;
+     f4a:	8d 2f       	mov	r24, r29
+     f4c:	86 95       	lsr	r24
+	y = LCD::Height()/2 - 14/2;
+	color = 0b11000000;
+	bgcolor = 0x92;
+	LCD::PutStr(x, y, hello, LCD::font8x14, color, bgcolor);
+     f4e:	0f 2e       	mov	r0, r31
+     f50:	f2 e9       	ldi	r31, 0x92	; 146
+     f52:	ef 2e       	mov	r14, r31
+     f54:	f0 2d       	mov	r31, r0
+     f56:	00 ec       	ldi	r16, 0xC0	; 192
+     f58:	23 e6       	ldi	r18, 0x63	; 99
+     f5a:	30 e0       	ldi	r19, 0x00	; 0
+     f5c:	44 e5       	ldi	r20, 0x54	; 84
+     f5e:	50 e0       	ldi	r21, 0x00	; 0
+     f60:	84 53       	subi	r24, 0x34	; 52
+     f62:	0e 94 5b 08 	call	0x10b6	; 0x10b6 <_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh>
+	
+	x = y = 0;
+	color = 0b11100000;
+	LCD::FillRect(x, y, a, a, color);
+     f66:	00 ee       	ldi	r16, 0xE0	; 224
+     f68:	2c 2f       	mov	r18, r28
+     f6a:	4c 2f       	mov	r20, r28
+     f6c:	60 e0       	ldi	r22, 0x00	; 0
+     f6e:	80 e0       	ldi	r24, 0x00	; 0
+     f70:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	
+	x = LCD::Width() - a;
+     f74:	0e 94 a6 08 	call	0x114c	; 0x114c <_ZN3LCD5WidthEv>
+	y = 0;
+	color = 0b00011100;
+	LCD::FillRect(x, y, a, a , color);
+     f78:	0c e1       	ldi	r16, 0x1C	; 28
+     f7a:	2c 2f       	mov	r18, r28
+     f7c:	4c 2f       	mov	r20, r28
+     f7e:	60 e0       	ldi	r22, 0x00	; 0
+     f80:	8c 1b       	sub	r24, r28
+     f82:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	
+	x = 0;
+	y = LCD::Height() - a;
+     f86:	0e 94 a9 08 	call	0x1152	; 0x1152 <_ZN3LCD6HeightEv>
+     f8a:	68 2f       	mov	r22, r24
+     f8c:	6c 1b       	sub	r22, r28
+	color = 0b00000011;
+	LCD::FillRect(x, y, a, a , color);
+     f8e:	03 e0       	ldi	r16, 0x03	; 3
+     f90:	2c 2f       	mov	r18, r28
+     f92:	4c 2f       	mov	r20, r28
+     f94:	80 e0       	ldi	r24, 0x00	; 0
+     f96:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+}
+     f9a:	df 91       	pop	r29
+     f9c:	cf 91       	pop	r28
+     f9e:	0f 91       	pop	r16
+     fa0:	ef 90       	pop	r14
+     fa2:	08 95       	ret
+
+00000fa4 <_Z8RTOSMainv>:
+
+void RTOSMain() {
+	size a = 2;
+	
+	LCD::SetColorMode(mode_8);
+     fa4:	80 e0       	ldi	r24, 0x00	; 0
+     fa6:	0e 94 af 08 	call	0x115e	; 0x115e <_ZN3LCD12SetColorModeE9ColorMode>
+	redraw(a);
+     faa:	82 e0       	ldi	r24, 0x02	; 2
+     fac:	0e 94 7e 07 	call	0xefc	; 0xefc <_Z6redrawh>
+	color = 0b00000011;
+	LCD::FillRect(x, y, a, a , color);
+}
+
+void RTOSMain() {
+	size a = 2;
+     fb0:	c2 e0       	ldi	r28, 0x02	; 2
+	
+	LCD::SetColorMode(mode_8);
+	redraw(a);
+	
+	while(1) {
+		switch(WaitKeySignal()) {
+     fb2:	0e 94 59 0b 	call	0x16b2	; 0x16b2 <_Z13WaitKeySignalv>
+     fb6:	82 30       	cpi	r24, 0x02	; 2
+     fb8:	29 f0       	breq	.+10     	; 0xfc4 <_Z8RTOSMainv+0x20>
+     fba:	83 30       	cpi	r24, 0x03	; 3
+     fbc:	51 f0       	breq	.+20     	; 0xfd2 <_Z8RTOSMainv+0x2e>
+     fbe:	81 30       	cpi	r24, 0x01	; 1
+     fc0:	c1 f7       	brne	.-16     	; 0xfb2 <_Z8RTOSMainv+0xe>
+     fc2:	0e c0       	rjmp	.+28     	; 0xfe0 <_Z8RTOSMainv+0x3c>
+			case Enc_Up:
+				if(a<20) {
+     fc4:	c4 31       	cpi	r28, 0x14	; 20
+     fc6:	a8 f7       	brcc	.-22     	; 0xfb2 <_Z8RTOSMainv+0xe>
+					a++;
+     fc8:	cf 5f       	subi	r28, 0xFF	; 255
+					redraw(a);
+     fca:	8c 2f       	mov	r24, r28
+     fcc:	0e 94 7e 07 	call	0xefc	; 0xefc <_Z6redrawh>
+     fd0:	f0 cf       	rjmp	.-32     	; 0xfb2 <_Z8RTOSMainv+0xe>
+				}
+				break;
+				
+			case Enc_Down:
+				if(a>2) {
+     fd2:	c3 30       	cpi	r28, 0x03	; 3
+     fd4:	70 f3       	brcs	.-36     	; 0xfb2 <_Z8RTOSMainv+0xe>
+					a--;
+     fd6:	c1 50       	subi	r28, 0x01	; 1
+					redraw(a);
+     fd8:	8c 2f       	mov	r24, r28
+     fda:	0e 94 7e 07 	call	0xefc	; 0xefc <_Z6redrawh>
+     fde:	e9 cf       	rjmp	.-46     	; 0xfb2 <_Z8RTOSMainv+0xe>
+				}
+				break;
+			
+			case ButEnc_release:
+				switch(LCD::Orient()) {
+     fe0:	0e 94 ac 08 	call	0x1158	; 0x1158 <_ZN3LCD6OrientEv>
+     fe4:	88 23       	and	r24, r24
+     fe6:	31 f0       	breq	.+12     	; 0xff4 <_Z8RTOSMainv+0x50>
+     fe8:	81 30       	cpi	r24, 0x01	; 1
+     fea:	39 f4       	brne	.+14     	; 0xffa <_Z8RTOSMainv+0x56>
+					case or_hrz:
+						LCD::SetOrient(or_vrt);
+     fec:	80 e0       	ldi	r24, 0x00	; 0
+     fee:	0e 94 c4 08 	call	0x1188	; 0x1188 <_ZN3LCD9SetOrientE6orient>
+						break;
+     ff2:	03 c0       	rjmp	.+6      	; 0xffa <_Z8RTOSMainv+0x56>
+					case or_vrt:
+						LCD::SetOrient(or_hrz);
+     ff4:	81 e0       	ldi	r24, 0x01	; 1
+     ff6:	0e 94 c4 08 	call	0x1188	; 0x1188 <_ZN3LCD9SetOrientE6orient>
+						break;
+				}
+				redraw(a);
+     ffa:	8c 2f       	mov	r24, r28
+     ffc:	0e 94 7e 07 	call	0xefc	; 0xefc <_Z6redrawh>
+    1000:	d8 cf       	rjmp	.-80     	; 0xfb2 <_Z8RTOSMainv+0xe>
+
+00001002 <_Z12put_char8x14hhchh>:
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x3C, 0x66, 0x1E, 0x06, 0x66, 0x3C, 0x00, 0x00, 0x00, //253
+	0x00, 0x00, 0x00, 0x00, 0x00, 0xCE, 0xDB, 0xFB, 0xDB, 0xDB, 0xCE, 0x00, 0x00, 0x00, //254
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x7E, 0xCC, 0x7C, 0x6C, 0xCC, 0xCE, 0x00, 0x00, 0x00  //255
+};
+
+void put_char8x14(const unsigned char x, const unsigned char y, const char c, const unsigned char color, const unsigned char bgcolor) {
+    1002:	7f 92       	push	r7
+    1004:	8f 92       	push	r8
+    1006:	9f 92       	push	r9
+    1008:	af 92       	push	r10
+    100a:	bf 92       	push	r11
+    100c:	cf 92       	push	r12
+    100e:	df 92       	push	r13
+    1010:	ef 92       	push	r14
+    1012:	ff 92       	push	r15
+    1014:	0f 93       	push	r16
+    1016:	1f 93       	push	r17
+    1018:	cf 93       	push	r28
+    101a:	df 93       	push	r29
+    101c:	c4 2f       	mov	r28, r20
+    101e:	12 2f       	mov	r17, r18
+	unsigned char mask, cl, ch;
+	int offset = 14 * (c - 0x20);
+	SetWindow(x, y, 8, 14);
+    1020:	2e e0       	ldi	r18, 0x0E	; 14
+    1022:	48 e0       	ldi	r20, 0x08	; 8
+    1024:	0e 94 ed 08 	call	0x11da	; 0x11da <_ZN3LCD9SetWindowEhhhh>
+	SetDatMode();
+    1028:	0e 94 a4 08 	call	0x1148	; 0x1148 <_ZN3LCD10SetDatModeEv>
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x7E, 0xCC, 0x7C, 0x6C, 0xCC, 0xCE, 0x00, 0x00, 0x00  //255
+};
+
+void put_char8x14(const unsigned char x, const unsigned char y, const char c, const unsigned char color, const unsigned char bgcolor) {
+	unsigned char mask, cl, ch;
+	int offset = 14 * (c - 0x20);
+    102c:	6c 2f       	mov	r22, r28
+    102e:	70 e0       	ldi	r23, 0x00	; 0
+    1030:	60 52       	subi	r22, 0x20	; 32
+    1032:	71 09       	sbc	r23, r1
+    1034:	66 0f       	add	r22, r22
+    1036:	77 1f       	adc	r23, r23
+    1038:	ab 01       	movw	r20, r22
+    103a:	44 0f       	add	r20, r20
+    103c:	55 1f       	adc	r21, r21
+    103e:	44 0f       	add	r20, r20
+    1040:	55 1f       	adc	r21, r21
+    1042:	44 0f       	add	r20, r20
+    1044:	55 1f       	adc	r21, r21
+    1046:	46 1b       	sub	r20, r22
+    1048:	57 0b       	sbc	r21, r23
+    104a:	ca 01       	movw	r24, r20
+    104c:	8e 59       	subi	r24, 0x9E	; 158
+    104e:	9f 4f       	sbci	r25, 0xFF	; 255
+    1050:	7c 01       	movw	r14, r24
+    1052:	fa 01       	movw	r30, r20
+    1054:	e0 59       	subi	r30, 0x90	; 144
+    1056:	ff 4f       	sbci	r31, 0xFF	; 255
+    1058:	6f 01       	movw	r12, r30
+	SetWindow(x, y, 8, 14);
+	SetDatMode();
+	for (cl = 0; cl<14; cl++) {
+		ch = pgm_read_byte(table8x14 + offset + cl);
+    105a:	68 94       	set
+    105c:	77 24       	eor	r7, r7
+    105e:	73 f8       	bld	r7, 3
+    1060:	81 2c       	mov	r8, r1
+		for (mask = 0x80; mask; mask>>=1) {
+    1062:	68 94       	set
+    1064:	99 24       	eor	r9, r9
+    1066:	97 f8       	bld	r9, 7
+	unsigned char mask, cl, ch;
+	int offset = 14 * (c - 0x20);
+	SetWindow(x, y, 8, 14);
+	SetDatMode();
+	for (cl = 0; cl<14; cl++) {
+		ch = pgm_read_byte(table8x14 + offset + cl);
+    1068:	f7 01       	movw	r30, r14
+    106a:	a4 90       	lpm	r10, Z
+    106c:	c7 2d       	mov	r28, r7
+    106e:	d8 2d       	mov	r29, r8
+		for (mask = 0x80; mask; mask>>=1) {
+    1070:	b9 2c       	mov	r11, r9
+			if (ch & mask) {
+    1072:	8b 2d       	mov	r24, r11
+    1074:	8a 21       	and	r24, r10
+    1076:	21 f0       	breq	.+8      	; 0x1080 <_Z12put_char8x14hhchh+0x7e>
+				send8(color);
+    1078:	81 2f       	mov	r24, r17
+    107a:	0e 94 92 08 	call	0x1124	; 0x1124 <_ZN3LCD5send8Eh>
+    107e:	03 c0       	rjmp	.+6      	; 0x1086 <_Z12put_char8x14hhchh+0x84>
+			} else {
+				send8(bgcolor);
+    1080:	80 2f       	mov	r24, r16
+    1082:	0e 94 92 08 	call	0x1124	; 0x1124 <_ZN3LCD5send8Eh>
+	int offset = 14 * (c - 0x20);
+	SetWindow(x, y, 8, 14);
+	SetDatMode();
+	for (cl = 0; cl<14; cl++) {
+		ch = pgm_read_byte(table8x14 + offset + cl);
+		for (mask = 0x80; mask; mask>>=1) {
+    1086:	b6 94       	lsr	r11
+    1088:	21 97       	sbiw	r28, 0x01	; 1
+    108a:	20 97       	sbiw	r28, 0x00	; 0
+    108c:	91 f7       	brne	.-28     	; 0x1072 <_Z12put_char8x14hhchh+0x70>
+    108e:	9f ef       	ldi	r25, 0xFF	; 255
+    1090:	e9 1a       	sub	r14, r25
+    1092:	f9 0a       	sbc	r15, r25
+void put_char8x14(const unsigned char x, const unsigned char y, const char c, const unsigned char color, const unsigned char bgcolor) {
+	unsigned char mask, cl, ch;
+	int offset = 14 * (c - 0x20);
+	SetWindow(x, y, 8, 14);
+	SetDatMode();
+	for (cl = 0; cl<14; cl++) {
+    1094:	ec 14       	cp	r14, r12
+    1096:	fd 04       	cpc	r15, r13
+    1098:	39 f7       	brne	.-50     	; 0x1068 <_Z12put_char8x14hhchh+0x66>
+			} else {
+				send8(bgcolor);
+			}
+		}
+	}
+}
+    109a:	df 91       	pop	r29
+    109c:	cf 91       	pop	r28
+    109e:	1f 91       	pop	r17
+    10a0:	0f 91       	pop	r16
+    10a2:	ff 90       	pop	r15
+    10a4:	ef 90       	pop	r14
+    10a6:	df 90       	pop	r13
+    10a8:	cf 90       	pop	r12
+    10aa:	bf 90       	pop	r11
+    10ac:	af 90       	pop	r10
+    10ae:	9f 90       	pop	r9
+    10b0:	8f 90       	pop	r8
+    10b2:	7f 90       	pop	r7
+    10b4:	08 95       	ret
+
+000010b6 <_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh>:
+
+#include "fonts.hpp"
+
+using namespace LCD;
+
+void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color8 color, const color8 bgcolor) {
+    10b6:	9f 92       	push	r9
+    10b8:	af 92       	push	r10
+    10ba:	bf 92       	push	r11
+    10bc:	cf 92       	push	r12
+    10be:	df 92       	push	r13
+    10c0:	ef 92       	push	r14
+    10c2:	ff 92       	push	r15
+    10c4:	0f 93       	push	r16
+    10c6:	1f 93       	push	r17
+    10c8:	cf 93       	push	r28
+    10ca:	df 93       	push	r29
+    10cc:	b8 2e       	mov	r11, r24
+    10ce:	a6 2e       	mov	r10, r22
+    10d0:	6a 01       	movw	r12, r20
+    10d2:	e9 01       	movw	r28, r18
+    10d4:	90 2e       	mov	r9, r16
+	register unsigned char i, x0;
+	register char c;
+	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8(x + x0, y, c, color, bgcolor), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+    10d6:	fa 01       	movw	r30, r20
+    10d8:	44 91       	lpm	r20, Z
+    10da:	44 23       	and	r20, r20
+    10dc:	b9 f0       	breq	.+46     	; 0x110c <_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh+0x56>
+    10de:	10 e0       	ldi	r17, 0x00	; 0
+    10e0:	ff 24       	eor	r15, r15
+    10e2:	f3 94       	inc	r15
+    10e4:	ec 81       	ldd	r30, Y+4	; 0x04
+    10e6:	fd 81       	ldd	r31, Y+5	; 0x05
+    10e8:	0e 2d       	mov	r16, r14
+    10ea:	29 2d       	mov	r18, r9
+    10ec:	6a 2d       	mov	r22, r10
+    10ee:	81 2f       	mov	r24, r17
+    10f0:	8b 0d       	add	r24, r11
+    10f2:	09 95       	icall
+    10f4:	31 e0       	ldi	r19, 0x01	; 1
+    10f6:	3f 0d       	add	r19, r15
+    10f8:	f6 01       	movw	r30, r12
+    10fa:	ef 0d       	add	r30, r15
+    10fc:	f1 1d       	adc	r31, r1
+    10fe:	44 91       	lpm	r20, Z
+    1100:	98 81       	ld	r25, Y
+    1102:	19 0f       	add	r17, r25
+    1104:	44 23       	and	r20, r20
+    1106:	11 f0       	breq	.+4      	; 0x110c <_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh+0x56>
+    1108:	f3 2e       	mov	r15, r19
+    110a:	ec cf       	rjmp	.-40     	; 0x10e4 <_ZN3LCD6PutStrEhhPKcRKNS_4fontEhh+0x2e>
+    110c:	df 91       	pop	r29
+    110e:	cf 91       	pop	r28
+    1110:	1f 91       	pop	r17
+    1112:	0f 91       	pop	r16
+    1114:	ff 90       	pop	r15
+    1116:	ef 90       	pop	r14
+    1118:	df 90       	pop	r13
+    111a:	cf 90       	pop	r12
+    111c:	bf 90       	pop	r11
+    111e:	af 90       	pop	r10
+    1120:	9f 90       	pop	r9
+    1122:	08 95       	ret
+
+00001124 <_ZN3LCD5send8Eh>:
+static size width = 132, height = 176;		//текущая ширина и высота дисплея в пикселях
+static orient CurOrient = or_vrt;
+static ColorMode CurColorMode = mode_16;
+
+void LCD::send8(const unsigned char data) {
+	SPDR=data;
+    1124:	8f b9       	out	0x0f, r24	; 15
+	while(!(SPSR & _BV(SPIF)));
+    1126:	77 9b       	sbis	0x0e, 7	; 14
+    1128:	fe cf       	rjmp	.-4      	; 0x1126 <_ZN3LCD5send8Eh+0x2>
+}
+    112a:	08 95       	ret
+
+0000112c <_ZN3LCD6send16Ej>:
+
+void LCD::send16(const unsigned int data) {
+    112c:	cf 93       	push	r28
+    112e:	c8 2f       	mov	r28, r24
+	send8(data>>8);
+    1130:	89 2f       	mov	r24, r25
+    1132:	0e 94 92 08 	call	0x1124	; 0x1124 <_ZN3LCD5send8Eh>
+	send8(data);
+    1136:	8c 2f       	mov	r24, r28
+    1138:	0e 94 92 08 	call	0x1124	; 0x1124 <_ZN3LCD5send8Eh>
+}
+    113c:	cf 91       	pop	r28
+    113e:	08 95       	ret
+
+00001140 <_ZN3LCD10SetCmdModeEv>:
+	TCCR0 = (1<<WGM01)|(1<<WGM00)|(1<<COM01)|(1<<CS00);
+	OCR0 = 70;
+}
+
+void LCD::SetCmdMode() {
+	LCD_PORT|=_BV(LCD_RS);		//RS = 1, команды
+    1140:	c1 9a       	sbi	0x18, 1	; 24
+	LCD_PORT|=_BV(LCD_CS);		//Импульс на линии CS
+    1142:	c4 9a       	sbi	0x18, 4	; 24
+	LCD_PORT&=~_BV(LCD_CS);		//
+    1144:	c4 98       	cbi	0x18, 4	; 24
+    1146:	08 95       	ret
+
+00001148 <_ZN3LCD10SetDatModeEv>:
+}
+
+void LCD::SetDatMode() {
+	PORTB&=~_BV(LCD_RS);  //RS = 0, данные
+    1148:	c1 98       	cbi	0x18, 1	; 24
+    114a:	08 95       	ret
+
+0000114c <_ZN3LCD5WidthEv>:
+	//Импульс CS не требуется
+}
+
+size LCD::Width() {
+	return width;
+}
+    114c:	80 91 62 00 	lds	r24, 0x0062
+    1150:	08 95       	ret
+
+00001152 <_ZN3LCD6HeightEv>:
+
+size LCD::Height() {
+	return height;
+}
+    1152:	80 91 61 00 	lds	r24, 0x0061
+    1156:	08 95       	ret
+
+00001158 <_ZN3LCD6OrientEv>:
+
+orient LCD::Orient() {
+	return CurOrient;
+}
+    1158:	80 91 70 00 	lds	r24, 0x0070
+    115c:	08 95       	ret
+
+0000115e <_ZN3LCD12SetColorModeE9ColorMode>:
+ColorMode LCD::ClrMode() {
+	return CurColorMode;
+}
+
+
+void LCD::SetColorMode(const ColorMode clm) {
+    115e:	cf 93       	push	r28
+    1160:	c8 2f       	mov	r28, r24
+	SetCmdMode();
+    1162:	0e 94 a0 08 	call	0x1140	; 0x1140 <_ZN3LCD10SetCmdModeEv>
+	CurColorMode = clm;
+    1166:	c0 93 60 00 	sts	0x0060, r28
+	switch(clm) {
+    116a:	cc 23       	and	r28, r28
+    116c:	39 f0       	breq	.+14     	; 0x117c <_ZN3LCD12SetColorModeE9ColorMode+0x1e>
+    116e:	c1 30       	cpi	r28, 0x01	; 1
+    1170:	49 f4       	brne	.+18     	; 0x1184 <_ZN3LCD12SetColorModeE9ColorMode+0x26>
+		case mode_16:
+			send16(0xE80C);
+    1172:	8c e0       	ldi	r24, 0x0C	; 12
+    1174:	98 ee       	ldi	r25, 0xE8	; 232
+    1176:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			break;
+    117a:	04 c0       	rjmp	.+8      	; 0x1184 <_ZN3LCD12SetColorModeE9ColorMode+0x26>
+		case mode_8:
+			send16(0xE800);
+    117c:	80 e0       	ldi	r24, 0x00	; 0
+    117e:	98 ee       	ldi	r25, 0xE8	; 232
+    1180:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			break;
+	}
+}
+    1184:	cf 91       	pop	r28
+    1186:	08 95       	ret
+
+00001188 <_ZN3LCD9SetOrientE6orient>:
+
+void LCD::SetOrient(const orient orientation) {
+    1188:	cf 93       	push	r28
+    118a:	c8 2f       	mov	r28, r24
+	SetCmdMode();
+    118c:	0e 94 a0 08 	call	0x1140	; 0x1140 <_ZN3LCD10SetCmdModeEv>
+	CurOrient = orientation;
+    1190:	c0 93 70 00 	sts	0x0070, r28
+	switch(CurOrient) {
+    1194:	cc 23       	and	r28, r28
+    1196:	89 f0       	breq	.+34     	; 0x11ba <_ZN3LCD9SetOrientE6orient+0x32>
+    1198:	c1 30       	cpi	r28, 0x01	; 1
+    119a:	e9 f4       	brne	.+58     	; 0x11d6 <_ZN3LCD9SetOrientE6orient+0x4e>
+		case or_hrz:
+			send16(0x0180);
+    119c:	80 e8       	ldi	r24, 0x80	; 128
+    119e:	91 e0       	ldi	r25, 0x01	; 1
+    11a0:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0504);
+    11a4:	84 e0       	ldi	r24, 0x04	; 4
+    11a6:	95 e0       	ldi	r25, 0x05	; 5
+    11a8:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			width = 176;
+    11ac:	80 eb       	ldi	r24, 0xB0	; 176
+    11ae:	80 93 62 00 	sts	0x0062, r24
+			height = 132;
+    11b2:	84 e8       	ldi	r24, 0x84	; 132
+    11b4:	80 93 61 00 	sts	0x0061, r24
+			break;
+    11b8:	0e c0       	rjmp	.+28     	; 0x11d6 <_ZN3LCD9SetOrientE6orient+0x4e>
+		case or_vrt:
+			send16(0x0100);
+    11ba:	80 e0       	ldi	r24, 0x00	; 0
+    11bc:	91 e0       	ldi	r25, 0x01	; 1
+    11be:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0500);
+    11c2:	80 e0       	ldi	r24, 0x00	; 0
+    11c4:	95 e0       	ldi	r25, 0x05	; 5
+    11c6:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			width = 132;
+    11ca:	84 e8       	ldi	r24, 0x84	; 132
+    11cc:	80 93 62 00 	sts	0x0062, r24
+			height = 176;
+    11d0:	80 eb       	ldi	r24, 0xB0	; 176
+    11d2:	80 93 61 00 	sts	0x0061, r24
+			break;
+	}
+}
+    11d6:	cf 91       	pop	r28
+    11d8:	08 95       	ret
+
+000011da <_ZN3LCD9SetWindowEhhhh>:
+
+void LCD::SetWindow(const coord x, const coord y, const size w, const size h) {
+    11da:	cf 92       	push	r12
+    11dc:	df 92       	push	r13
+    11de:	ef 92       	push	r14
+    11e0:	ff 92       	push	r15
+    11e2:	0f 93       	push	r16
+    11e4:	1f 93       	push	r17
+    11e6:	cf 93       	push	r28
+    11e8:	df 93       	push	r29
+    11ea:	e8 2e       	mov	r14, r24
+    11ec:	06 2f       	mov	r16, r22
+    11ee:	c4 2e       	mov	r12, r20
+    11f0:	d2 2e       	mov	r13, r18
+	SetCmdMode();
+    11f2:	0e 94 a0 08 	call	0x1140	; 0x1140 <_ZN3LCD10SetCmdModeEv>
+	switch(CurOrient) {
+    11f6:	90 91 70 00 	lds	r25, 0x0070
+    11fa:	99 23       	and	r25, r25
+    11fc:	19 f0       	breq	.+6      	; 0x1204 <_ZN3LCD9SetWindowEhhhh+0x2a>
+    11fe:	91 30       	cpi	r25, 0x01	; 1
+    1200:	d1 f0       	breq	.+52     	; 0x1236 <_ZN3LCD9SetWindowEhhhh+0x5c>
+    1202:	39 c0       	rjmp	.+114    	; 0x1276 <_ZN3LCD9SetWindowEhhhh+0x9c>
+		case or_vrt:
+			send16(0x0800 + x);
+    1204:	f1 2c       	mov	r15, r1
+    1206:	c7 01       	movw	r24, r14
+    1208:	98 5f       	subi	r25, 0xF8	; 248
+    120a:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0A00 + y);
+    120e:	10 e0       	ldi	r17, 0x00	; 0
+    1210:	c8 01       	movw	r24, r16
+    1212:	96 5f       	subi	r25, 0xF6	; 246
+    1214:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0900 + (x + w - 1));
+    1218:	c7 01       	movw	r24, r14
+    121a:	8c 0d       	add	r24, r12
+    121c:	91 1d       	adc	r25, r1
+    121e:	81 50       	subi	r24, 0x01	; 1
+    1220:	97 4f       	sbci	r25, 0xF7	; 247
+    1222:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0B00 + (y + h - 1));
+    1226:	c8 01       	movw	r24, r16
+    1228:	8d 0d       	add	r24, r13
+    122a:	91 1d       	adc	r25, r1
+    122c:	81 50       	subi	r24, 0x01	; 1
+    122e:	95 4f       	sbci	r25, 0xF5	; 245
+    1230:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			break;
+    1234:	20 c0       	rjmp	.+64     	; 0x1276 <_ZN3LCD9SetWindowEhhhh+0x9c>
+		case or_hrz:
+			send16(0x0A00 + x);
+    1236:	f1 2c       	mov	r15, r1
+    1238:	c7 01       	movw	r24, r14
+    123a:	96 5f       	subi	r25, 0xF6	; 246
+    123c:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0800 + (height - 1 - y));
+    1240:	c0 91 61 00 	lds	r28, 0x0061
+    1244:	d0 e0       	ldi	r29, 0x00	; 0
+    1246:	21 97       	sbiw	r28, 0x01	; 1
+    1248:	10 e0       	ldi	r17, 0x00	; 0
+    124a:	ce 01       	movw	r24, r28
+    124c:	80 1b       	sub	r24, r16
+    124e:	91 0b       	sbc	r25, r17
+    1250:	98 5f       	subi	r25, 0xF8	; 248
+    1252:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0B00 + (x + w - 1));
+    1256:	c7 01       	movw	r24, r14
+    1258:	8c 0d       	add	r24, r12
+    125a:	91 1d       	adc	r25, r1
+    125c:	81 50       	subi	r24, 0x01	; 1
+    125e:	95 4f       	sbci	r25, 0xF5	; 245
+    1260:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			send16(0x0900 + (height - 1 - (y + h - 1)));
+    1264:	0d 0d       	add	r16, r13
+    1266:	11 1d       	adc	r17, r1
+    1268:	ce 01       	movw	r24, r28
+    126a:	80 1b       	sub	r24, r16
+    126c:	91 0b       	sbc	r25, r17
+    126e:	8f 5f       	subi	r24, 0xFF	; 255
+    1270:	96 4f       	sbci	r25, 0xF6	; 246
+    1272:	0e 94 96 08 	call	0x112c	; 0x112c <_ZN3LCD6send16Ej>
+			break;
+	}
+}
+    1276:	df 91       	pop	r29
+    1278:	cf 91       	pop	r28
+    127a:	1f 91       	pop	r17
+    127c:	0f 91       	pop	r16
+    127e:	ff 90       	pop	r15
+    1280:	ef 90       	pop	r14
+    1282:	df 90       	pop	r13
+    1284:	cf 90       	pop	r12
+    1286:	08 95       	ret
+
+00001288 <_ZN3LCD8FillRectEhhhhh>:
+	FillRect(x, y, 1, h, color);
+	FillRect(x + w, y, 1, h, color);
+	FillRect(x, y + h, w, 1, color);
+}
+
+void LCD::FillRect(const coord x, const coord y, const size w , const size h, const color8 color) {
+    1288:	ef 92       	push	r14
+    128a:	ff 92       	push	r15
+    128c:	0f 93       	push	r16
+    128e:	1f 93       	push	r17
+    1290:	cf 93       	push	r28
+    1292:	df 93       	push	r29
+    1294:	f4 2e       	mov	r15, r20
+    1296:	d2 2f       	mov	r29, r18
+	SetWindow(x, y, w, h);
+    1298:	0e 94 ed 08 	call	0x11da	; 0x11da <_ZN3LCD9SetWindowEhhhh>
+	SetDatMode();
+    129c:	0e 94 a4 08 	call	0x1148	; 0x1148 <_ZN3LCD10SetDatModeEv>
+	for(register unsigned char i = 0; i<w; i++) {
+    12a0:	ff 20       	and	r15, r15
+    12a2:	81 f0       	breq	.+32     	; 0x12c4 <_ZN3LCD8FillRectEhhhhh+0x3c>
+    12a4:	10 e0       	ldi	r17, 0x00	; 0
+		for (register unsigned char j = 0; j<h; send8(color), j++);
+    12a6:	e1 2c       	mov	r14, r1
+    12a8:	09 c0       	rjmp	.+18     	; 0x12bc <_ZN3LCD8FillRectEhhhhh+0x34>
+    12aa:	80 2f       	mov	r24, r16
+    12ac:	0e 94 92 08 	call	0x1124	; 0x1124 <_ZN3LCD5send8Eh>
+    12b0:	cf 5f       	subi	r28, 0xFF	; 255
+    12b2:	cd 13       	cpse	r28, r29
+    12b4:	fa cf       	rjmp	.-12     	; 0x12aa <_ZN3LCD8FillRectEhhhhh+0x22>
+}
+
+void LCD::FillRect(const coord x, const coord y, const size w , const size h, const color8 color) {
+	SetWindow(x, y, w, h);
+	SetDatMode();
+	for(register unsigned char i = 0; i<w; i++) {
+    12b6:	1f 5f       	subi	r17, 0xFF	; 255
+    12b8:	1f 15       	cp	r17, r15
+    12ba:	21 f0       	breq	.+8      	; 0x12c4 <_ZN3LCD8FillRectEhhhhh+0x3c>
+		for (register unsigned char j = 0; j<h; send8(color), j++);
+    12bc:	dd 23       	and	r29, r29
+    12be:	d9 f3       	breq	.-10     	; 0x12b6 <_ZN3LCD8FillRectEhhhhh+0x2e>
+    12c0:	ce 2d       	mov	r28, r14
+    12c2:	f3 cf       	rjmp	.-26     	; 0x12aa <_ZN3LCD8FillRectEhhhhh+0x22>
+	}
+}
+    12c4:	df 91       	pop	r29
+    12c6:	cf 91       	pop	r28
+    12c8:	1f 91       	pop	r17
+    12ca:	0f 91       	pop	r16
+    12cc:	ff 90       	pop	r15
+    12ce:	ef 90       	pop	r14
+    12d0:	08 95       	ret
+
+000012d2 <_ZN3LCD4RectEhhhhh>:
+			send16(0x0900 + (height - 1 - (y + h - 1)));
+			break;
+	}
+}
+
+void LCD::Rect(const coord x, const coord y, const size w, const size h, const color8 color) {
+    12d2:	ef 92       	push	r14
+    12d4:	ff 92       	push	r15
+    12d6:	0f 93       	push	r16
+    12d8:	1f 93       	push	r17
+    12da:	cf 93       	push	r28
+    12dc:	df 93       	push	r29
+    12de:	c8 2f       	mov	r28, r24
+    12e0:	16 2f       	mov	r17, r22
+    12e2:	f4 2e       	mov	r15, r20
+    12e4:	e2 2e       	mov	r14, r18
+	FillRect(x, y, w, 1, color);
+    12e6:	21 e0       	ldi	r18, 0x01	; 1
+    12e8:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	FillRect(x, y, 1, h, color);
+    12ec:	2e 2d       	mov	r18, r14
+    12ee:	41 e0       	ldi	r20, 0x01	; 1
+    12f0:	61 2f       	mov	r22, r17
+    12f2:	8c 2f       	mov	r24, r28
+    12f4:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	FillRect(x + w, y, 1, h, color);
+    12f8:	2e 2d       	mov	r18, r14
+    12fa:	41 e0       	ldi	r20, 0x01	; 1
+    12fc:	61 2f       	mov	r22, r17
+    12fe:	8c 2f       	mov	r24, r28
+    1300:	8f 0d       	add	r24, r15
+    1302:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+	FillRect(x, y + h, w, 1, color);
+    1306:	61 2f       	mov	r22, r17
+    1308:	6e 0d       	add	r22, r14
+    130a:	21 e0       	ldi	r18, 0x01	; 1
+    130c:	4f 2d       	mov	r20, r15
+    130e:	8c 2f       	mov	r24, r28
+    1310:	0e 94 44 09 	call	0x1288	; 0x1288 <_ZN3LCD8FillRectEhhhhh>
+}
+    1314:	df 91       	pop	r29
+    1316:	cf 91       	pop	r28
+    1318:	1f 91       	pop	r17
+    131a:	0f 91       	pop	r16
+    131c:	ff 90       	pop	r15
+    131e:	ef 90       	pop	r14
+    1320:	08 95       	ret
+
+00001322 <_ZN2OS7processILNS_9TPriorityE2ELj256EE4execEv>:
+		sleep(33);
+	}
+}
+
+template<> void TUserProc::exec() {
+	RTOSMain();	
+    1322:	0e 94 d2 07 	call	0xfa4	; 0xfa4 <_Z8RTOSMainv>
+    1326:	08 95       	ret
+
+00001328 <main>:
+	
+	{But3_press, But6_press, But9_press, ButEnt_press}
+};
+
+int main(void) {
+	ACSR |= _BV(ACD);		//Отключаем аналоговый компаратор для экономии энергии
+    1328:	47 9a       	sbi	0x08, 7	; 8
+	MCUCR |= _BV(SE);		//Настраиваем спящий режим. Выбираем режим idle - отключение тактирования CPU и flash
+    132a:	85 b7       	in	r24, 0x35	; 53
+    132c:	80 68       	ori	r24, 0x80	; 128
+    132e:	85 bf       	out	0x35, r24	; 53
+	TIMER2_OC_REG = 0xF9;	//Значение сравнения для системного таймера
+    1330:	89 ef       	ldi	r24, 0xF9	; 249
+    1332:	83 bd       	out	0x23, r24	; 35
+	TIMER2_CS_REG = _BV(WGM21)|_BV(CS21)|_BV(CS20);		//Режим CTC и деление входной частоты на 32
+    1334:	8b e0       	ldi	r24, 0x0B	; 11
+    1336:	85 bd       	out	0x25, r24	; 37
+	TIMER2_IE_REG |= _BV(OCIE2);		//Разрешаем прерывание по совпадению системного таймера. интервал срабатывания - 0.0005 сек.
+    1338:	89 b7       	in	r24, 0x39	; 57
+    133a:	80 68       	ori	r24, 0x80	; 128
+    133c:	89 bf       	out	0x39, r24	; 57
+}
+
+//-----------------------------------------------------------------------------
+INLINE void OS::run()
+{
+    stack_item_t *sp = Kernel.ProcessTable[pr0]->StackPointer;
+    133e:	e0 91 53 02 	lds	r30, 0x0253
+    1342:	f0 91 54 02 	lds	r31, 0x0254
+    os_start(sp);
+    1346:	80 81       	ld	r24, Z
+    1348:	91 81       	ldd	r25, Z+1	; 0x01
+    134a:	0e 94 2f 07 	call	0xe5e	; 0xe5e <os_start>
+
+0000134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>:
+    ValueTag = 0;
+    resume_next_ready_isr(ProcessMap);
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+void OS::channel<T, Size, S>::push(const T& item)
+    134e:	bf 92       	push	r11
+    1350:	cf 92       	push	r12
+    1352:	df 92       	push	r13
+    1354:	ef 92       	push	r14
+    1356:	ff 92       	push	r15
+    1358:	0f 93       	push	r16
+    135a:	1f 93       	push	r17
+    135c:	cf 93       	push	r28
+    135e:	df 93       	push	r29
+    1360:	8c 01       	movw	r16, r24
+    1362:	7b 01       	movw	r14, r22
+//
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    1364:	bf b6       	in	r11, 0x3f	; 63
+    1366:	f8 94       	cli
+    class TService : public TKernelAgent
+    {
+    protected:
+        TService() : TKernelAgent() { }
+
+        INLINE static TProcessMap  cur_proc_prio_tag()  { return get_prio_tag(cur_proc_priority()); }
+    1368:	cb e5       	ldi	r28, 0x5B	; 91
+    136a:	d2 e0       	ldi	r29, 0x02	; 2
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    136c:	0f 2e       	mov	r0, r31
+    136e:	fd e5       	ldi	r31, 0x5D	; 93
+    1370:	cf 2e       	mov	r12, r31
+    1372:	f2 e0       	ldi	r31, 0x02	; 2
+    1374:	df 2e       	mov	r13, r31
+    1376:	f0 2d       	mov	r31, r0
+    1378:	14 c0       	rjmp	.+40     	; 0x13a2 <_ZN2OS7channelI6signalLj64EhE4pushERKS1_+0x54>
+
+    TProcessMap Table[scmRTOS_PROCESS_COUNT+1];
+};
+extern TPrioMaskTable PrioMaskTable;
+
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+    137a:	e8 81       	ld	r30, Y
+    137c:	f0 e0       	ldi	r31, 0x00	; 0
+    137e:	e3 5e       	subi	r30, 0xE3	; 227
+    1380:	fd 4f       	sbci	r31, 0xFD	; 253
+    1382:	80 81       	ld	r24, Z
+    const uint_fast8_t PROCESS_COUNT         = scmRTOS_PROCESS_COUNT + 1;
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    1384:	f8 01       	movw	r30, r16
+    1386:	90 81       	ld	r25, Z
+    1388:	98 2b       	or	r25, r24
+    138a:	90 83       	st	Z, r25
+    INLINE void clr_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    138c:	99 81       	ldd	r25, Y+1	; 0x01
+    138e:	80 95       	com	r24
+    1390:	89 23       	and	r24, r25
+    1392:	89 83       	std	Y+1, r24	; 0x01
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    1394:	f6 01       	movw	r30, r12
+    1396:	80 81       	ld	r24, Z
+    1398:	81 11       	cpse	r24, r1
+    139a:	ef cf       	rjmp	.-34     	; 0x137a <_ZN2OS7channelI6signalLj64EhE4pushERKS1_+0x2c>
+    139c:	ce 01       	movw	r24, r28
+    139e:	0e 94 32 0c 	call	0x1864	; 0x1864 <_ZN2OS7TKernel5schedEv>
+        //----------------------------------------------------------------
+        //
+        //    Service functions
+        //
+        S get_count() const { return Count; }
+        S get_free_size() const { return Size - Count; }
+    13a2:	f8 01       	movw	r30, r16
+    13a4:	82 81       	ldd	r24, Z+2	; 0x02
+template<typename T, uint16_t Size, typename S>
+void OS::channel<T, Size, S>::push(const T& item)
+{
+    TCritSect cs;
+
+    while(!pool.get_free_size())
+    13a6:	80 34       	cpi	r24, 0x40	; 64
+    13a8:	41 f3       	breq	.-48     	; 0x137a <_ZN2OS7channelI6signalLj64EhE4pushERKS1_+0x2c>
+    {
+        // channel is full, suspend current process until data removed
+        suspend(ProducersProcessMap);
+    }
+
+    pool.push_back(item);
+    13aa:	f7 01       	movw	r30, r14
+    13ac:	20 81       	ld	r18, Z
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+void usr::ring_buffer<T, Size, S>::push_item(const T item)
+{
+    Buf[Last] = item;
+    13ae:	f8 01       	movw	r30, r16
+    13b0:	94 81       	ldd	r25, Z+4	; 0x04
+    13b2:	e9 0f       	add	r30, r25
+    13b4:	f1 1d       	adc	r31, r1
+    13b6:	25 83       	std	Z+5, r18	; 0x05
+    Last++;
+    13b8:	9f 5f       	subi	r25, 0xFF	; 255
+    13ba:	f8 01       	movw	r30, r16
+    13bc:	94 83       	std	Z+4, r25	; 0x04
+    Count++;
+    13be:	8f 5f       	subi	r24, 0xFF	; 255
+    13c0:	82 83       	std	Z+2, r24	; 0x02
+
+    if(Last == Size)
+    13c2:	90 34       	cpi	r25, 0x40	; 64
+    13c4:	09 f4       	brne	.+2      	; 0x13c8 <_ZN2OS7channelI6signalLj64EhE4pushERKS1_+0x7a>
+        Last = 0;
+    13c6:	14 82       	std	Z+4, r1	; 0x04
+    resume_all(ConsumersProcessMap);
+    13c8:	c8 01       	movw	r24, r16
+    13ca:	01 96       	adiw	r24, 0x01	; 1
+    13cc:	0e 94 a4 0c 	call	0x1948	; 0x1948 <_ZN2OS8TService10resume_allERVh>
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    ~TCritSect() { SREG = StatusReg; }
+    13d0:	bf be       	out	0x3f, r11	; 63
+}
+    13d2:	df 91       	pop	r29
+    13d4:	cf 91       	pop	r28
+    13d6:	1f 91       	pop	r17
+    13d8:	0f 91       	pop	r16
+    13da:	ff 90       	pop	r15
+    13dc:	ef 90       	pop	r14
+    13de:	df 90       	pop	r13
+    13e0:	cf 90       	pop	r12
+    13e2:	bf 90       	pop	r11
+    13e4:	08 95       	ret
+
+000013e6 <_ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv>:
+	signal ret;
+	key_ev_qu.pop(ret);
+	return ret;
+}
+
+template<> void TEncProc::exec() {
+    13e6:	1f 92       	push	r1
+    13e8:	cd b7       	in	r28, 0x3d	; 61
+    13ea:	de b7       	in	r29, 0x3e	; 62
+	unsigned char EncState = 0, div4 = 0;
+    13ec:	00 e0       	ldi	r16, 0x00	; 0
+    13ee:	f1 2c       	mov	r15, r1
+		//Выбираем выходной сигнал по таблице.
+		res = (signal)pgm_read_byte(&(EncTransitTable[EncNewSignal][EncState]));
+		if(res!=none) {
+			EncState = EncNewSignal;		//Переходим в новое состояние.
+			if(++div4==4) {				//Сохраняем только каждое четвёртое событие.
+				div4 = 0;
+    13f0:	e1 2c       	mov	r14, r1
+		"bld %0, 1"					"\n\t"
+		"bst __tmp_reg__, %[enc_b]"	"\n\t"
+		"bld %0, 0"					"\n\t"
+		: "=r" (EncNewSignal)
+		:[port] "I" (_SFR_IO_ADDR(ENC_PIN)), [enc_a] "I" (ENC_A), [enc_b] "I" (ENC_B)
+		);
+    13f2:	00 b2       	in	r0, 0x10	; 16
+    13f4:	11 2d       	mov	r17, r1
+    13f6:	03 fa       	bst	r0, 3
+    13f8:	11 f9       	bld	r17, 1
+    13fa:	01 fa       	bst	r0, 1
+    13fc:	10 f9       	bld	r17, 0
+		//То же самое на C
+		//EncNewSignal = ((ENC_PIN_REG&(1<<ENC_B))>>ENC_B)|((ENC_PIN_REG&(1<<ENC_A))>>(ENC_A-1));
+		
+		//КА, обрабатывающий данные от энкодера.
+		//Выбираем выходной сигнал по таблице.
+		res = (signal)pgm_read_byte(&(EncTransitTable[EncNewSignal][EncState]));
+    13fe:	ef 2d       	mov	r30, r15
+    1400:	f0 e0       	ldi	r31, 0x00	; 0
+    1402:	84 e0       	ldi	r24, 0x04	; 4
+    1404:	18 9f       	mul	r17, r24
+    1406:	e0 0d       	add	r30, r0
+    1408:	f1 1d       	adc	r31, r1
+    140a:	11 24       	eor	r1, r1
+    140c:	e3 50       	subi	r30, 0x03	; 3
+    140e:	f3 4f       	sbci	r31, 0xF3	; 243
+    1410:	e4 91       	lpm	r30, Z
+    1412:	e9 83       	std	Y+1, r30	; 0x01
+		if(res!=none) {
+    1414:	ec 31       	cpi	r30, 0x1C	; 28
+    1416:	71 f0       	breq	.+28     	; 0x1434 <_ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv+0x4e>
+			EncState = EncNewSignal;		//Переходим в новое состояние.
+			if(++div4==4) {				//Сохраняем только каждое четвёртое событие.
+    1418:	0f 5f       	subi	r16, 0xFF	; 255
+    141a:	04 30       	cpi	r16, 0x04	; 4
+    141c:	51 f4       	brne	.+20     	; 0x1432 <_ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv+0x4c>
+				div4 = 0;
+				key_ev_qu.push(res);
+    141e:	be 01       	movw	r22, r28
+    1420:	6f 5f       	subi	r22, 0xFF	; 255
+    1422:	7f 4f       	sbci	r23, 0xFF	; 255
+    1424:	81 e7       	ldi	r24, 0x71	; 113
+    1426:	90 e0       	ldi	r25, 0x00	; 0
+    1428:	0e 94 a7 09 	call	0x134e	; 0x134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>
+		
+		//КА, обрабатывающий данные от энкодера.
+		//Выбираем выходной сигнал по таблице.
+		res = (signal)pgm_read_byte(&(EncTransitTable[EncNewSignal][EncState]));
+		if(res!=none) {
+			EncState = EncNewSignal;		//Переходим в новое состояние.
+    142c:	f1 2e       	mov	r15, r17
+			if(++div4==4) {				//Сохраняем только каждое четвёртое событие.
+				div4 = 0;
+    142e:	0e 2d       	mov	r16, r14
+    1430:	01 c0       	rjmp	.+2      	; 0x1434 <_ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv+0x4e>
+		
+		//КА, обрабатывающий данные от энкодера.
+		//Выбираем выходной сигнал по таблице.
+		res = (signal)pgm_read_byte(&(EncTransitTable[EncNewSignal][EncState]));
+		if(res!=none) {
+			EncState = EncNewSignal;		//Переходим в новое состояние.
+    1432:	f1 2e       	mov	r15, r17
+				div4 = 0;
+				key_ev_qu.push(res);
+			}
+		}
+		
+		sleep(2);
+    1434:	82 e0       	ldi	r24, 0x02	; 2
+    1436:	90 e0       	ldi	r25, 0x00	; 0
+    1438:	0e 94 6e 0c 	call	0x18dc	; 0x18dc <_ZN2OS12TBaseProcess5sleepEj>
+	}
+    143c:	da cf       	rjmp	.-76     	; 0x13f2 <_ZN2OS7processILNS_9TPriorityE0ELj40EE4execEv+0xc>
+
+0000143e <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv>:
+}
+
+template<> void TKeybProc::exec() {
+    143e:	cd b7       	in	r28, 0x3d	; 61
+    1440:	de b7       	in	r29, 0x3e	; 62
+    1442:	27 97       	sbiw	r28, 0x07	; 7
+    1444:	0f b6       	in	r0, 0x3f	; 63
+    1446:	f8 94       	cli
+    1448:	de bf       	out	0x3e, r29	; 62
+    144a:	0f be       	out	0x3f, r0	; 63
+    144c:	cd bf       	out	0x3d, r28	; 61
+	unsigned char Old=_BV(ENC_BUT);
+	unsigned char mkey_read_old[3] = {_BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4), _BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4), _BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4) };
+    144e:	85 e3       	ldi	r24, 0x35	; 53
+    1450:	8d 83       	std	Y+5, r24	; 0x05
+    1452:	8e 83       	std	Y+6, r24	; 0x06
+    1454:	8f 83       	std	Y+7, r24	; 0x07
+		sleep(2);
+	}
+}
+
+template<> void TKeybProc::exec() {
+	unsigned char Old=_BV(ENC_BUT);
+    1456:	68 94       	set
+    1458:	77 24       	eor	r7, r7
+    145a:	76 f8       	bld	r7, 6
+
+	while(1) {
+		//Если предыдущее состояние порта было нулевым, а текущее - единичное,
+		//то произошло отпускание кнопки
+		if( (!(Old & _BV(ENC_BUT))) && (ENC_PIN & _BV(ENC_BUT)) ) {
+			key_ev_qu.push(ButEnc_release);
+    145c:	44 24       	eor	r4, r4
+    145e:	43 94       	inc	r4
+		sleep(2);
+	}
+}
+
+template<> void TKeybProc::exec() {
+	unsigned char Old=_BV(ENC_BUT);
+    1460:	51 2c       	mov	r5, r1
+    1462:	61 2c       	mov	r6, r1
+		for(register unsigned char mYi = 0; mYi<3; mYi++) {
+			MKEY_PORT &= ~pgm_read_byte(&MKeyMasks_Y[mYi]);
+			//И для каждой клавиши на столбце выполняем такую же проверку
+			for(register unsigned char mXi = 0; mXi<4; mXi++) {
+				//Перепад с низкого уровня на высокий соответствует отпусканию
+				if( (!(mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi]))) && (MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi])) ) {	
+    1464:	85 2c       	mov	r8, r5
+    1466:	96 2c       	mov	r9, r6
+	unsigned char mkey_read_old[3] = {_BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4), _BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4), _BV(MKEY_X1)|_BV(MKEY_X2)|_BV(MKEY_X3)|_BV(MKEY_X4) };
+
+	while(1) {
+		//Если предыдущее состояние порта было нулевым, а текущее - единичное,
+		//то произошло отпускание кнопки
+		if( (!(Old & _BV(ENC_BUT))) && (ENC_PIN & _BV(ENC_BUT)) ) {
+    1468:	76 fc       	sbrc	r7, 6
+    146a:	03 c0       	rjmp	.+6      	; 0x1472 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x34>
+    146c:	86 99       	sbic	0x10, 6	; 16
+    146e:	45 c0       	rjmp	.+138    	; 0x14fa <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0xbc>
+    1470:	02 c0       	rjmp	.+4      	; 0x1476 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x38>
+			key_ev_qu.push(ButEnc_release);
+			Old = ENC_PIN;
+		}
+		//Если наоборот - нажатие
+		if( (Old & _BV(ENC_BUT)) && (!(ENC_PIN & _BV(ENC_BUT))) ) {
+    1472:	86 9b       	sbis	0x10, 6	; 16
+    1474:	4e c0       	rjmp	.+156    	; 0x1512 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0xd4>
+    1476:	ce 01       	movw	r24, r28
+    1478:	05 96       	adiw	r24, 0x05	; 5
+    147a:	7c 01       	movw	r14, r24
+		sleep(2);
+	}
+}
+
+template<> void TKeybProc::exec() {
+	unsigned char Old=_BV(ENC_BUT);
+    147c:	05 2d       	mov	r16, r5
+    147e:	16 2d       	mov	r17, r6
+			Old = ENC_PIN;
+		}
+	
+		//Для каждого столбца матричной клавиатуры
+		for(register unsigned char mYi = 0; mYi<3; mYi++) {
+			MKEY_PORT &= ~pgm_read_byte(&MKeyMasks_Y[mYi]);
+    1480:	a8 01       	movw	r20, r16
+    1482:	f8 01       	movw	r30, r16
+    1484:	ea 50       	subi	r30, 0x0A	; 10
+    1486:	f3 4f       	sbci	r31, 0xF3	; 243
+    1488:	6f 01       	movw	r12, r30
+    148a:	84 91       	lpm	r24, Z
+    148c:	25 b3       	in	r18, 0x15	; 21
+    148e:	90 e0       	ldi	r25, 0x00	; 0
+    1490:	80 95       	com	r24
+    1492:	90 95       	com	r25
+    1494:	30 e0       	ldi	r19, 0x00	; 0
+    1496:	82 23       	and	r24, r18
+    1498:	93 23       	and	r25, r19
+    149a:	85 bb       	out	0x15, r24	; 21
+    149c:	57 01       	movw	r10, r14
+			//И для каждой клавиши на столбце выполняем такую же проверку
+			for(register unsigned char mXi = 0; mXi<4; mXi++) {
+				//Перепад с низкого уровня на высокий соответствует отпусканию
+				if( (!(mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi]))) && (MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi])) ) {	
+    149e:	f7 01       	movw	r30, r14
+    14a0:	60 81       	ld	r22, Z
+    14a2:	88 2d       	mov	r24, r8
+    14a4:	99 2d       	mov	r25, r9
+    14a6:	9c 01       	movw	r18, r24
+    14a8:	fc 01       	movw	r30, r24
+    14aa:	e7 50       	subi	r30, 0x07	; 7
+    14ac:	f3 4f       	sbci	r31, 0xF3	; 243
+    14ae:	74 91       	lpm	r23, Z
+    14b0:	76 23       	and	r23, r22
+    14b2:	09 f0       	breq	.+2      	; 0x14b6 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x78>
+    14b4:	4c c0       	rjmp	.+152    	; 0x154e <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x110>
+    14b6:	73 b3       	in	r23, 0x13	; 19
+    14b8:	a4 91       	lpm	r26, Z
+    14ba:	7a 23       	and	r23, r26
+    14bc:	09 f4       	brne	.+2      	; 0x14c0 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x82>
+    14be:	47 c0       	rjmp	.+142    	; 0x154e <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x110>
+    14c0:	32 c0       	rjmp	.+100    	; 0x1526 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0xe8>
+					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsRelease[mYi][mXi]));
+					break;
+				}
+				if( (mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi])) && (!(MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi]))) ) {
+    14c2:	73 b3       	in	r23, 0x13	; 19
+    14c4:	e4 91       	lpm	r30, Z
+    14c6:	7e 23       	and	r23, r30
+    14c8:	09 f0       	breq	.+2      	; 0x14cc <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x8e>
+    14ca:	5a c0       	rjmp	.+180    	; 0x1580 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x142>
+    14cc:	45 c0       	rjmp	.+138    	; 0x1558 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x11a>
+					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsPress[mYi][mXi]));
+					break;
+				}
+			}
+			mkey_read_old[mYi] = MKEY_PIN;
+    14ce:	83 b3       	in	r24, 0x13	; 19
+    14d0:	f5 01       	movw	r30, r10
+    14d2:	80 83       	st	Z, r24
+    14d4:	ff ef       	ldi	r31, 0xFF	; 255
+    14d6:	ef 1a       	sub	r14, r31
+    14d8:	ff 0a       	sbc	r15, r31
+			MKEY_PORT |= pgm_read_byte(&MKeyMasks_Y[mYi]);
+    14da:	f6 01       	movw	r30, r12
+    14dc:	c4 90       	lpm	r12, Z
+    14de:	85 b3       	in	r24, 0x15	; 21
+    14e0:	c8 2a       	or	r12, r24
+    14e2:	c5 ba       	out	0x15, r12	; 21
+    14e4:	0f 5f       	subi	r16, 0xFF	; 255
+    14e6:	1f 4f       	sbci	r17, 0xFF	; 255
+			key_ev_qu.push(ButEnc_press);
+			Old = ENC_PIN;
+		}
+	
+		//Для каждого столбца матричной клавиатуры
+		for(register unsigned char mYi = 0; mYi<3; mYi++) {
+    14e8:	03 30       	cpi	r16, 0x03	; 3
+    14ea:	11 05       	cpc	r17, r1
+    14ec:	09 f0       	breq	.+2      	; 0x14f0 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0xb2>
+    14ee:	c8 cf       	rjmp	.-112    	; 0x1480 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x42>
+			}
+			mkey_read_old[mYi] = MKEY_PIN;
+			MKEY_PORT |= pgm_read_byte(&MKeyMasks_Y[mYi]);
+		}
+	
+		sleep(33);
+    14f0:	81 e2       	ldi	r24, 0x21	; 33
+    14f2:	90 e0       	ldi	r25, 0x00	; 0
+    14f4:	0e 94 6e 0c 	call	0x18dc	; 0x18dc <_ZN2OS12TBaseProcess5sleepEj>
+	}
+    14f8:	b7 cf       	rjmp	.-146    	; 0x1468 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x2a>
+
+	while(1) {
+		//Если предыдущее состояние порта было нулевым, а текущее - единичное,
+		//то произошло отпускание кнопки
+		if( (!(Old & _BV(ENC_BUT))) && (ENC_PIN & _BV(ENC_BUT)) ) {
+			key_ev_qu.push(ButEnc_release);
+    14fa:	4c 82       	std	Y+4, r4	; 0x04
+    14fc:	be 01       	movw	r22, r28
+    14fe:	6c 5f       	subi	r22, 0xFC	; 252
+    1500:	7f 4f       	sbci	r23, 0xFF	; 255
+    1502:	81 e7       	ldi	r24, 0x71	; 113
+    1504:	90 e0       	ldi	r25, 0x00	; 0
+    1506:	0e 94 a7 09 	call	0x134e	; 0x134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>
+			Old = ENC_PIN;
+    150a:	70 b2       	in	r7, 0x10	; 16
+		}
+		//Если наоборот - нажатие
+		if( (Old & _BV(ENC_BUT)) && (!(ENC_PIN & _BV(ENC_BUT))) ) {
+    150c:	76 fe       	sbrs	r7, 6
+    150e:	b3 cf       	rjmp	.-154    	; 0x1476 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x38>
+    1510:	b0 cf       	rjmp	.-160    	; 0x1472 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x34>
+			key_ev_qu.push(ButEnc_press);
+    1512:	1b 82       	std	Y+3, r1	; 0x03
+    1514:	be 01       	movw	r22, r28
+    1516:	6d 5f       	subi	r22, 0xFD	; 253
+    1518:	7f 4f       	sbci	r23, 0xFF	; 255
+    151a:	81 e7       	ldi	r24, 0x71	; 113
+    151c:	90 e0       	ldi	r25, 0x00	; 0
+    151e:	0e 94 a7 09 	call	0x134e	; 0x134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>
+			Old = ENC_PIN;
+    1522:	70 b2       	in	r7, 0x10	; 16
+    1524:	a8 cf       	rjmp	.-176    	; 0x1476 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x38>
+			MKEY_PORT &= ~pgm_read_byte(&MKeyMasks_Y[mYi]);
+			//И для каждой клавиши на столбце выполняем такую же проверку
+			for(register unsigned char mXi = 0; mXi<4; mXi++) {
+				//Перепад с низкого уровня на высокий соответствует отпусканию
+				if( (!(mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi]))) && (MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi])) ) {	
+					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsRelease[mYi][mXi]));
+    1526:	fa 01       	movw	r30, r20
+    1528:	ee 0f       	add	r30, r30
+    152a:	ff 1f       	adc	r31, r31
+    152c:	ee 0f       	add	r30, r30
+    152e:	ff 1f       	adc	r31, r31
+    1530:	2e 0f       	add	r18, r30
+    1532:	3f 1f       	adc	r19, r31
+    1534:	f9 01       	movw	r30, r18
+    1536:	e6 51       	subi	r30, 0x16	; 22
+    1538:	f3 4f       	sbci	r31, 0xF3	; 243
+    153a:	e4 91       	lpm	r30, Z
+    153c:	ea 83       	std	Y+2, r30	; 0x02
+    153e:	be 01       	movw	r22, r28
+    1540:	6e 5f       	subi	r22, 0xFE	; 254
+    1542:	7f 4f       	sbci	r23, 0xFF	; 255
+    1544:	81 e7       	ldi	r24, 0x71	; 113
+    1546:	90 e0       	ldi	r25, 0x00	; 0
+    1548:	0e 94 a7 09 	call	0x134e	; 0x134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>
+					break;
+    154c:	c0 cf       	rjmp	.-128    	; 0x14ce <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x90>
+				}
+				if( (mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi])) && (!(MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi]))) ) {
+    154e:	74 91       	lpm	r23, Z
+    1550:	76 23       	and	r23, r22
+    1552:	09 f0       	breq	.+2      	; 0x1556 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x118>
+    1554:	b6 cf       	rjmp	.-148    	; 0x14c2 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x84>
+    1556:	14 c0       	rjmp	.+40     	; 0x1580 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x142>
+					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsPress[mYi][mXi]));
+    1558:	fa 01       	movw	r30, r20
+    155a:	ee 0f       	add	r30, r30
+    155c:	ff 1f       	adc	r31, r31
+    155e:	ee 0f       	add	r30, r30
+    1560:	ff 1f       	adc	r31, r31
+    1562:	2e 0f       	add	r18, r30
+    1564:	3f 1f       	adc	r19, r31
+    1566:	f9 01       	movw	r30, r18
+    1568:	e2 52       	subi	r30, 0x22	; 34
+    156a:	f3 4f       	sbci	r31, 0xF3	; 243
+    156c:	e4 91       	lpm	r30, Z
+    156e:	e9 83       	std	Y+1, r30	; 0x01
+    1570:	be 01       	movw	r22, r28
+    1572:	6f 5f       	subi	r22, 0xFF	; 255
+    1574:	7f 4f       	sbci	r23, 0xFF	; 255
+    1576:	81 e7       	ldi	r24, 0x71	; 113
+    1578:	90 e0       	ldi	r25, 0x00	; 0
+    157a:	0e 94 a7 09 	call	0x134e	; 0x134e <_ZN2OS7channelI6signalLj64EhE4pushERKS1_>
+					break;
+    157e:	a7 cf       	rjmp	.-178    	; 0x14ce <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x90>
+    1580:	01 96       	adiw	r24, 0x01	; 1
+	
+		//Для каждого столбца матричной клавиатуры
+		for(register unsigned char mYi = 0; mYi<3; mYi++) {
+			MKEY_PORT &= ~pgm_read_byte(&MKeyMasks_Y[mYi]);
+			//И для каждой клавиши на столбце выполняем такую же проверку
+			for(register unsigned char mXi = 0; mXi<4; mXi++) {
+    1582:	84 30       	cpi	r24, 0x04	; 4
+    1584:	91 05       	cpc	r25, r1
+    1586:	09 f0       	breq	.+2      	; 0x158a <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x14c>
+    1588:	8e cf       	rjmp	.-228    	; 0x14a6 <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x68>
+    158a:	a1 cf       	rjmp	.-190    	; 0x14ce <_ZN2OS7processILNS_9TPriorityE1ELj48EE4execEv+0x90>
+
+0000158c <_ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv>:
+    push_item_front(item);
+    return true;
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+T usr::ring_buffer<T, Size, S>::pop_front()
+    158c:	fc 01       	movw	r30, r24
+{
+    if(Count)
+    158e:	90 81       	ld	r25, Z
+    1590:	99 23       	and	r25, r25
+    1592:	79 f0       	breq	.+30     	; 0x15b2 <_ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv+0x26>
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+T usr::ring_buffer<T, Size, S>::pop_item()
+{
+    T item = Buf[First];
+    1594:	21 81       	ldd	r18, Z+1	; 0x01
+    1596:	df 01       	movw	r26, r30
+    1598:	a2 0f       	add	r26, r18
+    159a:	b1 1d       	adc	r27, r1
+    159c:	13 96       	adiw	r26, 0x03	; 3
+    159e:	8c 91       	ld	r24, X
+
+    Count--;
+    15a0:	91 50       	subi	r25, 0x01	; 1
+    15a2:	90 83       	st	Z, r25
+    First++;
+    15a4:	2f 5f       	subi	r18, 0xFF	; 255
+    if(First == Size)
+    15a6:	20 34       	cpi	r18, 0x40	; 64
+    15a8:	11 f0       	breq	.+4      	; 0x15ae <_ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv+0x22>
+T usr::ring_buffer<T, Size, S>::pop_item()
+{
+    T item = Buf[First];
+
+    Count--;
+    First++;
+    15aa:	21 83       	std	Z+1, r18	; 0x01
+    15ac:	08 95       	ret
+    if(First == Size)
+        First = 0;
+    15ae:	11 82       	std	Z+1, r1	; 0x01
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+T usr::ring_buffer<T, Size, S>::pop_front()
+{
+    if(Count)
+        return pop_item();
+    15b0:	08 95       	ret
+    else
+        return Buf[First];
+    15b2:	81 81       	ldd	r24, Z+1	; 0x01
+    15b4:	e8 0f       	add	r30, r24
+    15b6:	f1 1d       	adc	r31, r1
+    15b8:	83 81       	ldd	r24, Z+3	; 0x03
+}
+    15ba:	08 95       	ret
+
+000015bc <_ZN2OS7channelI6signalLj64EhE3popERS1_j>:
+    resume_all(ConsumersProcessMap);
+
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+bool OS::channel<T, Size, S>::pop(T& item, timeout_t timeout)
+    15bc:	bf 92       	push	r11
+    15be:	cf 92       	push	r12
+    15c0:	df 92       	push	r13
+    15c2:	ef 92       	push	r14
+    15c4:	ff 92       	push	r15
+    15c6:	0f 93       	push	r16
+    15c8:	1f 93       	push	r17
+    15ca:	cf 93       	push	r28
+    15cc:	df 93       	push	r29
+    15ce:	ec 01       	movw	r28, r24
+    15d0:	7b 01       	movw	r14, r22
+//
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    15d2:	bf b6       	in	r11, 0x3f	; 63
+    15d4:	f8 94       	cli
+{
+    TCritSect cs;
+
+    if(pool.get_count())
+    15d6:	8a 81       	ldd	r24, Y+2	; 0x02
+    15d8:	88 23       	and	r24, r24
+    15da:	59 f0       	breq	.+22     	; 0x15f2 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0x36>
+
+        T pop_front();
+        T pop_back();
+
+        bool push(const T item) { return push_back(item); }
+        T pop() { return pop_front(); }
+    15dc:	ce 01       	movw	r24, r28
+    15de:	02 96       	adiw	r24, 0x02	; 2
+    15e0:	0e 94 c6 0a 	call	0x158c	; 0x158c <_ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv>
+    {
+        item = pool.pop();
+    15e4:	d7 01       	movw	r26, r14
+    15e6:	8c 93       	st	X, r24
+        resume_all(ProducersProcessMap);
+    15e8:	ce 01       	movw	r24, r28
+    15ea:	0e 94 a4 0c 	call	0x1948	; 0x1948 <_ZN2OS8TService10resume_allERVh>
+        return true;
+    15ee:	81 e0       	ldi	r24, 0x01	; 1
+    15f0:	4f c0       	rjmp	.+158    	; 0x1690 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xd4>
+    //      DESCRIPTION:
+    //
+    //
+    class TKernelAgent
+    {
+        INLINE static TBaseProcess * cur_proc()                        { return Kernel.ProcessTable[cur_proc_priority()]; }
+    15f2:	e0 91 5b 02 	lds	r30, 0x025B
+    15f6:	f0 e0       	ldi	r31, 0x00	; 0
+    15f8:	ee 0f       	add	r30, r30
+    15fa:	ff 1f       	adc	r31, r31
+    15fc:	ed 5a       	subi	r30, 0xAD	; 173
+    15fe:	fd 4f       	sbci	r31, 0xFD	; 253
+    1600:	01 90       	ld	r0, Z+
+    1602:	f0 81       	ld	r31, Z
+    1604:	e0 2d       	mov	r30, r0
+    }
+    else
+    {
+        cur_proc_timeout() = timeout;
+    1606:	53 83       	std	Z+3, r21	; 0x03
+    1608:	42 83       	std	Z+2, r20	; 0x02
+    class TService : public TKernelAgent
+    {
+    protected:
+        TService() : TKernelAgent() { }
+
+        INLINE static TProcessMap  cur_proc_prio_tag()  { return get_prio_tag(cur_proc_priority()); }
+    160a:	0b e5       	ldi	r16, 0x5B	; 91
+    160c:	12 e0       	ldi	r17, 0x02	; 2
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    160e:	0f 2e       	mov	r0, r31
+    1610:	fd e5       	ldi	r31, 0x5D	; 93
+    1612:	cf 2e       	mov	r12, r31
+    1614:	f2 e0       	ldi	r31, 0x02	; 2
+    1616:	df 2e       	mov	r13, r31
+    1618:	f0 2d       	mov	r31, r0
+
+    TProcessMap Table[scmRTOS_PROCESS_COUNT+1];
+};
+extern TPrioMaskTable PrioMaskTable;
+
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+    161a:	d8 01       	movw	r26, r16
+    161c:	ec 91       	ld	r30, X
+    161e:	f0 e0       	ldi	r31, 0x00	; 0
+    1620:	e3 5e       	subi	r30, 0xE3	; 227
+    1622:	fd 4f       	sbci	r31, 0xFD	; 253
+    1624:	80 81       	ld	r24, Z
+    const uint_fast8_t PROCESS_COUNT         = scmRTOS_PROCESS_COUNT + 1;
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    1626:	99 81       	ldd	r25, Y+1	; 0x01
+    1628:	98 2b       	or	r25, r24
+    162a:	99 83       	std	Y+1, r25	; 0x01
+    INLINE void clr_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    162c:	11 96       	adiw	r26, 0x01	; 1
+    162e:	9c 91       	ld	r25, X
+    1630:	11 97       	sbiw	r26, 0x01	; 1
+    1632:	80 95       	com	r24
+    1634:	89 23       	and	r24, r25
+    1636:	11 96       	adiw	r26, 0x01	; 1
+    1638:	8c 93       	st	X, r24
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    163a:	f6 01       	movw	r30, r12
+    163c:	80 81       	ld	r24, Z
+    163e:	81 11       	cpse	r24, r1
+    1640:	03 c0       	rjmp	.+6      	; 0x1648 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0x8c>
+    1642:	c8 01       	movw	r24, r16
+    1644:	0e 94 32 0c 	call	0x1864	; 0x1864 <_ZN2OS7TKernel5schedEv>
+    1648:	d8 01       	movw	r26, r16
+    164a:	8c 91       	ld	r24, X
+    164c:	90 e0       	ldi	r25, 0x00	; 0
+    164e:	fc 01       	movw	r30, r24
+    1650:	e3 5e       	subi	r30, 0xE3	; 227
+    1652:	fd 4f       	sbci	r31, 0xFD	; 253
+    1654:	30 81       	ld	r19, Z
+    //--------------------------------------------------------------------------
+    bool OS::TService::is_timeouted(TProcessMap volatile & waiters_map)
+    {
+        TProcessMap PrioTag = cur_proc_prio_tag();
+
+        TProcessMap CachedMap = waiters_map;                // cache volatile, code runs in critical section
+    1656:	29 81       	ldd	r18, Y+1	; 0x01
+        if( CachedMap & PrioTag )                           // if waked up by timeout or by
+    1658:	42 2f       	mov	r20, r18
+    165a:	43 23       	and	r20, r19
+    165c:	d9 f0       	breq	.+54     	; 0x1694 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xd8>
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    INLINE void clr_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    INLINE void set_prio_tag(TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    INLINE void clr_prio_tag(TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    165e:	30 95       	com	r19
+    1660:	23 23       	and	r18, r19
+                                                            // OS::TBaseProcess::wake_up() | force_wake_up()
+        {
+            clr_prio_tag(CachedMap, PrioTag);               // remove process from the wait map
+            waiters_map = CachedMap;
+    1662:	29 83       	std	Y+1, r18	; 0x01
+        for(;;)
+        {
+            // channel is empty, suspend current process until data received or timeout
+            suspend(ConsumersProcessMap);
+            if(is_timeouted(ConsumersProcessMap))
+                return false;
+    1664:	80 e0       	ldi	r24, 0x00	; 0
+    1666:	14 c0       	rjmp	.+40     	; 0x1690 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xd4>
+    //      DESCRIPTION:
+    //
+    //
+    class TKernelAgent
+    {
+        INLINE static TBaseProcess * cur_proc()                        { return Kernel.ProcessTable[cur_proc_priority()]; }
+    1668:	fc 01       	movw	r30, r24
+    166a:	ee 0f       	add	r30, r30
+    166c:	ff 1f       	adc	r31, r31
+    166e:	ed 5a       	subi	r30, 0xAD	; 173
+    1670:	fd 4f       	sbci	r31, 0xFD	; 253
+    1672:	01 90       	ld	r0, Z+
+    1674:	f0 81       	ld	r31, Z
+    1676:	e0 2d       	mov	r30, r0
+
+            if(pool.get_count())
+            {
+                cur_proc_timeout() = 0;
+    1678:	13 82       	std	Z+3, r1	; 0x03
+    167a:	12 82       	std	Z+2, r1	; 0x02
+    167c:	ce 01       	movw	r24, r28
+    167e:	02 96       	adiw	r24, 0x02	; 2
+    1680:	0e 94 c6 0a 	call	0x158c	; 0x158c <_ZN3usr11ring_bufferI6signalLj64EhE9pop_frontEv>
+                item = pool.pop();
+    1684:	f7 01       	movw	r30, r14
+    1686:	80 83       	st	Z, r24
+                resume_all(ProducersProcessMap);
+    1688:	ce 01       	movw	r24, r28
+    168a:	0e 94 a4 0c 	call	0x1948	; 0x1948 <_ZN2OS8TService10resume_allERVh>
+                return true;
+    168e:	81 e0       	ldi	r24, 0x01	; 1
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    ~TCritSect() { SREG = StatusReg; }
+    1690:	bf be       	out	0x3f, r11	; 63
+    1692:	05 c0       	rjmp	.+10     	; 0x169e <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xe2>
+            // channel is empty, suspend current process until data received or timeout
+            suspend(ConsumersProcessMap);
+            if(is_timeouted(ConsumersProcessMap))
+                return false;
+
+            if(pool.get_count())
+    1694:	2a 81       	ldd	r18, Y+2	; 0x02
+    1696:	22 23       	and	r18, r18
+    1698:	09 f4       	brne	.+2      	; 0x169c <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xe0>
+    169a:	bf cf       	rjmp	.-130    	; 0x161a <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0x5e>
+    169c:	e5 cf       	rjmp	.-54     	; 0x1668 <_ZN2OS7channelI6signalLj64EhE3popERS1_j+0xac>
+                return true;
+            }
+            // otherwise another process caught data
+        }
+    }
+}
+    169e:	df 91       	pop	r29
+    16a0:	cf 91       	pop	r28
+    16a2:	1f 91       	pop	r17
+    16a4:	0f 91       	pop	r16
+    16a6:	ff 90       	pop	r15
+    16a8:	ef 90       	pop	r14
+    16aa:	df 90       	pop	r13
+    16ac:	cf 90       	pop	r12
+    16ae:	bf 90       	pop	r11
+    16b0:	08 95       	ret
+
+000016b2 <_Z13WaitKeySignalv>:
+	}
+	key_ev_qu.pop(ret);
+	return ret;
+}
+
+signal WaitKeySignal() {
+    16b2:	cf 93       	push	r28
+    16b4:	df 93       	push	r29
+    16b6:	1f 92       	push	r1
+    16b8:	cd b7       	in	r28, 0x3d	; 61
+    16ba:	de b7       	in	r29, 0x3e	; 62
+	signal ret;
+	key_ev_qu.pop(ret);
+    16bc:	40 e0       	ldi	r20, 0x00	; 0
+    16be:	50 e0       	ldi	r21, 0x00	; 0
+    16c0:	be 01       	movw	r22, r28
+    16c2:	6f 5f       	subi	r22, 0xFF	; 255
+    16c4:	7f 4f       	sbci	r23, 0xFF	; 255
+    16c6:	81 e7       	ldi	r24, 0x71	; 113
+    16c8:	90 e0       	ldi	r25, 0x00	; 0
+    16ca:	0e 94 de 0a 	call	0x15bc	; 0x15bc <_ZN2OS7channelI6signalLj64EhE3popERS1_j>
+	return ret;
+}
+    16ce:	89 81       	ldd	r24, Y+1	; 0x01
+    16d0:	0f 90       	pop	r0
+    16d2:	df 91       	pop	r29
+    16d4:	cf 91       	pop	r28
+    16d6:	08 95       	ret
+
+000016d8 <_GLOBAL__sub_I_EncProc>:
+                                                             , pr
+                                                             , reinterpret_cast<void (*)()>(exec) 
+                                                         #if scmRTOS_DEBUG_ENABLE == 1
+                                                             , Stack
+                                                         #endif
+                                                             )
+    16d8:	23 ef       	ldi	r18, 0xF3	; 243
+    16da:	39 e0       	ldi	r19, 0x09	; 9
+    16dc:	40 e0       	ldi	r20, 0x00	; 0
+    16de:	6d e1       	ldi	r22, 0x1D	; 29
+    16e0:	72 e0       	ldi	r23, 0x02	; 2
+    16e2:	80 ef       	ldi	r24, 0xF0	; 240
+    16e4:	91 e0       	ldi	r25, 0x01	; 1
+    16e6:	0e 94 5e 0c 	call	0x18bc	; 0x18bc <_ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE>
+    16ea:	2f e1       	ldi	r18, 0x1F	; 31
+    16ec:	3a e0       	ldi	r19, 0x0A	; 10
+    16ee:	41 e0       	ldi	r20, 0x01	; 1
+    16f0:	60 ef       	ldi	r22, 0xF0	; 240
+    16f2:	71 e0       	ldi	r23, 0x01	; 1
+    16f4:	8b eb       	ldi	r24, 0xBB	; 187
+    16f6:	91 e0       	ldi	r25, 0x01	; 1
+    16f8:	0e 94 5e 0c 	call	0x18bc	; 0x18bc <_ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE>
+    16fc:	21 e9       	ldi	r18, 0x91	; 145
+    16fe:	39 e0       	ldi	r19, 0x09	; 9
+    1700:	42 e0       	ldi	r20, 0x02	; 2
+    1702:	6b eb       	ldi	r22, 0xBB	; 187
+    1704:	71 e0       	ldi	r23, 0x01	; 1
+    1706:	86 eb       	ldi	r24, 0xB6	; 182
+    1708:	90 e0       	ldi	r25, 0x00	; 0
+    170a:	0e 94 5e 0c 	call	0x18bc	; 0x18bc <_ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE>
+    class channel : public TService
+    {
+    public:
+        INLINE channel() : ProducersProcessMap(0)
+                         , ConsumersProcessMap(0)
+                         , pool()
+    170e:	10 92 71 00 	sts	0x0071, r1
+    1712:	10 92 72 00 	sts	0x0072, r1
+    //
+    template<typename T, uint16_t Size, typename S = uint8_t>
+    class ring_buffer
+    {
+    public:
+        ring_buffer() : Count(0), First(0), Last(0) { }
+    1716:	10 92 73 00 	sts	0x0073, r1
+    171a:	10 92 74 00 	sts	0x0074, r1
+    171e:	10 92 75 00 	sts	0x0075, r1
+    1722:	08 95       	ret
+
+00001724 <_ZN2OS12TBaseProcess16init_stack_frameEPhPFvvE>:
+
+    //---------------------------------------------------------------
+    //
+    //  Prepare Process Stack Frame
+    //
+    *(--Stack) = reinterpret_cast<uint16_t>(exec);       // return from interrupt address (low  byte)
+    1724:	fb 01       	movw	r30, r22
+    1726:	31 97       	sbiw	r30, 0x01	; 1
+    1728:	40 83       	st	Z, r20
+    *(--Stack) = reinterpret_cast<uint16_t>(exec) >> 8;  // return from interrupt address (high byte)
+    172a:	31 97       	sbiw	r30, 0x01	; 1
+    172c:	50 83       	st	Z, r21
+#ifdef __AVR_3_BYTE_PC__
+    *(--Stack) = 0;                              // all trampolines are placed in lower 128K
+#endif
+    *(--Stack) = 0;                              // initalize __zero_reg__ for this process
+    172e:	31 97       	sbiw	r30, 0x01	; 1
+    1730:	10 82       	st	Z, r1
+    *(--Stack) = (1 << SREG_I);                  // SREG value: I-bit set, enable interrupts
+    1732:	31 97       	sbiw	r30, 0x01	; 1
+    1734:	20 e8       	ldi	r18, 0x80	; 128
+    1736:	20 83       	st	Z, r18
+    Stack     -= STACK_POINTER_CORRECTION;
+    1738:	64 52       	subi	r22, 0x24	; 36
+    173a:	71 09       	sbc	r23, r1
+
+    StackPointer = Stack;
+    173c:	fc 01       	movw	r30, r24
+    173e:	71 83       	std	Z+1, r23	; 0x01
+    1740:	60 83       	st	Z, r22
+    1742:	08 95       	ret
+
+00001744 <__vector_4>:
+//------------------------------------------------------------------------------
+//
+//  System timer ISR
+//
+OS_INTERRUPT void SYSTEM_TIMER_VECTOR(void)
+{
+    1744:	1f 92       	push	r1
+    1746:	0f 92       	push	r0
+    1748:	0f b6       	in	r0, 0x3f	; 63
+    174a:	0f 92       	push	r0
+    174c:	11 24       	eor	r1, r1
+    174e:	2f 93       	push	r18
+    1750:	3f 93       	push	r19
+    1752:	4f 93       	push	r20
+    1754:	5f 93       	push	r21
+    1756:	6f 93       	push	r22
+    1758:	7f 93       	push	r23
+    175a:	8f 93       	push	r24
+    175c:	9f 93       	push	r25
+    175e:	af 93       	push	r26
+    1760:	bf 93       	push	r27
+    1762:	cf 93       	push	r28
+    1764:	df 93       	push	r29
+    1766:	ef 93       	push	r30
+    1768:	ff 93       	push	r31
+
+    private:
+        //-----------------------------------------------------
+        INLINE void ISR_Enter() // volatile
+        {
+            Kernel.ISR_NestCount++;
+    176a:	ed e5       	ldi	r30, 0x5D	; 93
+    176c:	f2 e0       	ldi	r31, 0x02	; 2
+    176e:	80 81       	ld	r24, Z
+    1770:	8f 5f       	subi	r24, 0xFF	; 255
+    1772:	80 83       	st	Z, r24
+    1774:	e3 e5       	ldi	r30, 0x53	; 83
+    1776:	f2 e0       	ldi	r31, 0x02	; 2
+    1778:	29 e5       	ldi	r18, 0x59	; 89
+    177a:	32 e0       	ldi	r19, 0x02	; 2
+    const uint_fast8_t PROCESS_COUNT         = scmRTOS_PROCESS_COUNT + 1;
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    177c:	cb e5       	ldi	r28, 0x5B	; 91
+    177e:	d2 e0       	ldi	r29, 0x02	; 2
+    const uint_fast8_t BaseIndex = 1;
+#endif
+
+    for(uint_fast8_t i = BaseIndex; i < (PROCESS_COUNT - 1 + BaseIndex); i++)
+    {
+        TBaseProcess* p = ProcessTable[i];
+    1780:	a1 91       	ld	r26, Z+
+    1782:	b1 91       	ld	r27, Z+
+
+        if(p->Timeout > 0)
+    1784:	12 96       	adiw	r26, 0x02	; 2
+    1786:	8d 91       	ld	r24, X+
+    1788:	9c 91       	ld	r25, X
+    178a:	13 97       	sbiw	r26, 0x03	; 3
+    178c:	89 2b       	or	r24, r25
+    178e:	a1 f0       	breq	.+40     	; 0x17b8 <__vector_4+0x74>
+        {
+            if(--p->Timeout == 0)
+    1790:	12 96       	adiw	r26, 0x02	; 2
+    1792:	8d 91       	ld	r24, X+
+    1794:	9c 91       	ld	r25, X
+    1796:	13 97       	sbiw	r26, 0x03	; 3
+    1798:	01 97       	sbiw	r24, 0x01	; 1
+    179a:	13 96       	adiw	r26, 0x03	; 3
+    179c:	9c 93       	st	X, r25
+    179e:	8e 93       	st	-X, r24
+    17a0:	12 97       	sbiw	r26, 0x02	; 2
+    17a2:	89 2b       	or	r24, r25
+    17a4:	49 f4       	brne	.+18     	; 0x17b8 <__vector_4+0x74>
+    const uint_fast8_t PROCESS_COUNT         = scmRTOS_PROCESS_COUNT + 1;
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    17a6:	99 81       	ldd	r25, Y+1	; 0x01
+
+    TProcessMap Table[scmRTOS_PROCESS_COUNT+1];
+};
+extern TPrioMaskTable PrioMaskTable;
+
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+    17a8:	14 96       	adiw	r26, 0x04	; 4
+    17aa:	ac 91       	ld	r26, X
+    17ac:	b0 e0       	ldi	r27, 0x00	; 0
+    17ae:	a3 5e       	subi	r26, 0xE3	; 227
+    17b0:	bd 4f       	sbci	r27, 0xFD	; 253
+    17b2:	8c 91       	ld	r24, X
+    17b4:	89 2b       	or	r24, r25
+    17b6:	89 83       	std	Y+1, r24	; 0x01
+    const uint_fast8_t BaseIndex = 0;
+#else
+    const uint_fast8_t BaseIndex = 1;
+#endif
+
+    for(uint_fast8_t i = BaseIndex; i < (PROCESS_COUNT - 1 + BaseIndex); i++)
+    17b8:	e2 17       	cp	r30, r18
+    17ba:	f3 07       	cpc	r31, r19
+    17bc:	09 f7       	brne	.-62     	; 0x1780 <__vector_4+0x3c>
+
+INLINE status_reg_t get_interrupt_state()                { return SREG; }
+INLINE void         set_interrupt_state(status_reg_t sr) { SREG = sr; }
+
+INLINE void enable_interrupts()  { sei(); }
+INLINE void disable_interrupts() { cli(); }
+    17be:	f8 94       	cli
+        }
+        //-----------------------------------------------------
+        INLINE void ISR_Exit()
+        {
+            disable_interrupts();
+            if(--Kernel.ISR_NestCount) return;
+    17c0:	ed e5       	ldi	r30, 0x5D	; 93
+    17c2:	f2 e0       	ldi	r31, 0x02	; 2
+    17c4:	80 81       	ld	r24, Z
+    17c6:	81 50       	subi	r24, 0x01	; 1
+    17c8:	80 83       	st	Z, r24
+    17ca:	81 11       	cpse	r24, r1
+    17cc:	29 c0       	rjmp	.+82     	; 0x1820 <__vector_4+0xdc>
+//
+//
+#if scmRTOS_CONTEXT_SWITCH_SCHEME == 0
+void OS::TKernel::sched_isr()
+{
+    uint_fast8_t NextPrty = highest_priority(ReadyProcessMap);
+    17ce:	90 91 5c 02 	lds	r25, 0x025C
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+
+        while( !(pm & 0x0001) )
+    17d2:	90 fd       	sbrc	r25, 0
+    17d4:	0a c0       	rjmp	.+20     	; 0x17ea <__vector_4+0xa6>
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+    17d6:	20 e0       	ldi	r18, 0x00	; 0
+
+        while( !(pm & 0x0001) )
+        {
+            pr++;
+    17d8:	2f 5f       	subi	r18, 0xFF	; 255
+            pm >>= 1;
+    17da:	89 2f       	mov	r24, r25
+    17dc:	90 e0       	ldi	r25, 0x00	; 0
+    17de:	95 95       	asr	r25
+    17e0:	87 95       	ror	r24
+    17e2:	98 2f       	mov	r25, r24
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+
+        while( !(pm & 0x0001) )
+    17e4:	80 ff       	sbrs	r24, 0
+    17e6:	f8 cf       	rjmp	.-16     	; 0x17d8 <__vector_4+0x94>
+    17e8:	01 c0       	rjmp	.+2      	; 0x17ec <__vector_4+0xa8>
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+    17ea:	20 e0       	ldi	r18, 0x00	; 0
+    if(NextPrty != CurProcPriority)
+    17ec:	e0 91 5b 02 	lds	r30, 0x025B
+    17f0:	2e 17       	cp	r18, r30
+    17f2:	b1 f0       	breq	.+44     	; 0x1820 <__vector_4+0xdc>
+    {
+    #if scmRTOS_CONTEXT_SWITCH_USER_HOOK_ENABLE == 1
+        context_switch_user_hook();
+    #endif
+    
+        stack_item_t*  Next_SP = ProcessTable[NextPrty]->StackPointer;
+    17f4:	a2 2f       	mov	r26, r18
+    17f6:	b0 e0       	ldi	r27, 0x00	; 0
+    17f8:	aa 0f       	add	r26, r26
+    17fa:	bb 1f       	adc	r27, r27
+    17fc:	ad 5a       	subi	r26, 0xAD	; 173
+    17fe:	bd 4f       	sbci	r27, 0xFD	; 253
+    1800:	0d 90       	ld	r0, X+
+    1802:	bc 91       	ld	r27, X
+    1804:	a0 2d       	mov	r26, r0
+    1806:	6d 91       	ld	r22, X+
+    1808:	7c 91       	ld	r23, X
+        stack_item_t** Curr_SP_addr = &(ProcessTable[CurProcPriority]->StackPointer);
+    180a:	f0 e0       	ldi	r31, 0x00	; 0
+    180c:	ee 0f       	add	r30, r30
+    180e:	ff 1f       	adc	r31, r31
+    1810:	ed 5a       	subi	r30, 0xAD	; 173
+    1812:	fd 4f       	sbci	r31, 0xFD	; 253
+    1814:	80 81       	ld	r24, Z
+    1816:	91 81       	ldd	r25, Z+1	; 0x01
+        CurProcPriority = NextPrty;
+    1818:	20 93 5b 02 	sts	0x025B, r18
+        os_context_switcher(Curr_SP_addr, Next_SP);
+    181c:	0e 94 32 07 	call	0xe64	; 0xe64 <os_context_switcher>
+  #if scmRTOS_SYSTIMER_NEST_INTS_ENABLE == 1
+    ENABLE_NESTED_INTERRUPTS();
+  #endif
+    system_timer_user_hook();
+#endif
+}
+    1820:	ff 91       	pop	r31
+    1822:	ef 91       	pop	r30
+    1824:	df 91       	pop	r29
+    1826:	cf 91       	pop	r28
+    1828:	bf 91       	pop	r27
+    182a:	af 91       	pop	r26
+    182c:	9f 91       	pop	r25
+    182e:	8f 91       	pop	r24
+    1830:	7f 91       	pop	r23
+    1832:	6f 91       	pop	r22
+    1834:	5f 91       	pop	r21
+    1836:	4f 91       	pop	r20
+    1838:	3f 91       	pop	r19
+    183a:	2f 91       	pop	r18
+    183c:	0f 90       	pop	r0
+    183e:	0f be       	out	0x3f, r0	; 63
+    1840:	0f 90       	pop	r0
+    1842:	1f 90       	pop	r1
+    1844:	18 95       	reti
+
+00001846 <_GLOBAL__sub_I__ZN2OS13PrioMaskTableE>:
+    TPrioMaskTable()
+    {
+        TProcessMap pm = 0x01;
+        for(uint8_t i = 0; i < sizeof(Table)/sizeof(Table[0]); i++)
+        {
+            Table[i] = pm;
+    1846:	81 e0       	ldi	r24, 0x01	; 1
+    1848:	80 93 1d 02 	sts	0x021D, r24
+    184c:	82 e0       	ldi	r24, 0x02	; 2
+    184e:	80 93 1e 02 	sts	0x021E, r24
+    1852:	84 e0       	ldi	r24, 0x04	; 4
+    1854:	80 93 1f 02 	sts	0x021F, r24
+    1858:	88 e0       	ldi	r24, 0x08	; 8
+    185a:	80 93 20 02 	sts	0x0220, r24
+    185e:	08 95       	ret
+
+00001860 <_ZN2OS7processILNS_9TPriorityE3ELj45EE4execEv>:
+        for(;;)
+        {
+        #if scmRTOS_IDLE_HOOK_ENABLE == 1
+            idle_process_user_hook();
+		#else
+			asm("sleep");
+    1860:	88 95       	sleep
+    1862:	fe cf       	rjmp	.-4      	; 0x1860 <_ZN2OS7processILNS_9TPriorityE3ELj45EE4execEv>
+
+00001864 <_ZN2OS7TKernel5schedEv>:
+//
+//    TKernel functions
+//
+#if scmRTOS_CONTEXT_SWITCH_SCHEME == 0
+void TKernel::sched()
+{
+    1864:	cf 93       	push	r28
+    1866:	df 93       	push	r29
+    1868:	fc 01       	movw	r30, r24
+    uint_fast8_t NextPrty = highest_priority(ReadyProcessMap);
+    186a:	81 81       	ldd	r24, Z+1	; 0x01
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+
+        while( !(pm & 0x0001) )
+    186c:	80 fd       	sbrc	r24, 0
+    186e:	0a c0       	rjmp	.+20     	; 0x1884 <_ZN2OS7TKernel5schedEv+0x20>
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+    1870:	40 e0       	ldi	r20, 0x00	; 0
+
+        while( !(pm & 0x0001) )
+        {
+            pr++;
+    1872:	4f 5f       	subi	r20, 0xFF	; 255
+            pm >>= 1;
+    1874:	28 2f       	mov	r18, r24
+    1876:	30 e0       	ldi	r19, 0x00	; 0
+    1878:	35 95       	asr	r19
+    187a:	27 95       	ror	r18
+    187c:	82 2f       	mov	r24, r18
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+
+        while( !(pm & 0x0001) )
+    187e:	20 ff       	sbrs	r18, 0
+    1880:	f8 cf       	rjmp	.-16     	; 0x1872 <_ZN2OS7TKernel5schedEv+0xe>
+    1882:	01 c0       	rjmp	.+2      	; 0x1886 <_ZN2OS7TKernel5schedEv+0x22>
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+
+#if scmRTOS_PRIORITY_ORDER == 0
+    INLINE uint8_t highest_priority(TProcessMap pm)
+    {
+        uint8_t pr = 0;
+    1884:	40 e0       	ldi	r20, 0x00	; 0
+    if(NextPrty != CurProcPriority)
+    1886:	a0 81       	ld	r26, Z
+    1888:	a4 17       	cp	r26, r20
+    188a:	a9 f0       	breq	.+42     	; 0x18b6 <_ZN2OS7TKernel5schedEv+0x52>
+    {
+    #if scmRTOS_CONTEXT_SWITCH_USER_HOOK_ENABLE == 1
+        context_switch_user_hook();
+    #endif
+
+        stack_item_t*  Next_SP      = ProcessTable[NextPrty]->StackPointer;
+    188c:	c4 2f       	mov	r28, r20
+    188e:	d0 e0       	ldi	r29, 0x00	; 0
+    1890:	cc 0f       	add	r28, r28
+    1892:	dd 1f       	adc	r29, r29
+    1894:	cd 5a       	subi	r28, 0xAD	; 173
+    1896:	dd 4f       	sbci	r29, 0xFD	; 253
+    1898:	09 90       	ld	r0, Y+
+    189a:	d8 81       	ld	r29, Y
+    189c:	c0 2d       	mov	r28, r0
+    189e:	68 81       	ld	r22, Y
+    18a0:	79 81       	ldd	r23, Y+1	; 0x01
+        stack_item_t** Curr_SP_addr = &(ProcessTable[CurProcPriority]->StackPointer);
+    18a2:	b0 e0       	ldi	r27, 0x00	; 0
+    18a4:	aa 0f       	add	r26, r26
+    18a6:	bb 1f       	adc	r27, r27
+    18a8:	ad 5a       	subi	r26, 0xAD	; 173
+    18aa:	bd 4f       	sbci	r27, 0xFD	; 253
+    18ac:	8d 91       	ld	r24, X+
+    18ae:	9c 91       	ld	r25, X
+        CurProcPriority = NextPrty;
+    18b0:	40 83       	st	Z, r20
+        os_context_switcher(Curr_SP_addr, Next_SP);
+    18b2:	0e 94 32 07 	call	0xe64	; 0xe64 <os_context_switcher>
+    }
+}
+    18b6:	df 91       	pop	r29
+    18b8:	cf 91       	pop	r28
+    18ba:	08 95       	ret
+
+000018bc <_ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE>:
+                          , void (*exec)()
+                      #if scmRTOS_DEBUG_ENABLE == 1
+                          , stack_item_t * aStackPool
+                      #endif
+                          ) : Timeout(0)
+                            , Priority(pr)
+    18bc:	fc 01       	movw	r30, r24
+    18be:	13 82       	std	Z+3, r1	; 0x03
+    18c0:	12 82       	std	Z+2, r1	; 0x02
+    18c2:	44 83       	std	Z+4, r20	; 0x04
+// 
+//   Places pointer to process in kernel's process table
+//
+void OS::TKernel::register_process(OS::TBaseProcess* const p)
+{
+    Kernel.ProcessTable[p->Priority] = p;
+    18c4:	e4 2f       	mov	r30, r20
+    18c6:	f0 e0       	ldi	r31, 0x00	; 0
+    18c8:	ee 0f       	add	r30, r30
+    18ca:	ff 1f       	adc	r31, r31
+    18cc:	ed 5a       	subi	r30, 0xAD	; 173
+    18ce:	fd 4f       	sbci	r31, 0xFD	; 253
+    18d0:	91 83       	std	Z+1, r25	; 0x01
+    18d2:	80 83       	st	Z, r24
+    init_stack_frame( StackPoolEnd
+                    , exec
+                #if scmRTOS_DEBUG_ENABLE == 1     
+                    , aStackPool
+                #endif  
+                    );
+    18d4:	a9 01       	movw	r20, r18
+    18d6:	0e 94 92 0b 	call	0x1724	; 0x1724 <_ZN2OS12TBaseProcess16init_stack_frameEPhPFvvE>
+    18da:	08 95       	ret
+
+000018dc <_ZN2OS12TBaseProcess5sleepEj>:
+                    );
+}
+#endif // SEPARATE_RETURN_STACK
+//------------------------------------------------------------------------------
+void TBaseProcess::sleep(timeout_t timeout)
+{
+    18dc:	cf 93       	push	r28
+//
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    18de:	cf b7       	in	r28, 0x3f	; 63
+    18e0:	f8 94       	cli
+    TCritSect cs;
+
+    Kernel.ProcessTable[Kernel.CurProcPriority]->Timeout = timeout;
+    18e2:	eb e5       	ldi	r30, 0x5B	; 91
+    18e4:	f2 e0       	ldi	r31, 0x02	; 2
+    18e6:	20 81       	ld	r18, Z
+    18e8:	30 e0       	ldi	r19, 0x00	; 0
+    18ea:	d9 01       	movw	r26, r18
+    18ec:	aa 0f       	add	r26, r26
+    18ee:	bb 1f       	adc	r27, r27
+    18f0:	ad 5a       	subi	r26, 0xAD	; 173
+    18f2:	bd 4f       	sbci	r27, 0xFD	; 253
+    18f4:	0d 90       	ld	r0, X+
+    18f6:	bc 91       	ld	r27, X
+    18f8:	a0 2d       	mov	r26, r0
+    18fa:	13 96       	adiw	r26, 0x03	; 3
+    18fc:	9c 93       	st	X, r25
+    18fe:	8e 93       	st	-X, r24
+    1900:	12 97       	sbiw	r26, 0x02	; 2
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    INLINE void clr_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    1902:	91 81       	ldd	r25, Z+1	; 0x01
+
+    TProcessMap Table[scmRTOS_PROCESS_COUNT+1];
+};
+extern TPrioMaskTable PrioMaskTable;
+
+INLINE OS::TProcessMap get_prio_tag(const uint_fast8_t pr) { return PrioMaskTable.Table[pr]; }
+    1904:	d9 01       	movw	r26, r18
+    1906:	a3 5e       	subi	r26, 0xE3	; 227
+    1908:	bd 4f       	sbci	r27, 0xFD	; 253
+    190a:	8c 91       	ld	r24, X
+    190c:	80 95       	com	r24
+    190e:	89 23       	and	r24, r25
+    1910:	81 83       	std	Z+1, r24	; 0x01
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    1912:	80 91 5d 02 	lds	r24, 0x025D
+    1916:	81 11       	cpse	r24, r1
+    1918:	03 c0       	rjmp	.+6      	; 0x1920 <_ZN2OS12TBaseProcess5sleepEj+0x44>
+    191a:	cf 01       	movw	r24, r30
+    191c:	0e 94 32 0c 	call	0x1864	; 0x1864 <_ZN2OS7TKernel5schedEv>
+//
+class TCritSect
+{
+public:
+    TCritSect () : StatusReg( SREG ) { cli(); }
+    ~TCritSect() { SREG = StatusReg; }
+    1920:	cf bf       	out	0x3f, r28	; 63
+    Kernel.set_process_unready(Kernel.CurProcPriority);
+    Kernel.scheduler();
+}
+    1922:	cf 91       	pop	r28
+    1924:	08 95       	ret
+
+00001926 <_GLOBAL__sub_I__ZN2OS6KernelE>:
+    //      Functions
+    //
+    public:
+    INLINE TKernel() : CurProcPriority(pr0)
+                     , ReadyProcessMap( (1ul << (PROCESS_COUNT)) - 1)  // set all processes ready
+                     , ISR_NestCount(0)
+    1926:	10 92 5b 02 	sts	0x025B, r1
+    192a:	8f e0       	ldi	r24, 0x0F	; 15
+    192c:	80 93 5c 02 	sts	0x025C, r24
+    1930:	10 92 5d 02 	sts	0x025D, r1
+                                                             , pr
+                                                             , reinterpret_cast<void (*)()>(exec) 
+                                                         #if scmRTOS_DEBUG_ENABLE == 1
+                                                             , Stack
+                                                         #endif
+                                                             )
+    1934:	20 e3       	ldi	r18, 0x30	; 48
+    1936:	3c e0       	ldi	r19, 0x0C	; 12
+    1938:	43 e0       	ldi	r20, 0x03	; 3
+    193a:	63 e5       	ldi	r22, 0x53	; 83
+    193c:	72 e0       	ldi	r23, 0x02	; 2
+    193e:	81 e2       	ldi	r24, 0x21	; 33
+    1940:	92 e0       	ldi	r25, 0x02	; 2
+    1942:	0e 94 5e 0c 	call	0x18bc	; 0x18bc <_ZN2OS12TBaseProcessC1EPhNS_9TPriorityEPFvvE>
+    1946:	08 95       	ret
+
+00001948 <_ZN2OS8TService10resume_allERVh>:
+using namespace OS;
+
+
+bool OS::TService::resume_all(TProcessMap volatile & waiters_map)
+{
+    TProcessMap Timeouted = ready_process_map();        // Process has its tag set in ReadyProcessMap if timeout expired,
+    1948:	eb e5       	ldi	r30, 0x5B	; 91
+    194a:	f2 e0       	ldi	r31, 0x02	; 2
+    194c:	71 81       	ldd	r23, Z+1	; 0x01
+                                                        // or it was waked up by OS::ForceWakeUpProcess()
+
+    TProcessMap CachedMap = waiters_map;                // cache volatile
+    194e:	fc 01       	movw	r30, r24
+    1950:	60 81       	ld	r22, Z
+    if( CachedMap & ~Timeouted )                        // if any process has to be waked up
+    1952:	46 2f       	mov	r20, r22
+    1954:	50 e0       	ldi	r21, 0x00	; 0
+    1956:	27 2f       	mov	r18, r23
+    1958:	30 e0       	ldi	r19, 0x00	; 0
+    195a:	20 95       	com	r18
+    195c:	30 95       	com	r19
+    195e:	24 23       	and	r18, r20
+    1960:	35 23       	and	r19, r21
+    1962:	23 2b       	or	r18, r19
+    1964:	91 f0       	breq	.+36     	; 0x198a <_ZN2OS8TService10resume_allERVh+0x42>
+    const uint_fast8_t PROCESS_COUNT         = scmRTOS_PROCESS_COUNT + 1;
+    const stack_item_t STACK_DEFAULT_PATTERN = scmRTOS_STACK_PATTERN;
+    
+    class TBaseProcess;
+
+    INLINE void set_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    1966:	eb e5       	ldi	r30, 0x5B	; 91
+    1968:	f2 e0       	ldi	r31, 0x02	; 2
+    196a:	21 81       	ldd	r18, Z+1	; 0x01
+    196c:	26 2b       	or	r18, r22
+    196e:	21 83       	std	Z+1, r18	; 0x01
+    INLINE void clr_prio_tag(volatile TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    INLINE void set_prio_tag(TProcessMap & pm, const TProcessMap PrioTag) { pm |=  PrioTag; }
+    INLINE void clr_prio_tag(TProcessMap & pm, const TProcessMap PrioTag) { pm &= ~PrioTag; }
+    1970:	67 23       	and	r22, r23
+    {
+        set_prio_tag(ready_process_map(), CachedMap);   // place all waiting processes to the ready map
+        clr_prio_tag(CachedMap, ~Timeouted);            // remove all non-timeouted processes from the waiting map.
+        waiters_map = CachedMap;
+    1972:	fc 01       	movw	r30, r24
+    1974:	60 83       	st	Z, r22
+    
+    private:
+        INLINE static void register_process(TBaseProcess* const p);
+
+               void sched();
+        INLINE void scheduler() { if(ISR_NestCount) return; else  sched(); }
+    1976:	80 91 5d 02 	lds	r24, 0x025D
+    197a:	81 11       	cpse	r24, r1
+    197c:	08 c0       	rjmp	.+16     	; 0x198e <_ZN2OS8TService10resume_allERVh+0x46>
+    197e:	8b e5       	ldi	r24, 0x5B	; 91
+    1980:	92 e0       	ldi	r25, 0x02	; 2
+    1982:	0e 94 32 0c 	call	0x1864	; 0x1864 <_ZN2OS7TKernel5schedEv>
+        reschedule();
+        return true;
+    1986:	81 e0       	ldi	r24, 0x01	; 1
+    1988:	08 95       	ret
+    }
+    return false;
+    198a:	80 e0       	ldi	r24, 0x00	; 0
+    198c:	08 95       	ret
+    {
+        set_prio_tag(ready_process_map(), CachedMap);   // place all waiting processes to the ready map
+        clr_prio_tag(CachedMap, ~Timeouted);            // remove all non-timeouted processes from the waiting map.
+        waiters_map = CachedMap;
+        reschedule();
+        return true;
+    198e:	81 e0       	ldi	r24, 0x01	; 1
+    }
+    return false;
+}
+    1990:	08 95       	ret
+
+00001992 <__tablejump2__>:
+    1992:	ee 0f       	add	r30, r30
+    1994:	ff 1f       	adc	r31, r31
+
+00001996 <__tablejump__>:
+    1996:	05 90       	lpm	r0, Z+
+    1998:	f4 91       	lpm	r31, Z
+    199a:	e0 2d       	mov	r30, r0
+    199c:	09 94       	ijmp
+
+0000199e <_exit>:
+    199e:	f8 94       	cli
+
+000019a0 <__stop_program>:
+    19a0:	ff cf       	rjmp	.-2      	; 0x19a0 <__stop_program>
