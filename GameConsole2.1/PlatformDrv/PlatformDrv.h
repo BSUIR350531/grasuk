@@ -11,24 +11,27 @@
 #ifndef PLATFORMDRV_H_
 #define PLATFORMDRV_H_
 
-#include <scmRTOS.h>
+#include "LayerSys/LayerSys.hpp"
+#include "LayerSys/button.hpp"
 #include "LCD/LcdDrv.hpp"
-#include "KeyDrv.h"
 #include "LCD/fonts.hpp"
-//#include "ProgressBar.h"
+#include <scmRTOS.h>
+#include "KeyDrv.h"
 
 //Назначаем типам процессов короткие имена
 typedef OS::process<OS::pr0, 40> TEncProc;
-typedef OS::process<OS::pr1, 48> TKeybProc;
+typedef OS::process<OS::pr1, 50> TKeybProc;
 typedef OS::process<OS::pr2, 45> TBLProc;
-typedef OS::process<OS::pr3, 256> TUserProc;
+typedef OS::process<OS::pr3, 50> TSelCtrlProc;
+typedef OS::process<OS::pr4, 256> TUserProc;
 
-//Объявления процессов
+//Объявления исполняемых функций процессов
 namespace OS {
 	template<> void TEncProc::exec();
 	template<> void TKeybProc::exec();
 	template<> void TUserProc::exec();
 	template<> void TBLProc::exec();
+	template<> void TSelCtrlProc::exec();
 }
 
 extern OS::TEventFlag BLFlag;

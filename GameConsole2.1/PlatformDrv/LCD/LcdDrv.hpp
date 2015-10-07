@@ -20,6 +20,7 @@
 /************************************************************************/
 
 #include "../KeyDrv.h"		//Для PRECOMP()
+#include "../scmRTOS/AVR/OS_Target.h"
 
 #define LCD_PORT				PRECOMP(LCD_PORT_NAME, PORT)
 #define LCD_DDR					PRECOMP(LCD_PORT_NAME, DDR)
@@ -47,7 +48,7 @@ namespace LCD {
 	void init() __attribute__((naked)) __attribute__((section(".init7")));
 	
 	void SetCmdMode();			//Установливает режим отправки комманд
-	void SetDatMode();			//Устанавливает режим отправки данных
+	INLINE void SetDatMode() { LCD_PORT&=~_BV(LCD_RS); }	//Устанавливает режим отправки данных
 	
 	size Width();
 	size Height();

@@ -33,8 +33,8 @@ static unsigned char BLLevel = 180;		//PWM DC
 TBLProc BLProc;
 
 template<> void TBLProc::exec() {
-	unsigned char delay = 0;
-	bool prem;
+	register unsigned char delay = 0;
+	register bool prem;
 	while(1) {
 		//Ждём нажатия клавиш 1 секунду
 		if( !BLFlag.wait(2000) ) {
@@ -69,16 +69,16 @@ void LCD::SetBLTimeout(const unsigned char time) {
 	BLTimeout = time;
 }
 
-void SetBLLevel(const unsigned char level) {
+void LCD::SetBLLevel(const unsigned char level) {
 	BLLevel = level;
 	OCR0 = level;
 }
 
-void DisableBLTimeout() {
+void LCD::DisableBLTimeout() {
 	BLProc.terminate();
 }
 
-void EnableBLTimeout() {
+void LCD::EnableBLTimeout() {
 	BLProc.start();
 }
 
@@ -138,11 +138,6 @@ void LCD::SetCmdMode() {
 	LCD_PORT|=_BV(LCD_RS);		//RS = 1, команды
 	LCD_PORT|=_BV(LCD_CS);		//Импульс на линии CS
 	LCD_PORT&=~_BV(LCD_CS);		//
-}
-
-inline void LCD::SetDatMode() {
-	PORTB&=~_BV(LCD_RS);  //RS = 0, данные
-	//Импульс CS не требуется
 }
 
 size LCD::Width() {

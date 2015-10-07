@@ -9,6 +9,7 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <avr/interrupt.h>
 #include "PlatformDrv.h"
 
 TEncProc EncProc;
@@ -87,7 +88,8 @@ template<> void TEncProc::exec() {
 	
 	while(1) {
 		//Извлекаем биты, к которым подключен энкодер и помещаем в младшие разряды по порядку
-		asm volatile(	"in  __tmp_reg__, %[port]"  "\n\t"
+		asm volatile(	
+		"in  __tmp_reg__, %[port]"  "\n\t"
 		"mov %0, __zero_reg__"		"\n\t"
 		"bst __tmp_reg__, %[enc_a]"	"\n\t"
 		"bld %0, 1"					"\n\t"
@@ -106,7 +108,9 @@ template<> void TEncProc::exec() {
 			EncState = EncNewSignal;		//Переходим в новое состояние.
 			if(++div4==4) {				//Сохраняем только каждое четвёртое событие.
 				div4 = 0;
-				BLFlag.signal();	//Сигналим подсветке дисплея
+				if (!BLFlag.is_signaled()) {
+					BLFlag.signal();	//Сигналим подсветке дисплея
+				}
 				key_ev_qu.push(res);
 			}
 		}
@@ -123,13 +127,17 @@ template<> void TKeybProc::exec() {
 		//Если предыдущее состояние порта было нулевым, а текущее - единичное,
 		//то произошло отпускание кнопки
 		if( (!(Old & _BV(ENC_BUT))) && (ENC_PIN & _BV(ENC_BUT)) ) {
-			BLFlag.signal();
+			if (!BLFlag.is_signaled()) {
+				BLFlag.signal();
+			}
 			key_ev_qu.push(ButEnc_release);
 			Old = ENC_PIN;
 		}
 		//Если наоборот - нажатие
 		if( (Old & _BV(ENC_BUT)) && (!(ENC_PIN & _BV(ENC_BUT))) ) {
-			BLFlag.signal();
+			if (!BLFlag.is_signaled()) {
+				BLFlag.signal();
+			}
 			key_ev_qu.push(ButEnc_press);
 			Old = ENC_PIN;
 		}
@@ -141,12 +149,16 @@ template<> void TKeybProc::exec() {
 			for(register unsigned char mXi = 0; mXi<4; mXi++) {
 				//Перепад с низкого уровня на высокий соответствует отпусканию
 				if( (!(mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi]))) && (MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi])) ) {	
-					BLFlag.signal();
+					if (!BLFlag.is_signaled()) {
+						BLFlag.signal();
+					}
 					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsRelease[mYi][mXi]));
 					break;
 				}
 				if( (mkey_read_old[mYi] & pgm_read_byte(&MKeyMasks[mXi])) && (!(MKEY_PIN & pgm_read_byte(&MKeyMasks[mXi]))) ) {
-					BLFlag.signal();
+					if (!BLFlag.is_signaled()) {
+						BLFlag.signal();
+					}
 					key_ev_qu.push((signal)pgm_read_byte(&MKeySignalsPress[mYi][mXi]));
 					break;
 				}
