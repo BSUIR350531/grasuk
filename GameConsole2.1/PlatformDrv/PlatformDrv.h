@@ -4,7 +4,7 @@
 
 	Author:		SlavaGrasiuk
 	
-	purpose:	Definition of os processes and keyboard driver
+	purpose:	PlatformDrv main include file
 *********************************************************************/
 
 
@@ -13,17 +13,18 @@
 
 #include "LayerSys/LayerSys.hpp"
 #include "LayerSys/button.hpp"
+#include "LayerSys/Label.hpp"
+#include "LayerSys/Picture.hpp"
 #include "LCD/LcdDrv.hpp"
 #include "LCD/fonts.hpp"
 #include <scmRTOS.h>
 #include "KeyDrv.h"
 
 //Назначаем типам процессов короткие имена
-typedef OS::process<OS::pr0, 40> TEncProc;
-typedef OS::process<OS::pr1, 50> TKeybProc;
-typedef OS::process<OS::pr2, 45> TBLProc;
-typedef OS::process<OS::pr3, 50> TSelCtrlProc;
-typedef OS::process<OS::pr4, 256> TUserProc;
+typedef OS::process<OS::pr0, 40> TEncProc;		//Процесс-обработчик данных от энкодера
+typedef OS::process<OS::pr1, 50> TKeybProc;		//Процесс-сканер клавиатуры
+typedef OS::process<OS::pr2, 45> TBLProc;		//Процесс, контролирующий подсветку дисплея
+typedef OS::process<OS::pr3, 256> TUserProc;	//Процесс, внутри которого вызывается пользовательскя функция
 
 //Объявления исполняемых функций процессов
 namespace OS {
@@ -31,7 +32,6 @@ namespace OS {
 	template<> void TKeybProc::exec();
 	template<> void TUserProc::exec();
 	template<> void TBLProc::exec();
-	template<> void TSelCtrlProc::exec();
 }
 
 extern OS::TEventFlag BLFlag;

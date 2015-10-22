@@ -10,7 +10,7 @@
 #include <avr/pgmspace.h>
 #include <PlatformDrv.h>
 #include <avr/io.h>
-#include "logo.h"
+//#include "logo.h"
 
 #define MENU_BG_COLOR		static_cast<color8>(0x92)		//Gray
 #define MENU_SELECT_COLOR	static_cast<color8>(0b11100000)	//Red

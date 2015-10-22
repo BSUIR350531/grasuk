@@ -13,8 +13,7 @@
 #include "LayerSys.hpp"
 #include "../LCD/LcdDrv.hpp"
 #include "../LCD/fonts.hpp"
-
-#define BUTTON_COLOR	(color8)0xDB
+#include "policy.hpp"
 
 class button: public SelectableGraphObj {
 	coord x_pos, y_pos;
@@ -22,14 +21,15 @@ class button: public SelectableGraphObj {
 	void (*handler)();
 	char *text;
 	LCD::font *fnt;
-	bool HaveFocus;
+	bool Pressed;
+	color8 ButColor;
 	
 public:
 	void redraw();
-	void Select() {}
-	void Deselect() {}
-	void SignalPush() {}
-	void SignalRelease() {}
+	void Select();
+	void Deselect();
+	void SignalPush();
+	void SignalRelease();
 	
 	button(const coord x, const coord y, const size w, const size h);
 	size width() const { return w_val; }

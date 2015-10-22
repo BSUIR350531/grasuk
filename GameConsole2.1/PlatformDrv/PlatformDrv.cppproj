@@ -96,6 +96,7 @@
         <avrgcccpp.compiler.optimization.level>Optimize for size (-Os)</avrgcccpp.compiler.optimization.level>
         <avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcccpp.compiler.optimization.AllocateBytesNeededForEnum>
         <avrgcccpp.compiler.warnings.AllWarnings>True</avrgcccpp.compiler.warnings.AllWarnings>
+        <avrgcccpp.compiler.miscellaneous.OtherFlags>-std=c++11</avrgcccpp.compiler.miscellaneous.OtherFlags>
         <avrgcccpp.linker.libraries.Libraries>
           <ListValues>
             <Value>libm</Value>
@@ -173,10 +174,34 @@
     <Compile Include="LayerSys\button.hpp">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="LayerSys\GraphObj.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Label.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Label.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Layer.cpp">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LayerSys\LayerSys.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LayerSys\LayerSys.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Picture.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Picture.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\policy.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LayerSys\Stack.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="LCD\font6x8.cpp">

@@ -174,12 +174,6 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="logo.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="logo.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Tetris.cpp">
       <SubType>compile</SubType>
     </Compile>

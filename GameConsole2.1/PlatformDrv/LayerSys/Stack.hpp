@@ -10,6 +10,8 @@
 #ifndef STACK_H_
 #define STACK_H_
 
+#include <stdint.h>
+
 template <typename StackDatType, uint8_t Size>
 class stack {
 	StackDatType arr[Size];
@@ -44,7 +46,7 @@ StackDatType stack<StackDatType, Size>::pick() {
 
 template <typename StackDatType, uint8_t Size>
 bool stack<StackDatType, Size>::IsEmpty() {
-	return !top ? true : false;
+	return top ? false : true;
 }
 
 #endif /* STACK_H_ */

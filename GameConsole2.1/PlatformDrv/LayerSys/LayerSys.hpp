@@ -10,80 +10,101 @@
 #ifndef LAYERSYS_H_
 #define LAYERSYS_H_
 
+#include "Stack.hpp"
 #include "../LCD/LcdDrv.hpp"
 
-#define GRAPH_OBJ_NUM	8		//Колличество графических объектов на слое
-#define LAYERS_COUNT	4		//Колличество слоёв
+#define MAX_GRAPH_OBJ_NUM	8		//Максимальное колличество графических объектов на слое
+#define MAX_LAYERS_COUNT	4		//Максимальное колличество слоёв
+
+
+/*	Классы layer, GraphObj, SimpleGraphObj и SelectableGraphObj тесно связаны между собой, 
+плюс они должны быть доступны извне, поэтому их объявления нельзя выносить в разные файлы.	*/
 
 /*Абстрактный класс графический объект.
 Представляет общий интерфейс для всех графических объектов*/
 class GraphObj {
 	bool CanReciveFocus;
-	
+
 public:
 	//Перерисовка объекта. Будет вызываться каждый раз при удалении слоя над ним.
 	virtual void redraw() = 0;
 	
+	/*	Возможно, правильнее было бы разместить эти функции только в классе SelectableGraphObj,
+	а затем при сканировании менять тип указателя для доступа к ним, но с использованием RTTI
+	на AVR связаны определённые трудности.	*/
+	virtual void Select() = 0;	//Установка фокуса ввода
+	virtual void Deselect() = 0;	//Снятие фокуса ввода
+	virtual void SignalPush() = 0;		//Нажатие на объект
+	virtual void SignalRelease() = 0;  //Отпускание объекта
+
 	//Помещает указатель на графический объект в массив объектов самого верхнего слоя.
 	//Type - может ли объект принимать фокус ввода.
 	GraphObj(const bool type);
-	
-	//Может ли объект принимать фокус ввода
-	bool IsSelectable() const { return CanReciveFocus; }
-};
 
-//Абстрактный класс графических объектов, которые могут принимать фокус ввода.
+	bool IsSelectable() const { return CanReciveFocus; }
+}; //GraphObj
+
+typedef GraphObj *GraphObjPtr;
+
+//	Базовый класс графических объектов, которые могут принимать фокус ввода
 class SelectableGraphObj: public GraphObj {
 public:
 	SelectableGraphObj(): GraphObj(true) {}
 	
-	virtual void redraw() = 0;	
+	virtual void redraw() = 0;
 	
-	//Для доступа к этим функциям через указатель на базовый класс нужно привести его тип к указателю на SelectableGraphObj
 	virtual void Select() = 0;	//Установка фокуса ввода
 	virtual void Deselect() = 0;	//Снятие фокуса ввода
 	virtual void SignalPush() = 0;		//Нажатие на объект
 	virtual void SignalRelease() = 0;  //Отпускание объекта
 };
 
-//Абстрактный класс для простых объектов, которые не могут получать фокус ввода
+typedef SelectableGraphObj *SelGraphObjPtr;
+
+//	Базовый класс графических объектов, которые НЕ могут принимать фокус ввода
 class SimpleGraphObj: public GraphObj {
-public:
+	public:
 	SimpleGraphObj(): GraphObj(false) {}
 	virtual void redraw() = 0;
 };
 
-typedef GraphObj *GraphObjP;
-class layer;
-typedef layer *layerP;
-class stack;
+/*	Осуществляет управлениефокусом ввода и отправку событий
+элементам управления. Для правильной раобы необходимо вызывать циклически.	*/
 
-//Слой - крайне упрощённое подобие окон в windows или X11
+//	С ожиданием событий клавиатуры
+void GUIMainLoopW();
+
+//	Без ожидания событий клавиатуры
+void GUIMainLoopG();
+
 class layer {
-	GraphObjP GraphObjArr[GRAPH_OBJ_NUM];		//Массив указателей на объекты текущего слоя
+	GraphObjPtr GraphObjArr[MAX_GRAPH_OBJ_NUM];		//Массив указателей на объекты текущего слоя
+	unsigned char SelObjInd[MAX_GRAPH_OBJ_NUM];		//Индексы элементов типа SelectableGraphObj
+	unsigned char SelObjNum, ObjNum;	//Колличество объектов SelectableGraphObj и общее колличество объетов
 	bool Filled;
 	color8 LayerFill8;
 	color16 LayerFill16;
 	ColorMode LayerFillColorMode;
+	
 	friend class GraphObj;
+	friend void GUIMainLoopW();
+	friend void GUIMainLoopG();
 	
 public:
 	layer();
 	layer(const color8 color);
 	layer(const color16 color);
+	color8 GetColor() const { return LayerFill8; }
+	bool filled() const { return Filled; }
 	~layer();
+	
+private:
+	bool PutObj(const GraphObjPtr obj);
+	bool PutSelObj(const GraphObjPtr obj);
 };
 
-//Статический стек для хранения указателей на слои
-class stack {
-	layerP arr[LAYERS_COUNT];
-	uint8_t top;
-public:
-	stack(): top(0) {}
-	void push(const layerP dat);
-	layerP pop();
-	layerP pick() const { return arr[top-1]; }
-	bool IsEmpty () const { return !top ? true : false; }
-};
+typedef layer *layerPtr;
+extern stack<layerPtr, MAX_LAYERS_COUNT> LayerStack;
+extern "C" void __cxa_pure_virtual();
 
 #endif /* LAYERSYS_H_ */

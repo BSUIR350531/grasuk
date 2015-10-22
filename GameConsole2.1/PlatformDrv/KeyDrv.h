@@ -30,7 +30,8 @@
 
 /**************************************************************************/
 
-#define PRECOMP2(x, y)			y ## x
+//Казалось бы, зачем нужен PRECOMP2 когда есть PRECOMP, но по другому просто не будет работать
+#define PRECOMP2(x, y)			y ## x			
 #define PRECOMP(x, y)			PRECOMP2(x, y)
 
 #define ENC_PORT				PRECOMP(ENC_PORT_NAME, PORT)
