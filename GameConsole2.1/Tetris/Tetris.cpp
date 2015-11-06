@@ -9,153 +9,122 @@
 
 #include <avr/pgmspace.h>
 #include <PlatformDrv.h>
-#include <avr/io.h>
-//#include "logo.h"
+#include "TetrisBoard.hpp"
+#include "logo.h"
+#include <stdio.h>
+#include "FigInd.hpp"
 
-#define MENU_BG_COLOR		static_cast<color8>(0x92)		//Gray
-#define MENU_SELECT_COLOR	static_cast<color8>(0b11100000)	//Red
-#define MENU_TEXT_COLOR		static_cast<color8>(0x00)		//Black
+#define MENU_BG_COLOR		static_cast<color8>(0xDB)		//Серый
+#define GAME_BG_COLOR		static_cast<color8>(0x1B)		//Светло-голубой
 
-const char	MenuTite[]			PROGMEM = "Главное меню";
-const char	ButStartText[]		PROGMEM = "1. Старт";
-const char  ButRecordsText[]	PROGMEM = "2. Рекорды";
-const char	ButSettingsText[]	PROGMEM = "3. Настройки";
+const char	ButStartText[]		PROGMEM = "Старт";
+const char  ButRecordsText[]	PROGMEM = "Рекорды";
+const char	ButSettingsText[]	PROGMEM = "Настройки";
+const char	PauseText[]			PROGMEM = "Пауза";
+const char	YesText[]			PROGMEM = "Да";
+const char	NoText[]			PROGMEM = "Нет";
+const char	ExitText[]			PROGMEM = "Выйти?";
 
 const char lines[] PROGMEM = "LINES:";
 const char score[] PROGMEM = "SCORE:";
 const char next[]  PROGMEM = "NEXT:";
-const char fmt[] = "%05d";
+const char fmt[] = "%06d";
 
-enum MenuRet {
-	start = 1,
-	records,
-	settings
-};
-
-MenuRet Menu();
 void Game();
 void Settings();
 void ShowRecords();
+void pause();
 
 void RTOSMain() {
 	LCD::SetColorMode(mode_8);
+	
+	layer menu_lay(MENU_BG_COLOR);
+	
+	picture tetris_logo(0, 0, logo);
+	button start_but(10, 67, LCD::Width() - 20, 40);
+	button records_but(15, 117, LCD::Width() - 30, 23);
+	button settings_but(15, 145, LCD::Width() - 30, 23);
+	
+	start_but.SetText(ButStartText, LCD::font8x14);
+	start_but.SetHandler(Game);
+	
+	records_but.SetText(ButRecordsText, LCD::font8x14);
+	records_but.SetHandler(ShowRecords);
+	
+	settings_but.SetText(ButSettingsText, LCD::font8x14);
+	settings_but.SetHandler(Settings);
+	
     while(1) {
-        switch(Menu()) {
-			case start:
-				Game();
-				break;
-				
-			case settings:
-				Settings();
-				break;
-				
-			case records:
-				ShowRecords();
-		}
+		GUIMainLoopW();
     }
 }
 
 void Game() {
-	register coord x = 0, y = 0;
-	LCD::FillRect(x, y, LCD::Width(), LCD::Height(), (color8)0b00011100);
-	WaitKeySignal();
-}
-
-void Settings() {
-	register coord x = 0, y = 0;
-	LCD::FillRect(x, y, LCD::Width(), LCD::Height(), (color8)0b00000011);
-	WaitKeySignal();
-}
-
-void ShowRecords() {
-	register coord x = 0, y = 0;
-	LCD::FillRect(x, y, LCD::Width(), LCD::Height(), (color8)0b11100011);
-	WaitKeySignal();
-}
-
-void MenuRedraw(const unsigned char CurSel);
-
-MenuRet Menu() {
-	register coord x = 0, y = 0;
-	unsigned char select = 1;
+	unsigned int cur_score = 0, lines_num = 0;
+	char lines_num_buf[7], cur_score_buf[7];
+	bool game_over = false;
 	
-	LCD::FillRect(x, y, LCD::Width(), LCD::Height(), MENU_BG_COLOR);
-	y = 20; x = 18;
-	LCD::PutStr(y, MenuTite, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-	MenuRedraw(select);
+	layer game_lay(GAME_BG_COLOR);
 	
-	while(1) {
+	label<TextInFlash> lines_lab(LCD::Width() - 40, 3);
+	label<TextInFlash> score_lab(LCD::Width() - 40, 25);
+	
+	lines_lab.SetText(lines, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	score_lab.SetText(score, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	label<TextInRAM> lines_num_lab(LCD::Width() - 41, 14);
+	label<TextInRAM> cur_score_lab(LCD::Width() - 41, 36);
+	
+	sprintf(lines_num_buf, fmt, lines_num);
+	lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	sprintf(cur_score_buf, fmt, cur_score);
+	cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	label<TextInFlash> next_lab(LCD::Width() - 38, 68);
+	next_lab.SetText(next, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	TetrisBoard game_board(1, 1);
+	
+	FigInd next_fig_ind(90, 80);
+	
+	while(!game_over) {
 		switch(WaitKeySignal()) {
-			case But1_press:
-				select = 1;
-				MenuRedraw(select);
-				break;
-				
-			case But2_press:
-				select = 2;
-				MenuRedraw(select);
-				break;
-				
-			case But3_press:
-				select = 3;
-				MenuRedraw(select);
+			case ButDel_release:
+				game_over = true;
 				break;
 			
-			case ButEnt_release:
-			case ButEnc_release:
-				return (MenuRet)select;
+			case But0_release:
+				pause();
 				
-			case But1_release:
-				return start;
-			case But2_release:
-				return records;
-			case But3_release:
-				return settings;
-				
-			case Enc_Down:
-				if( !(--select) ) {
-					select = 3;
-				}
-				MenuRedraw(select);
-				break;
-				
-			case Enc_Up:
-				if ( ++select>3 ) {
-					select = 1;
-				}
-				MenuRedraw(select);
-
 			default:
 				break;
 		}
 	}
 }
 
-void MenuRedraw(const unsigned char CurSel) {
-	register coord x = 15, y = 44;
+void Settings() {
+	layer settings_lay(MENU_BG_COLOR);
+	WaitKeySignal();
+}
+
+void ShowRecords() {
+	layer records_lay(MENU_BG_COLOR);
+	WaitKeySignal();
+}
+
+void pause() {
+	layer pause_lay;
 	
-	switch(CurSel) {
-		case 1:
-			LCD::PutStr(x, y, MenuItem1, LCD::font8x14, MENU_SELECT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem2, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem3, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
+	LCD::FillRect(20, (LCD::Height() >> 1) - 15, LCD::Width() - 40, 30, static_cast<color8>(0b00000011));
+	
+	label<TextInFlash> pause_lab((LCD::Width() >> 1) - 20, (LCD::Height() >> 1) - 7);
+	pause_lab.SetText(PauseText, LCD::font8x14, 0xFF, 0b00000011);
+	
+	while(1) {
+		if(WaitKeySignal() == But0_release) {
 			break;
-			
-		case 2:
-			LCD::PutStr(x, y, MenuItem1, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem2, LCD::font8x14, MENU_SELECT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem3, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-			break;
-			
-		case 3:
-			LCD::PutStr(x, y, MenuItem1, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem2, LCD::font8x14, MENU_TEXT_COLOR, MENU_BG_COLOR);
-			y += LCD::font8x14.char_h + 10;
-			LCD::PutStr(x, y, MenuItem3, LCD::font8x14, MENU_SELECT_COLOR, MENU_BG_COLOR);
+		}
 	}
 }
+
+bool 

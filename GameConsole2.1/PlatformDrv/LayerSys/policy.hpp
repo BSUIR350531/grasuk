@@ -15,11 +15,15 @@
 #include "../LCD/fonts.hpp"
 
 struct TextInFlash {
-	static void print();
+	static void print(const coord x, const coord y, const char * const txt, const LCD::font &fnt, const color8 col, const color8 bgcol) {
+		LCD::PutStr(x, y, txt, fnt, col, bgcol);
+	}
 };
 
 struct TextInRAM {
-	static void print();
+	static void print(const coord x, const coord y, const char * const txt, const LCD::font &fnt, const color8 col, const color8 bgcol) {
+		LCD::PutStrRAM(x, y, txt, fnt, col, bgcol);
+	}
 };
 
 

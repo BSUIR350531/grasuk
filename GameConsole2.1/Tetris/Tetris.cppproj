@@ -174,13 +174,31 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="FigInd.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="FigInd.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="logo.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="logo.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Tetris.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TetrisBase.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TetrisBase.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="TetrisBoard.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="TetrisBoard.h">
+    <Compile Include="TetrisBoard.hpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

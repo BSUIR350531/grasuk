@@ -190,11 +190,15 @@ namespace LCD {
 		6, 8,
 	#ifdef _USE_8BIT
 		put_char6x8_8,
-		put_char6x8_8BGL, 
-	#endif
+		#ifdef _USE_BGL
+			put_char6x8_8BGL, 
+		#endif	//_USE_BGL
+	#endif	//_USE_8BIT
 	#ifdef _USE_16BIT
 		put_char6x8_16,
-		put_char6x8_16BGL
-	#endif
+		#ifdef _USE_BGL
+			put_char6x8_16BGL
+		#endif	//_USE_BGL
+	#endif	//_USE_16BIT
 	};
 }

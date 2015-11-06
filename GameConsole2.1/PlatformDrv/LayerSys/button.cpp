@@ -14,27 +14,8 @@ button::button(const coord x, const coord y, const size w, const size h):
 x_pos(x), y_pos(y),
 w_val(w), h_val(h),
 text(NULL) {
-	register coord X = x+1, Y = y+1;
-	register size W = w-2, H = h-2;
-/*	if(LayerStack.pick()->filled()) {
-		ButColor = LayerStack.pick()->GetColor();
-	} else {
-		ButColor = 0x92;
-	}*/
 	ButColor = 0xDB;
-	LCD::FillRect(X, Y, W, H, ButColor);
-	X = x; Y = y; W = w; H = 1;
-	LCD::FillRect(X, Y, W, H, (color8)0xFF);
-	Y = y+1; W = 1; H = h-1;
-	LCD::FillRect(X, Y, W, H, (color8)0xFF);
-	X = x+w-1; Y = y+1;
-	LCD::FillRect(X, Y, W, H, (color8)0x92);
-	X = x+1; Y = y+h-1; W = w-2; H = 1;
-	LCD::FillRect(X, Y, W, H, (color8)0x92);
-	X = x+w; Y = y; W = 1; H = h+1;
-	LCD::FillRect(X, Y, W, H, (color8)0x49);
-	X = x; Y = y+h; W = w; H = 1;
-	LCD::FillRect(X, Y, W, H, (color8)0x49);
+	redraw();
 }
 
 void button::DrawText() {
@@ -104,12 +85,18 @@ void button::Select() {
 	LCD::SetPixel(x+w-1, y, (color8)0x49);
 	LCD::SetPixel(x, y+h-1, (color8)0x49);
 	LCD::SetPixel(x+w-1, y+h-1, (color8)0x49);
+	
+	have_focus = true;
 }
 
 void button::Deselect() {
 	register coord X = x_pos+4, Y = y_pos+4;
 	register size W = w_val-7, H = h_val-7;
 	LCD::Rect(X, Y, W, H, ButColor);
+	have_focus = false;
+	if(Pressed) {
+		SignalRelease();
+	}
 }
 
 void button::SignalPush() {
@@ -154,7 +141,7 @@ void button::SignalRelease() {
 		LCD::FillRect(X, Y, W, H, (color8)0x49);
 		X = x_pos; Y = y_pos+h_val; W = w_val; H = 1;
 		LCD::FillRect(X, Y, W, H, (color8)0x49);
-		if(handler != NULL) {
+		if(handler != NULL && have_focus) {
 			handler();
 		}
 		Pressed = false;

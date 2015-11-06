@@ -12,22 +12,21 @@
 #define __PICTURE_H__
 
 #include "LayerSys.hpp"
+#include "../LCD/LcdDrv.hpp"
 
-class Picture: public SimpleGraphObj {
-//variables
+struct image{
+	size w;
+	size h;
+	color16 *img;
+};
+
+class picture: public SimpleGraphObj {
+	coord x, y;
+	image *bitmap;
 public:
-protected:
-private:
-
-//functions
-public:
-	Picture();
-	~Picture();
-protected:
-private:
-	Picture( const Picture &c );
-	Picture& operator=( const Picture &c );
-
+	picture(const coord x_pos, const coord y_pos, const image &img);
+	void redraw();
+	void SetBitMap(const image &img);
 }; //Picture
 
 #endif //__PICTURE_H__

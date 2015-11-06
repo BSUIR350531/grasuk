@@ -16,6 +16,7 @@
 
 #define _USE_8BIT		//Используем только 8-ми битные цвета
 //#define _USE_16BIT
+//#define _USE_BGL		//Использование функций, печатающих без фона
 
 namespace LCD {
 	
@@ -28,12 +29,16 @@ namespace LCD {
 		size char_w, char_h;
 	#ifdef _USE_8BIT
 		CharDrawFunc8 print8;
-		CharDrawFunc8BGL print8BGL;
-	#endif
+		#ifdef _USE_BGL
+			CharDrawFunc8BGL print8BGL;
+		#endif //_USE_BGL
+	#endif //_USE_8BIT
 	#ifdef _USE_16BIT
 		CharDrawFunc16 print16;
-		CharDrawFunc16BGL print16BGL;
-	#endif	
+		#ifdef _USE_BGL
+			CharDrawFunc16BGL print16BGL;
+		#endif	//_USE_BGL
+	#endif	//_USE_16BIT
 	};
 	
 	//Печатает строку str из Flash, шрифтом fnt 8-ми битным цветом color и фоном bgcolor

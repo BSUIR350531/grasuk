@@ -328,11 +328,15 @@ namespace LCD {
 		8, 14,
 	#ifdef _USE_8BIT
 		put_char8x14_8,
-		put_char8x14_8BGL, 
+		#ifdef _USE_BGL
+			put_char8x14_8BGL, 
+		#endif	
 	#endif
 	#ifdef _USE_16BIT
 		put_char8x14_16,
-		put_char8x14_16BGL
+		#ifdef _USE_BGL
+			put_char8x14_16BGL
+		#endif
 	#endif
 	};
 }

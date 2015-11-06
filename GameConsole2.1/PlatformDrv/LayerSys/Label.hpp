@@ -12,22 +12,35 @@
 #define __LABEL_H__
 
 #include "LayerSys.hpp"
+#include "policy.hpp"
 
-class Label: public SimpleGraphObj {
-//variables
+template<class TextStoragePolicy>
+class label: public SimpleGraphObj, public TextStoragePolicy {
+	coord x, y;
+	char *text;
+	LCD::font *fnt;
+	color8 text_col, text_bg_col;
+	
 public:
-protected:
-private:
-
-//functions
-public:
-	Label();
-	~Label();
-protected:
-private:
-	Label( const Label &c );
-	Label& operator=( const Label &c );
-
+	label(const coord x_pos, const coord y_pos): x(x_pos), y(y_pos), text(NULL), fnt(NULL) {}
+	void redraw();
+	void SetText(const char * const txt, const LCD::font &text_fnt, const color8 col, const color8 bgcol);
 }; //Label
+
+template<class TextStoragePolicy>
+void label<TextStoragePolicy>::redraw() {
+	if(text) {
+		TextStoragePolicy::print(x, y, text, *fnt, text_col, text_bg_col);
+	}
+}
+
+template<class TextStoragePolicy>
+void label<TextStoragePolicy>::SetText(const char * const txt, const LCD::font &text_fnt, const color8 col, const color8 bgcol) {
+	text = const_cast<char*>(txt);
+	fnt = const_cast<LCD::font*>(&text_fnt);
+	text_col = col;
+	text_bg_col = bgcol;
+	redraw();
+}
 
 #endif //__LABEL_H__

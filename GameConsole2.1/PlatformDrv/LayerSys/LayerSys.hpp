@@ -63,13 +63,19 @@ typedef SelectableGraphObj *SelGraphObjPtr;
 
 //	Базовый класс графических объектов, которые НЕ могут принимать фокус ввода
 class SimpleGraphObj: public GraphObj {
-	public:
+public:
 	SimpleGraphObj(): GraphObj(false) {}
 	virtual void redraw() = 0;
+	
+	//Достались по наследству, но не будут использованы наследниками
+	void Select() {}
+	void Deselect() {}
+	void SignalPush() {}
+	void SignalRelease() {}
 };
 
-/*	Осуществляет управлениефокусом ввода и отправку событий
-элементам управления. Для правильной раобы необходимо вызывать циклически.	*/
+/*	Осуществляют управление фокусом ввода и отправку событий
+элементам управления. Для работы необходимо вызывать циклически.	*/
 
 //	С ожиданием событий клавиатуры
 void GUIMainLoopW();

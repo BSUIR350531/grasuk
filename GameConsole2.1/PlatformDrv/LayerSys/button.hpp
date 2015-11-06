@@ -21,7 +21,7 @@ class button: public SelectableGraphObj {
 	void (*handler)();
 	char *text;
 	LCD::font *fnt;
-	bool Pressed;
+	bool Pressed, have_focus;
 	color8 ButColor;
 	
 public:

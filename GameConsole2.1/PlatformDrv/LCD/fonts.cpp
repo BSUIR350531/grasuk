@@ -20,12 +20,6 @@ void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const fo
 	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8(x + x0, y, c, color, bgcolor), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
 }
 
-void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color8 color) {
-	register unsigned char i, x0;
-	register char c;
-	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
-}
-
 void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const color8 color, const color8 bgcolor) {
 	register unsigned char i, x, x0;
 	register char c;
@@ -34,23 +28,33 @@ void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const 
 	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8(x + x0, y, c, color, bgcolor), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
 }
 
-void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const color8 color) {
-	register unsigned char i, x, x0;
-	register char c;
-	for (i = 0; pgm_read_byte(&str[i]); i++);
-	x = (Width()>>1) - ((i*fnt.char_w)>>1);
-	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
-}
-
-#endif
-
-#ifdef _USE_16BIT
-
-void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color16 color) {
+void LCD::PutStrRAM(const coord x, const coord y, const char *str, const font &fnt, const color8 color, const color8 bgcolor) {
 	register unsigned char i, x0;
 	register char c;
-	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print16BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+	for(i = 0, x0 = 0, c = str[i++]; c; fnt.print8(x + x0, y, c, color, bgcolor), c = str[i++], x0 += fnt.char_w);
 }
+
+	#ifdef _USE_BGL
+
+	void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color8 color) {
+		register unsigned char i, x0;
+		register char c;
+		for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+	}
+
+	void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const color8 color) {
+		register unsigned char i, x, x0;
+		register char c;
+		for (i = 0; pgm_read_byte(&str[i]); i++);
+		x = (Width()>>1) - ((i*fnt.char_w)>>1);
+		for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print8BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+	}
+
+	#endif	//_USE_BGL
+
+#endif  //_USE_8BIT
+
+#ifdef _USE_16BIT
 
 void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color16 color, const color16 bgcolor) {
 	register unsigned char i, x0;
@@ -66,12 +70,22 @@ void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const 
 	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print16(x + x0, y, c, color, bgcolor), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
 }
 
-void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const color16 color) {
-	register unsigned char i, x, x0;
-	register char c;
-	for (i = 0; pgm_read_byte(&str[i]); i++);
-	x = (Width()>>1) - ((i*fnt.char_w)>>1);
-	for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print16BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
-}
+	#ifdef _USE_BGL
 
-#endif
+	void LCD::PutStr(const coord y, const char *str PROGMEM, const font &fnt, const color16 color) {
+		register unsigned char i, x, x0;
+		register char c;
+		for (i = 0; pgm_read_byte(&str[i]); i++);
+		x = (Width()>>1) - ((i*fnt.char_w)>>1);
+		for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print16BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+	}
+
+	void LCD::PutStr(const coord x, const coord y, const char *str PROGMEM, const font &fnt, const color16 color) {
+		register unsigned char i, x0;
+		register char c;
+		for(i = 0, x0 = 0, c = pgm_read_byte(&str[i++]); c; fnt.print16BGL(x + x0, y, c, color), c = pgm_read_byte(&str[i++]), x0 += fnt.char_w);
+	}
+
+	#endif	//_USE_BGL
+
+#endif //_USE_16BIT

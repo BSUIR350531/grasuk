@@ -177,9 +177,6 @@
     <Compile Include="LayerSys\GraphObj.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LayerSys\Label.cpp">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="LayerSys\Label.hpp">
       <SubType>compile</SubType>
     </Compile>
