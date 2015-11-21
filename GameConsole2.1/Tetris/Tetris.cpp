@@ -11,11 +11,10 @@
 #include <PlatformDrv.h>
 #include "TetrisBoard.hpp"
 #include "logo.h"
-#include <stdio.h>
 #include "FigInd.hpp"
+#include <stdlib.h>
 
 #define MENU_BG_COLOR		static_cast<color8>(0xDB)		//Серый
-#define GAME_BG_COLOR		static_cast<color8>(0x1B)		//Светло-голубой
 
 const char	ButStartText[]		PROGMEM = "Старт";
 const char  ButRecordsText[]	PROGMEM = "Рекорды";
@@ -28,12 +27,13 @@ const char	ExitText[]			PROGMEM = "Выйти?";
 const char lines[] PROGMEM = "LINES:";
 const char score[] PROGMEM = "SCORE:";
 const char next[]  PROGMEM = "NEXT:";
-const char fmt[] = "%06d";
 
 void Game();
 void Settings();
 void ShowRecords();
 void pause();
+bool YesNoDialog(const char * const text);
+void GetTextScore(char *str, int num);
 
 void RTOSMain() {
 	LCD::SetColorMode(mode_8);
@@ -54,6 +54,8 @@ void RTOSMain() {
 	settings_but.SetText(ButSettingsText, LCD::font8x14);
 	settings_but.SetHandler(Settings);
 	
+	srand(TCNT0);		//Используем счётчик таймера управления подсветкой как неплохой источник энтропии
+	
     while(1) {
 		GUIMainLoopW();
     }
@@ -61,55 +63,135 @@ void RTOSMain() {
 
 void Game() {
 	unsigned int cur_score = 0, lines_num = 0;
-	char lines_num_buf[7], cur_score_buf[7];
-	bool game_over = false;
+	char lines_num_buf[] = "000000", cur_score_buf[] = "000000";
+	unsigned char cur_figure, next_figure, cur_lines;
+	timeout_t remain, time = 1000;		//0,0005 * 1000 = 0.5 сек - задержка при обычном спуске вниз. Задаётся в квантах, квант - 0.0005 сек.
+	bool fastDown = false;
 	
 	layer game_lay(GAME_BG_COLOR);
 	
 	label<TextInFlash> lines_lab(LCD::Width() - 40, 3);
 	label<TextInFlash> score_lab(LCD::Width() - 40, 25);
 	
-	lines_lab.SetText(lines, LCD::font6x8, 0xFF, GAME_BG_COLOR);
-	score_lab.SetText(score, LCD::font6x8, 0xFF, GAME_BG_COLOR);
-	
 	label<TextInRAM> lines_num_lab(LCD::Width() - 41, 14);
 	label<TextInRAM> cur_score_lab(LCD::Width() - 41, 36);
 	
-	sprintf(lines_num_buf, fmt, lines_num);
-	lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
-	sprintf(cur_score_buf, fmt, cur_score);
-	cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
-	
 	label<TextInFlash> next_lab(LCD::Width() - 38, 68);
-	next_lab.SetText(next, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	
 	TetrisBoard game_board(1, 1);
 	
 	FigInd next_fig_ind(90, 80);
 	
-	while(!game_over) {
-		switch(WaitKeySignal()) {
-			case ButDel_release:
-				game_over = true;
-				break;
-			
-			case But0_release:
-				pause();
-				
-			default:
-				break;
+	lines_lab.SetText(lines, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	score_lab.SetText(score, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	GetTextScore(lines_num_buf, lines_num);
+	lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	GetTextScore(cur_score_buf, cur_score);
+	cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	next_lab.SetText(next, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	next_figure = rand() % 7;
+	
+	while(1) {
+		cur_figure = next_figure;	//Получаем номер новой фигурки
+		next_figure = rand() % 7;	//Генерируем номер следующей фигурки
+		next_fig_ind.SetFigure(next_figure);	//Загружаем следующую фигурку в индикатор
+		if(game_board.insert(cur_figure)) {		//Добавяем на игровую доску новую фигурку
+			break;	//Если нельзя добавить - конец игры
 		}
+		fastDown = false;		//Не нужен бытрый спуск для новой фигурки
+		
+		while(1) {		//Во время сдвига вниз фигурку можно сдвигать влево/вправо и поворачивать
+			while(1) {		//Цикл для ожидания спуска на одну клетку
+				switch(TimeKeySignal(time, &remain)) {
+					case But1_release:
+						if(YesNoDialog(ExitText)) {
+							return;
+						}
+						fastDown = false;	//На всякий случай, лучше после закрытия диалогового окна ещё раз нажать вниз
+						break;
+				
+					case But3_release:
+						pause();
+						fastDown = false;
+						break;
+			
+					case Enc_Up:
+					case But4_release:
+						game_board.MoveLeft();
+						break;
+				
+					case Enc_Down:
+					case But6_release:
+						game_board.MoveRight();
+						break;
+				
+					case ButEnc_release:
+					case But5_release:
+						game_board.Rotate();
+						break;
+					
+					case But8_press:
+						fastDown = true;
+						remain = 100; 
+						break;
+				
+					case But8_release:
+						fastDown = false;
+				
+					default:
+						break;
+				}
+				if(remain > 2) {
+					remain -= 2;
+					time = remain;		//Если нажатие произошло прежде, чем прошло 0.5 сек, остаток времени будет в remain. Возьмём на 1 квант меньше, примерно столько рисуется фигурка
+				} else {
+					break;
+				}
+			}
+			if(fastDown) {
+				time = 100;
+			} else {
+				time = 1000;
+			}
+			if(game_board.CanStepDown()) {
+				game_board.StepDown();	//Повторяем сдвиг фигурки вниз до тех пор, пока	она не упадёт
+			} else {
+				break;
+			}
+		}		
+		
+		cur_lines = game_board.FindAndDeleteLines();
+		cur_score += 1 + cur_lines * 5;	//5 очков за каждый заполненный ряд, 1 очко за поставленную фигурку
+		lines_num += cur_lines;
+		GetTextScore(lines_num_buf, lines_num);
+		lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+		GetTextScore(cur_score_buf, cur_score);
+		cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	}
+		
+	game_board.GameOverEffect();
 }
 
 void Settings() {
 	layer settings_lay(MENU_BG_COLOR);
+	//Это меню пока недоступно
 	WaitKeySignal();
 }
 
 void ShowRecords() {
 	layer records_lay(MENU_BG_COLOR);
+	//Это меню пока недоступно
 	WaitKeySignal();
+}
+
+void GetTextScore(char *str, int num) {
+	for(register unsigned char i = 5; i > 0; i--) {
+		str[i] = 0x30 + num % 10;
+		num/=10;
+	}
 }
 
 void pause() {
@@ -121,10 +203,49 @@ void pause() {
 	pause_lab.SetText(PauseText, LCD::font8x14, 0xFF, 0b00000011);
 	
 	while(1) {
-		if(WaitKeySignal() == But0_release) {
+		if(WaitKeySignal() == But3_release) {
 			break;
 		}
 	}
 }
 
-bool 
+//----------------------	Позже это переедет в stddiag	-------------------------------
+
+bool ret;
+volatile bool NotClick;
+void yes_hndl();
+void no_hndl();
+
+bool YesNoDialog(const char * const text) {
+	layer dialog_lay;
+	
+	NotClick = true;
+	
+	LCD::FillRect(10, (LCD::Height() >> 1) - 30, LCD::Width() - 20, 60, MENU_BG_COLOR);
+	
+	button no_but(72, (LCD::Height() >> 1), 40, 23);	//Фокус ввода устанавливается на первой созданной кнопке
+	button yes_but(20, (LCD::Height() >> 1), 40, 23);
+	
+	yes_but.SetText(YesText, LCD::font8x14);
+	yes_but.SetHandler(yes_hndl);
+	no_but.SetText(NoText, LCD::font8x14);
+	no_but.SetHandler(no_hndl);
+	
+	LCD::PutStr((LCD::Height() >> 1) - 22, text, LCD::font8x14, 0x00, MENU_BG_COLOR);
+	
+	while(NotClick) {
+		GUIMainLoopW();
+	}
+	
+	return ret;
+}
+
+void yes_hndl() {
+	NotClick = false;
+	ret = true;
+}
+
+void no_hndl() {
+	NotClick = false;
+	ret = false;
+}

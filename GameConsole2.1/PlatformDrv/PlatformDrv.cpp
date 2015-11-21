@@ -87,6 +87,14 @@ signal WaitKeySignal() {
 	return ret;
 }
 
+signal TimeKeySignal(timeout_t time, timeout_t *remain) {
+	signal ret;
+	if (!key_ev_qu.pop_rem(ret, time, remain)) {
+		ret = none;
+	}
+	return ret;
+}
+
 template<> void TEncProc::exec() {
 	signal res;
 	register unsigned char EncNewSignal, EncState = 0, div4 = 0;

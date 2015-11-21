@@ -331,6 +331,7 @@ namespace OS
         void push_front(const T& item);
 
         bool pop     (T& item, timeout_t timeout = 0);
+		bool pop_rem (T& item, timeout_t timeout, timeout_t *remain);
         bool pop_back(T& item, timeout_t timeout = 0);
 
 
@@ -482,6 +483,45 @@ bool OS::channel<T, Size, S>::pop(T& item, timeout_t timeout)
             // otherwise another process caught data
         }
     }
+}
+//------------------------------------------------------------------------------
+template<typename T, uint16_t Size, typename S>
+bool OS::channel<T, Size, S>::pop_rem(T& item, timeout_t timeout, timeout_t *remain)
+{
+	TCritSect cs;
+
+	if(pool.get_count())
+	{
+		item = pool.pop();
+		resume_all(ProducersProcessMap);
+		*remain = timeout;
+		return true;
+	}
+	else
+	{
+		cur_proc_timeout() = timeout;
+
+		for(;;)
+		{
+			// channel is empty, suspend current process until data received or timeout
+			suspend(ConsumersProcessMap);
+			if(is_timeouted(ConsumersProcessMap)) {
+				*remain = 0;
+				return false;
+			}
+			
+
+			if(pool.get_count())
+			{
+				*remain = cur_proc_timeout();
+				cur_proc_timeout() = 0;
+				item = pool.pop();
+				resume_all(ProducersProcessMap);
+				return true;
+			}
+			// otherwise another process caught data
+		}
+	}
 }
 //------------------------------------------------------------------------------
 template<typename T, uint16_t Size, typename S>

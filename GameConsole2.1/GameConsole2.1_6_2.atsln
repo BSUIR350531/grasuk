@@ -1,0 +1,32 @@
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "PlatformDrv", "PlatformDrv\PlatformDrv_6_2.cppproj", "{8EA61CDA-6806-4471-930B-92434264A73E}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "test", "test\test_6_2.cppproj", "{282B6F98-79C4-40F4-AC80-40FDCEAE0E07}"
+EndProject
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "Tetris", "Tetris\Tetris_6_2.cppproj", "{594C4354-7511-4DF0-81A8-AE8031659AB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EA61CDA-6806-4471-930B-92434264A73E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{8EA61CDA-6806-4471-930B-92434264A73E}.Debug|AVR.Build.0 = Debug|AVR
+		{8EA61CDA-6806-4471-930B-92434264A73E}.Release|AVR.ActiveCfg = Release|AVR
+		{8EA61CDA-6806-4471-930B-92434264A73E}.Release|AVR.Build.0 = Release|AVR
+		{282B6F98-79C4-40F4-AC80-40FDCEAE0E07}.Debug|AVR.ActiveCfg = Debug|AVR
+		{282B6F98-79C4-40F4-AC80-40FDCEAE0E07}.Debug|AVR.Build.0 = Debug|AVR
+		{282B6F98-79C4-40F4-AC80-40FDCEAE0E07}.Release|AVR.ActiveCfg = Release|AVR
+		{282B6F98-79C4-40F4-AC80-40FDCEAE0E07}.Release|AVR.Build.0 = Release|AVR
+		{594C4354-7511-4DF0-81A8-AE8031659AB0}.Debug|AVR.ActiveCfg = Debug|AVR
+		{594C4354-7511-4DF0-81A8-AE8031659AB0}.Debug|AVR.Build.0 = Debug|AVR
+		{594C4354-7511-4DF0-81A8-AE8031659AB0}.Release|AVR.ActiveCfg = Release|AVR
+		{594C4354-7511-4DF0-81A8-AE8031659AB0}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
