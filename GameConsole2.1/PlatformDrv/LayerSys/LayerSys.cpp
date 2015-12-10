@@ -35,16 +35,26 @@ void GUIMainLoopW() {
 	switch(WaitKeySignal()) {
 		case Enc_Up:
 			tmp[SelObjInd[CurObj]]->Deselect();
-			if(++CurObj == ObjNum) {
-				CurObj = 0;
+			for(;;) {
+				if(++CurObj == ObjNum) {
+					CurObj = 0;
+				}
+				if(tmp[SelObjInd[CurObj]]->Enabled) {
+					break;
+				}
 			}
 			tmp[SelObjInd[CurObj]]->Select();
 			break;
 				
 		case Enc_Down:
 			tmp[SelObjInd[CurObj]]->Deselect();
-			if(--CurObj == 0xFF) {
-				CurObj = ObjNum-1;
+			for(;;) {
+				if(--CurObj == 0xFF) {
+					CurObj = ObjNum-1;
+				}
+				if(tmp[SelObjInd[CurObj]]->Enabled) {
+					break;
+				}
 			}
 			tmp[SelObjInd[CurObj]]->Select();
 			break;
@@ -82,16 +92,26 @@ void GUIMainLoopG() {
 	switch(GetKeySignal()) {
 		case Enc_Up:
 			tmp[SelObjInd[CurObj]]->Deselect();
-			if(++CurObj == ObjNum) {
-				CurObj = 0;
+			for(;;) {
+				if(--CurObj == 0xFF) {
+					CurObj = ObjNum-1;
+				}
+				if(tmp[SelObjInd[CurObj]]->Enabled) {
+					break;
+				}
 			}
 			tmp[SelObjInd[CurObj]]->Select();
 			break;
 		
 		case Enc_Down:
 			tmp[SelObjInd[CurObj]]->Deselect();
-			if(--CurObj == 0xFF) {
-				CurObj = ObjNum-1;
+			for(;;) {
+				if(--CurObj == 0xFF) {
+					CurObj = ObjNum-1;
+				}
+				if(tmp[SelObjInd[CurObj]]->Enabled) {
+					break;
+				}
 			}
 			tmp[SelObjInd[CurObj]]->Select();
 			break;

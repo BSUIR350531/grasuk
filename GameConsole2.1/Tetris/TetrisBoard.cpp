@@ -9,6 +9,7 @@
 
 
 #include "TetrisBoard.hpp"
+#include <avr/eeprom.h>
 
 TetrisBoard::TetrisBoard(const coord x_pos, const coord y_pos): TetrisBase(x_pos, y_pos) {
 	initDone = false;
@@ -203,4 +204,14 @@ void TetrisBoard::UpdateFig() {
 	for(register unsigned char i = 0; i<3; i++) {
 		DrawBlock(GetScreenCoordX(figure_x + cur_figure[i][0]), GetScreenCoordY(figure_y + cur_figure[i][1], 1), cur_figure_color);
 	}
+}
+
+GameSaveStruct EEMEM SaveSlot1;	//Резервируем место в EEPROM для схранения игры
+
+void TetrisBoard::Save() {
+	eeprom_write_block(this, &SaveSlot1, sizeof(TetrisBoard));
+}
+
+void TetrisBoard::Load() {
+	eeprom_read_block(this, &SaveSlot1, sizeof(TetrisBoard));
 }

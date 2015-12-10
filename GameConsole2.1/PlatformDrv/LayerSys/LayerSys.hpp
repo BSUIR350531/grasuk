@@ -16,6 +16,14 @@
 #define MAX_GRAPH_OBJ_NUM	8		//Максимальное колличество графических объектов на слое
 #define MAX_LAYERS_COUNT	4		//Максимальное колличество слоёв
 
+/*	Осуществляют управление фокусом ввода и отправку событий
+элементам управления. Для работы необходимо вызывать циклически.	*/
+
+//	С ожиданием событий клавиатуры
+void GUIMainLoopW();
+
+//	Без ожидания событий клавиатуры
+void GUIMainLoopG();
 
 /*	Классы layer, GraphObj, SimpleGraphObj и SelectableGraphObj тесно связаны между собой, 
 плюс они должны быть доступны извне, поэтому их объявления нельзя выносить в разные файлы.	*/
@@ -24,6 +32,9 @@
 Представляет общий интерфейс для всех графических объектов*/
 class GraphObj {
 	bool CanReciveFocus;
+
+protected:
+	bool Enabled;
 
 public:
 	//Перерисовка объекта. Будет вызываться каждый раз при удалении слоя над ним.
@@ -42,6 +53,9 @@ public:
 	GraphObj(const bool type);
 
 	bool IsSelectable() const { return CanReciveFocus; }
+
+	friend void GUIMainLoopW();
+	friend void GUIMainLoopG();
 }; //GraphObj
 
 typedef GraphObj *GraphObjPtr;
@@ -57,6 +71,25 @@ public:
 	virtual void Deselect() = 0;	//Снятие фокуса ввода
 	virtual void SignalPush() = 0;		//Нажатие на объект
 	virtual void SignalRelease() = 0;  //Отпускание объекта
+	
+	void enable(bool Update = true) { //Включает объект
+		Enabled = true; 
+		if(Update) {
+			Enable();
+		}
+	}
+	
+	void disable(bool Update = true) { //Выключает объект
+		Enabled = false; 
+		if(Update) {
+			Disable();
+		}
+	}	
+
+protected:
+	//Производят перерисовку при включении/отключении объекта
+	virtual void Enable() = 0;		
+	virtual void Disable() = 0;
 };
 
 typedef SelectableGraphObj *SelGraphObjPtr;
@@ -66,7 +99,8 @@ class SimpleGraphObj: public GraphObj {
 public:
 	SimpleGraphObj(): GraphObj(false) {}
 	virtual void redraw() = 0;
-	
+
+private:
 	//Достались по наследству, но не будут использованы наследниками
 	void Select() {}
 	void Deselect() {}
@@ -74,20 +108,11 @@ public:
 	void SignalRelease() {}
 };
 
-/*	Осуществляют управление фокусом ввода и отправку событий
-элементам управления. Для работы необходимо вызывать циклически.	*/
-
-//	С ожиданием событий клавиатуры
-void GUIMainLoopW();
-
-//	Без ожидания событий клавиатуры
-void GUIMainLoopG();
-
 class layer {
 	GraphObjPtr GraphObjArr[MAX_GRAPH_OBJ_NUM];		//Массив указателей на объекты текущего слоя
 	unsigned char SelObjInd[MAX_GRAPH_OBJ_NUM];		//Индексы элементов типа SelectableGraphObj
 	unsigned char SelObjNum, ObjNum;	//Колличество объектов SelectableGraphObj и общее колличество объетов
-	bool Filled;
+	bool Filled, needRedraw;
 	color8 LayerFill8;
 	color16 LayerFill16;
 	ColorMode LayerFillColorMode;
@@ -102,6 +127,7 @@ public:
 	layer(const color16 color);
 	color8 GetColor() const { return LayerFill8; }
 	bool filled() const { return Filled; }
+	void DisableRedraw();	//Отключение автоматической перерисовки предыдущего слоя
 	~layer();
 	
 private:

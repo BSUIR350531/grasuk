@@ -31,6 +31,9 @@ public:
 	void SignalPush();
 	void SignalRelease();
 	
+	void Enable();
+	void Disable();
+	
 	button(const coord x, const coord y, const size w, const size h);
 	size width() const { return w_val; }
 	size height() const { return h_val; }

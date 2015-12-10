@@ -8,6 +8,7 @@
 *********************************************************************/
 
 #include <avr/pgmspace.h>
+#include <avr/eeprom.h>
 #include <PlatformDrv.h>
 #include "TetrisBoard.hpp"
 #include "logo.h"
@@ -17,23 +18,40 @@
 #define MENU_BG_COLOR		static_cast<color8>(0xDB)		//Серый
 
 const char	ButStartText[]		PROGMEM = "Старт";
-const char  ButRecordsText[]	PROGMEM = "Рекорды";
+const char  ButLoadText[]		PROGMEM = "Загрузить";
 const char	ButSettingsText[]	PROGMEM = "Настройки";
 const char	PauseText[]			PROGMEM = "Пауза";
 const char	YesText[]			PROGMEM = "Да";
 const char	NoText[]			PROGMEM = "Нет";
 const char	ExitText[]			PROGMEM = "Выйти?";
+const char  OverWriteText[]		PROGMEM = "Перезаписать?";
+const char	DeleteSave[]		PROGMEM = "Очистить?";
+const char  LoadQ[]				PROGMEM = "Загрузить?";
 
-const char lines[] PROGMEM = "LINES:";
+const char high[] PROGMEM = "HIGH:";
 const char score[] PROGMEM = "SCORE:";
 const char next[]  PROGMEM = "NEXT:";
 
-void Game();
+unsigned int EEMEM HighScore = 0;		//Рекорд, логично, хранится в eeprom
+unsigned char EEMEM HaveSavedGame = 0;	//Есть ли сохранённая игра
+
+unsigned int EEMEM ee_cur_score = 0;
+unsigned char EEMEM ee_cur_figure = 0;
+unsigned char EEMEM ee_next_figure = 0; 
+
+unsigned char EEMEM BacklightTimeoutEnabled = 0xDA;
+unsigned char EEMEM Brigitness = 180;
+unsigned char EEMEM BacklightTimeout = 30;
+
+void Game(bool needLoad);
+void Start_NoLoad();
+void Start_Load();
 void Settings();
-void ShowRecords();
 void pause();
 bool YesNoDialog(const char * const text);
-void GetTextScore(char *str, int num);
+void GetTextScore(char *str, unsigned int num);
+
+button *BtnLoad;
 
 void RTOSMain() {
 	LCD::SetColorMode(mode_8);
@@ -42,39 +60,52 @@ void RTOSMain() {
 	
 	picture tetris_logo(0, 0, logo);
 	button start_but(10, 67, LCD::Width() - 20, 40);
-	button records_but(15, 117, LCD::Width() - 30, 23);
+	button load_but(15, 117, LCD::Width() - 30, 23);
 	button settings_but(15, 145, LCD::Width() - 30, 23);
 	
 	start_but.SetText(ButStartText, LCD::font8x14);
-	start_but.SetHandler(Game);
+	start_but.SetHandler(Start_NoLoad);
 	
-	records_but.SetText(ButRecordsText, LCD::font8x14);
-	records_but.SetHandler(ShowRecords);
+	if(eeprom_read_byte(&HaveSavedGame) != 0xDA) {
+		load_but.disable();
+	}
+	load_but.SetText(ButLoadText, LCD::font8x14);
+	load_but.SetHandler(Start_Load);
+	BtnLoad = &load_but;
 	
+	settings_but.disable();	// Временно
 	settings_but.SetText(ButSettingsText, LCD::font8x14);
 	settings_but.SetHandler(Settings);
 	
-	srand(TCNT0);		//Используем счётчик таймера управления подсветкой как неплохой источник энтропии
-	
-    while(1) {
+    while(1) {                 
 		GUIMainLoopW();
     }
 }
 
-void Game() {
-	unsigned int cur_score = 0, lines_num = 0;
-	char lines_num_buf[] = "000000", cur_score_buf[] = "000000";
+void Start_NoLoad() {
+	Game(false);
+}
+
+void Start_Load() {
+	Game(true);
+}
+
+void Game(bool needLoad) {
+	unsigned int cur_score = 0, high_score = eeprom_read_word(&HighScore);
+	char high_score_buf[] = "000000", cur_score_buf[] = "000000";
 	unsigned char cur_figure, next_figure, cur_lines;
 	timeout_t remain, time = 1000;		//0,0005 * 1000 = 0.5 сек - задержка при обычном спуске вниз. Задаётся в квантах, квант - 0.0005 сек.
-	bool fastDown = false;
+	bool fastDown = false, wasLoaded;
+	
+	srand(TCNT0);		//Используем счётчик таймера управления подсветкой и несогласованность тактового генератора с действиями человека как неплохой источник энтропии
 	
 	layer game_lay(GAME_BG_COLOR);
 	
-	label<TextInFlash> lines_lab(LCD::Width() - 40, 3);
-	label<TextInFlash> score_lab(LCD::Width() - 40, 25);
+	label<TextInFlash> high_lab(LCD::Width() - 40, 25);
+	label<TextInFlash> score_lab(LCD::Width() - 40, 3);
 	
-	label<TextInRAM> lines_num_lab(LCD::Width() - 41, 14);
-	label<TextInRAM> cur_score_lab(LCD::Width() - 41, 36);
+	label<TextInRAM> high_score_lab(LCD::Width() - 41, 36);
+	label<TextInRAM> cur_score_lab(LCD::Width() - 41, 14);
 	
 	label<TextInFlash> next_lab(LCD::Width() - 38, 68);
 	
@@ -82,26 +113,42 @@ void Game() {
 	
 	FigInd next_fig_ind(90, 80);
 	
-	lines_lab.SetText(lines, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	high_lab.SetText(high, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	score_lab.SetText(score, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	next_lab.SetText(next, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	
-	GetTextScore(lines_num_buf, lines_num);
-	lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	GetTextScore(high_score_buf, high_score);
+	high_score_lab.SetText(high_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+	
+	if(needLoad) {
+		game_board.Load();
+		game_board.redraw();
+		next_figure = eeprom_read_byte(&ee_next_figure);
+		next_fig_ind.SetFigure(next_figure);
+		next_fig_ind.redraw();
+		cur_figure = eeprom_read_byte(&ee_cur_figure);
+		cur_score = eeprom_read_word(&ee_cur_score);
+		wasLoaded = true;
+	} else {
+		wasLoaded = false;
+		next_figure = rand() % 7;
+	}
+	
 	GetTextScore(cur_score_buf, cur_score);
 	cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	
-	next_lab.SetText(next, LCD::font6x8, 0xFF, GAME_BG_COLOR);
-	
-	next_figure = rand() % 7;
-	
 	while(1) {
-		cur_figure = next_figure;	//Получаем номер новой фигурки
-		next_figure = rand() % 7;	//Генерируем номер следующей фигурки
-		next_fig_ind.SetFigure(next_figure);	//Загружаем следующую фигурку в индикатор
-		if(game_board.insert(cur_figure)) {		//Добавяем на игровую доску новую фигурку
-			break;	//Если нельзя добавить - конец игры
+		if(!wasLoaded) {
+			cur_figure = next_figure;	//Получаем номер новой фигурки
+			next_figure = rand() % 7;	//Генерируем номер следующей фигурки
+			next_fig_ind.SetFigure(next_figure);	//Загружаем следующую фигурку в индикатор
+			if(game_board.insert(cur_figure)) {		//Добавяем на игровую доску новую фигурку
+				break;	//Если нельзя добавить - конец игры
+			}
 		}
+		wasLoaded = false;
 		fastDown = false;		//Не нужен бытрый спуск для новой фигурки
+		time = 1000;
 		
 		while(1) {		//Во время сдвига вниз фигурку можно сдвигать влево/вправо и поворачивать
 			while(1) {		//Цикл для ожидания спуска на одну клетку
@@ -112,6 +159,24 @@ void Game() {
 						}
 						fastDown = false;	//На всякий случай, лучше после закрытия диалогового окна ещё раз нажать вниз
 						break;
+						
+					case But2_release:
+						if(eeprom_read_byte(&HaveSavedGame) == 0xDA) {
+							if(YesNoDialog(OverWriteText)) {
+								game_board.Save();
+								eeprom_write_word(&ee_cur_score, cur_score);
+								eeprom_write_byte(&ee_cur_figure, cur_figure);
+								eeprom_write_byte(&ee_next_figure, next_figure);
+							}
+						} else {
+							game_board.Save();
+							eeprom_write_byte(&HaveSavedGame, 0xDA);	//Помечаем, что есть сохранение
+							eeprom_write_word(&ee_cur_score, cur_score);
+							eeprom_write_byte(&ee_cur_figure, cur_figure);
+							eeprom_write_byte(&ee_next_figure, next_figure);
+							BtnLoad->enable(false);
+						}
+						break;
 				
 					case But3_release:
 						pause();
@@ -119,12 +184,12 @@ void Game() {
 						break;
 			
 					case Enc_Up:
-					case But4_release:
+					case But4_press:
 						game_board.MoveLeft();
 						break;
 				
 					case Enc_Down:
-					case But6_release:
+					case But6_press:
 						game_board.MoveRight();
 						break;
 				
@@ -140,13 +205,21 @@ void Game() {
 				
 					case But8_release:
 						fastDown = false;
-				
+						break;
+						
+					case ButDel_release:
+						if(eeprom_read_byte(&HaveSavedGame) && YesNoDialog(DeleteSave)) {
+							eeprom_write_byte(&HaveSavedGame, 0);
+							BtnLoad->disable(false);
+						}
+						break;
+						
 					default:
 						break;
 				}
 				if(remain > 2) {
 					remain -= 2;
-					time = remain;		//Если нажатие произошло прежде, чем прошло 0.5 сек, остаток времени будет в remain. Возьмём на 1 квант меньше, примерно столько рисуется фигурка
+					time = remain;		//Если нажатие произошло прежде, чем прошло 0.5 сек, остаток времени будет в remain. Возьмём на 2 кванта меньше, примерно столько рисуется фигурка
 				} else {
 					break;
 				}
@@ -165,13 +238,16 @@ void Game() {
 		
 		cur_lines = game_board.FindAndDeleteLines();
 		cur_score += 1 + cur_lines * 5;	//5 очков за каждый заполненный ряд, 1 очко за поставленную фигурку
-		lines_num += cur_lines;
-		GetTextScore(lines_num_buf, lines_num);
-		lines_num_lab.SetText(lines_num_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+		if(cur_score > high_score) {
+			high_score = cur_score;
+			eeprom_write_word(&HighScore, high_score);
+			GetTextScore(high_score_buf, high_score);
+			high_score_lab.SetText(high_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
+		}
 		GetTextScore(cur_score_buf, cur_score);
 		cur_score_lab.SetText(cur_score_buf, LCD::font6x8, 0xFF, GAME_BG_COLOR);
 	}
-		
+	
 	game_board.GameOverEffect();
 }
 
@@ -181,13 +257,7 @@ void Settings() {
 	WaitKeySignal();
 }
 
-void ShowRecords() {
-	layer records_lay(MENU_BG_COLOR);
-	//Это меню пока недоступно
-	WaitKeySignal();
-}
-
-void GetTextScore(char *str, int num) {
+void GetTextScore(char *str, unsigned int num) {
 	for(register unsigned char i = 5; i > 0; i--) {
 		str[i] = 0x30 + num % 10;
 		num/=10;

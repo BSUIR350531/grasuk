@@ -23,6 +23,8 @@ class TetrisBoard: public SimpleGraphObj, public TetrisBase {
 	
 public:
 	TetrisBoard(const coord x_pos, const coord y_pos);
+	TetrisBoard(const TetrisBoard&) = delete;	//Этот объект нельзя копировать
+	void operator=(const TetrisBoard&) = delete;	//И присвоить
 	void redraw();
 	void DrawStack();
 	void GameOverEffect();
@@ -33,6 +35,8 @@ public:
 	bool insert(const unsigned char new_figure);	//Добавляет фигурку на доску. Возвращает true, если фигурка НЕ была добавлена
 	bool CanStepDown();		//Возвращает true, если сдвиг вниз можно произвести.
 	void StepDown();	//Сдвиг фигурки вниз на одну клетку.
+	void Save();
+	void Load();
 	
 private:
 	//Можно ли разместить текущую фигурку с новыми координатами и ориентацией
@@ -42,5 +46,15 @@ private:
 	void EraseFig();	//Стереть текущую фигурку с экрана
 	void UpdateFig();	//Перерисовать фигурку на экране
 }; //TetrisBoard
+
+/*	Используется для сохранения игры. Нельзя создавать ещё один экземпляр TetrisBoard в EEPROM,
+т.к. произойдёт вызов конструктора тогда, когда этого не должно просходить, а создать TetrisBoard 
+без конструктора нельзя, т.к. это графический объект.	*/
+struct GameSaveStruct {
+	color8 board[21][10], cur_figure_color;
+	unsigned char figure, figure_orient, figure_x, figure_y;
+	signed char cur_figure[3][2];
+	bool initDone;
+};
 
 #endif //__TETRISBOARD_H__

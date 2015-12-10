@@ -1,10 +1,11 @@
-﻿#include <avr/pgmspace.h>
+﻿//#include <avr/pgmspace.h>
+#include <avr/eeprom.h>
 #include "fonts.hpp"
 //#include <stddef.h>
 
 using namespace LCD;
 
-static const unsigned char table6x8[576] PROGMEM = {
+static /*const*/ unsigned char EEMEM table6x8[576] /*PROGMEM*/ = {
 	0x00,0x00,0x00,0x00,0x00,0x00, // Symbol 20
 	0x00,0x00,0x00,0x5F,0x00,0x00, // Symbol 21
 	0x00,0x00,0x03,0x00,0x03,0x00, // Symbol 22
@@ -105,13 +106,14 @@ static const unsigned char table6x8[576] PROGMEM = {
 
 void put_char6x8_8(const coord x, const coord y, const char c, const color8 color, const color8 bgcolor) {
 	unsigned char mask, buf[6];
-	int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	unsigned char *offset = table6x8 + 6 * (c - 0x20);
 	SetWindow(x, y, 6, 8);
 	SetDatMode();
 	//У данного шрифта другой порядок заполнения пикселей
 	//Поэтому для ускорения сначала считаем символ в буфер
 	for (register unsigned char i = 0; i < 6; i++) {
-		buf[i] = pgm_read_byte(offset + i);
+		//buf[i] = pgm_read_byte(offset + i);
+		buf[i] = eeprom_read_byte(offset + i);
 	}
 	//Зетем выведем на экран
 	for (mask = 1; mask; mask <<= 1) {
@@ -127,13 +129,15 @@ void put_char6x8_8(const coord x, const coord y, const char c, const color8 colo
 
 void put_char6x8_16(const coord x, const coord y, const char c, const color16 color, const color16 bgcolor) {
 	unsigned char mask, buf[6];
-	int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	//int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	unsigned char *offset = table6x8 + 6 * (c - 0x20);
 	SetWindow(x, y, 6, 8);
 	SetDatMode();
 	//У данного шрифта другой порядок заполнения пикселей
 	//Поэтому для ускорения сначала считаем символ в буфер
 	for (register unsigned char i = 0; i < 6; i++) {
-		buf[i] = pgm_read_byte(offset + i);
+		//buf[i] = pgm_read_byte(offset + i);
+		buf[i] = eeprom_read_byte(offset + i);
 	}
 	//Зетем выведем на экран
 	for (mask = 1; mask; mask <<= 1) {
@@ -150,11 +154,13 @@ void put_char6x8_16(const coord x, const coord y, const char c, const color16 co
 void put_char6x8_8BGL(const coord x, const coord y, const char c, const color8 color) {
 	unsigned char buf[6];
 	register unsigned char i, mask, off_x = 0, off_y = 0;
-	int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	//int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	unsigned char *offset = table6x8 + 6 * (c - 0x20);
 	//У данного шрифта другой порядок заполнения пикселей
 	//Поэтому для ускорения сначала считаем символ в буфер
 	for (i = 0; i < 6; i++) {
-		buf[i] = pgm_read_byte(offset + i);
+		//buf[i] = pgm_read_byte(offset + i);
+		buf[i] = eeprom_read_byte(offset + i);
 	}
 	//Зетем выведем на экран
 	for (mask = 1; mask; mask <<= 1, off_y++) {
@@ -169,11 +175,13 @@ void put_char6x8_8BGL(const coord x, const coord y, const char c, const color8 c
 void put_char6x8_16BGL(const coord x, const coord y, const char c, const color16 color) {
 	unsigned char buf[6];
 	register unsigned char i, mask, off_x = 0, off_y = 0;
-	int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	//int offset = reinterpret_cast<int>(table6x8) + 6 * (c - 0x20);
+	unsigned char *offset = table6x8 + 6 * (c - 0x20);
 	//У данного шрифта другой порядок заполнения пикселей
 	//Поэтому для ускорения сначала считаем символ в буфер
 	for (i = 0; i < 6; i++) {
-		buf[i] = pgm_read_byte(offset + i);
+		//buf[i] = pgm_read_byte(offset + i);
+		buf[i] = eeprom_read_byte(offset + i);
 	}
 	//Зетем выведем на экран
 	for (mask = 1; mask; mask <<= 1, off_y++) {

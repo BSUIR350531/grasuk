@@ -9,7 +9,7 @@
 
 #include "LayerSys.hpp"
 
-GraphObj::GraphObj(const bool type) {
+GraphObj::GraphObj(const bool type): Enabled(true) {
 	CanReciveFocus = type;
 	if( !LayerStack.IsEmpty() ) {	//Стек не пуст, создан хотя бы один слой.
 		layerPtr TopLayer = LayerStack.pick();

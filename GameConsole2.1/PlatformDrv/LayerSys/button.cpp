@@ -21,10 +21,19 @@ text(NULL) {
 void button::DrawText() {
 	register unsigned char i;
 	register coord X, Y;
-	for (i = 0; pgm_read_byte(&text[i]); i++);
-	X = x_pos + (w_val>>1) - ((i*fnt->char_w)>>1);
-	Y = y_pos + (h_val>>1) - (fnt->char_h>>1);
-	LCD::PutStr(X, Y, text, *fnt, (color8)0x00, ButColor);
+	for (i = 0; pgm_read_byte(&text[i]); i++);		//Определение длины строки
+	if(Enabled) {
+		X = x_pos + (w_val>>1) - ((i*fnt->char_w)>>1);
+		Y = y_pos + (h_val>>1) - (fnt->char_h>>1);
+		LCD::PutStr(X, Y, text, *fnt, (color8)0x00, ButColor);
+	} else {
+		X = x_pos + (w_val>>1) - ((i*fnt->char_w)>>1) + 1;
+		Y = y_pos + (h_val>>1) - (fnt->char_h>>1) + 1;
+		LCD::PutStr(X, Y, text, *fnt, (color8)0xFF, ButColor);
+		X = x_pos + (w_val>>1) - ((i*fnt->char_w)>>1);
+		Y = y_pos + (h_val>>1) - (fnt->char_h>>1);
+		LCD::PutStr(X, Y, text, *fnt, (color8)0x92);
+	}
 }
 
 void button::redraw() {
@@ -145,5 +154,17 @@ void button::SignalRelease() {
 			handler();
 		}
 		Pressed = false;
+	}
+}
+
+void button::Enable() {
+	if(text) {
+		DrawText();
+	}
+}
+
+void button::Disable() {
+	if(text) {
+		DrawText();
 	}
 }
